@@ -8,7 +8,7 @@ Provides generic datatypes.
 #     define all useful magic methods (most of them)
 #     add more type checking
 
-import scicompy.math.linalg
+import mathsci.math.linalg
 
 ERR_INPUT_NOT_LIST_TUPLE = "Input data is not list or tuple"
 ERR_INPUT_BAD_DIMS = "Input data has incompatible dimensions"
@@ -338,7 +338,7 @@ class Matrix(object):
 
         for i in range(self.n_rows):
             for j in range(other.n_cols):
-                result[i][j] = (scicompy.math.linalg.dot_product
+                result[i][j] = (mathsci.math.linalg.dot_product
                                 (self.data[i], zip(*other.data)[j]))
 
         return Matrix(result)
