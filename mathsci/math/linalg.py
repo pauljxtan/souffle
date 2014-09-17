@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 """
 Provides fundamental linear algebra operations (Euclidean).
 """
@@ -10,6 +8,12 @@ import mathsci.datatypes
 def dot_product(A, B):
     """
     Computes the dot product of vectors A and B.
+
+    @type A: vector
+    @type B: vector
+
+    @rtype: number
+    @return: dot product of A and B
     """
     if len(A) != len(B):
         raise ValueError("Length of operands do not match")
@@ -24,6 +28,12 @@ def dot_product(A, B):
 def cross_product(A, B):
     """
     Computes the cross product of vectors A and B.
+
+    @type A: vector
+    @type B: vector
+
+    @rtype: vector
+    @return: cross product of A and B
     """
     return
 
@@ -31,12 +41,17 @@ def determinant_minors(A):
     """
     Recursively computes the determinant of a square matrix A using expansion
     by minors.
+
+    @type A: square matrix
+
+    @rtype: number
+    @return: determinant of A
     """
     if not isinstance(A, mathsci.datatypes.Matrix):
-        raise ValueError("Operand is not Matrix")
+        raise ValueError("Operand is not mathsci.datatypes.Matrix")
 
     if A.n_rows != A.n_cols:
-        raise ValueError("Operation is not square Matrix")
+        raise ValueError("Operation is not square mathsci.datatypes.Matrix")
 
     n = A.n_rows
 
@@ -68,6 +83,11 @@ def determinant_minors(A):
 def inverse(A):
     """
     Returns the inverse of a square matrix A.
+
+    @type A: square matrix
+
+    @rtype: matrix
+    @return: inverse of A
     """
     return
 
