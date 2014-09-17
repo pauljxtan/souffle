@@ -89,7 +89,7 @@ class Vector(object):
 
     # more...
 
-    ###########################################################################
+    ############################ Binary operators #############################
 
     def __add__(self, other):
         """
@@ -153,7 +153,7 @@ class Vector(object):
 
     def add_scalar(self, value):
         """
-        Returns a new vector with the input value added to every element.
+        Returns a new Vector with the input value added to every element.
         """
         result = self.data[:]
         for i, v in enumerate(result):
@@ -163,7 +163,7 @@ class Vector(object):
     
     def sub_scalar(self, value):
         """
-        Returns a new vector with the input value subtracted from every element.
+        Returns a new Vector with the input value subtracted from every element.
         """
         result = self.data[:]
         for i, v in enumerate(result):
@@ -173,7 +173,7 @@ class Vector(object):
     
     def mul_scalar(self, value):
         """
-        Returns a new vector with every element multiplied by the input value.
+        Returns a new Vector with every element multiplied by the input value.
         """
         result = self.data[:]
         for i, v in enumerate(result):
@@ -183,7 +183,7 @@ class Vector(object):
     
     def div_scalar(self, value):
         """
-        Returns a new vector with every element divided by the input value.
+        Returns a new Vector with every element divided by the input value.
         """
         result = self.data[:]
         for i, v in enumerate(result):
@@ -193,7 +193,7 @@ class Vector(object):
         
     def pushback(self, value):
         """
-        Adds the input value to the end of the vector.
+        Adds the input value to the end of the Vector.
         """
         self.data.append(value)
         self.n_elems = len(self.data)
