@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 """
 Integration of systems of ordinary differential equations, with non-adaptive
 and adaptive methods.
@@ -7,14 +5,22 @@ and adaptive methods.
 See odeint_derivations.pdf for more detailed description.
 """
 
-# TODO:
-#   Spruce up the docstrings
-
-import mathsci.datatypes
+from mathsci.datatypes import Vector
 
 class OdeInt(object):
     """
     The base ODE integrator class.
+
+    @type       f: function
+    @param      f: vector function f(t, X) solving a system of ODEs
+    @type      t0: number
+    @param     t0: initial time
+    @type      X0: vector
+    @param     X0: initial system state (default=[0.0, 0.0, ...])
+    @type  n_dims: number
+    @param n_dims: number of dimensions (required if X0 is not given)
+    @type  kwargs: vector
+    @param kwargs: constants to pass to the ODE function
     """
     def __init__(self, f, t0, X0, n_dims, kwargs):
         self.f = f
@@ -34,11 +40,11 @@ class OdeInt(object):
                                      "must specify number of dimensions")
                 else:
                     X0 = [0.0] * int(n_dims)
-                    X0 = mathsci.datatypes.Vector(X0)
+                    X0 = Vector(X0)
             else:
                 X0 = map(float, X0)
-                X0 = mathsci.datatypes.Vector(X0)
-        elif isinstance(X0, mathsci.datatypes.Vector):
+                X0 = Vector(X0)
+        elif isinstance(X0, Vector):
             pass
         else:
             raise ValueError("Initial state is not list, tuple or Vector")
@@ -48,10 +54,12 @@ class OdeInt(object):
         """
         Integrates over multiple steps.
 
-        Parameters  :
-            dt      : length of time-step
-            n_steps : number of steps to integrate
-            verbose : print the state at each step [default=False]
+        @type       dt: number
+        @param      dt: length of time step
+        @type  n_steps: number
+        @param n_steps: number of integration steps
+        @type  verbose: boolean
+        @param verbose: print state at each step [default=False]
         """
         dt = float(dt)
         n_steps = int(n_steps)
@@ -66,6 +74,9 @@ class OdeInt(object):
     def unpack(self):
         """
         Unpacks the data arrays.
+
+        @rtype: vector
+        @return: data arrays
         """
         all_data = [vector.data for vector in self.X]
         arrays = zip(*all_data)
@@ -82,11 +93,14 @@ class Euler(OdeInt):
     """
     Integrates a system of ODEs using the Euler method.
     
-    Parameters :
-        f      : vector function f(t, X) solving a system of ODEs
-        t0     : initial time
-        X0     : initial system state (default=[0.0, 0.0, ...])
-        n_dims : number of dimensions (required if X0 is not given)
+    @type       f: function
+    @param      f: vector function f(t, X) solving a system of ODEs
+    @type      t0: number
+    @param     t0: initial time
+    @type      X0: vector
+    @param     X0: initial system state (default=[0.0, 0.0, ...])
+    @type  n_dims: number
+    @param n_dims: number of dimensions (required if X0 is not given)
     """
     def __init__(self, f, t0=0.0, X0=[], n_dims=None, **kwargs):
         OdeInt.__init__(self, f, t0, X0, n_dims, kwargs)
@@ -94,6 +108,12 @@ class Euler(OdeInt):
     def step(self, dt):
         """
         Integrates a single step.
+
+        @type  dt: number
+        @param dt: length of time step
+        
+        @rtype: number, vector
+        @return: updated time and state
         """
         # Load the previous system state
         t = self.t[-1]
@@ -110,11 +130,14 @@ class RK4(OdeInt):
     """
     Integrates a system of ODEs using the 4th order Runge-Kutta method.
     
-    Parameters :
-        f      : vector function f(t, X) solving a system of ODEs
-        t0     : initial time
-        X0     : initial system state (default=[0.0, 0.0, ...])
-        n_dims : number of dimensions (required if X0 is not given)
+    @type       f: function
+    @param      f: vector function f(t, X) solving a system of ODEs
+    @type      t0: number
+    @param     t0: initial time
+    @type      X0: vector
+    @param     X0: initial system state (default=[0.0, 0.0, ...])
+    @type  n_dims: number
+    @param n_dims: number of dimensions (required if X0 is not given)
     """
     ##########################################################
     #    The initial value problem is specified by         
@@ -137,6 +160,12 @@ class RK4(OdeInt):
     def step(self, dt):
         """
         Integrates a single step.
+
+        @type  dt: number
+        @param dt: length of time step
+        
+        @rtype: number, vector
+        @return: updated time and state
         """
         # Load the previous system state
         t = self.t[-1]
@@ -166,6 +195,15 @@ class RK4Adaptive(OdeInt):
     """
     Integrates a system of ODEs using the 4th-order Runge-Kutta method, with
     adaptive step sizes.
+
+    @type       f: function
+    @param      f: vector function f(t, X) solving a system of ODEs
+    @type      t0: number
+    @param     t0: initial time
+    @type      X0: vector
+    @param     X0: initial system state (default=[0.0, 0.0, ...])
+    @type  n_dims: number
+    @param n_dims: number of dimensions (required if X0 is not given)
     """
     def __init__(self, f, t0=0.0, X0=[], n_dims=None, **kwargs):
         OdeInt.__init__(self, f, t0, X0, n_dims, kwargs)
@@ -175,12 +213,17 @@ class RK4Adaptive(OdeInt):
         """
         Integrates a single step.
 
-        Parameters :
-            dt         : size of the time-step
-            t_override : if specified, overrides the latest element in the
-                         time vector
-            X_override : if specified, overrides the latest element in the
-                         state vector
+        @type          dt: number
+        @param         dt: length of time step
+        @type  t_override: number
+        @param t_override: if specified, overrides the latest element in the
+                           time vector
+        @type  X_override: vector
+        @param X_override: if specified, overrides the latest element in the
+                           state vector
+        
+        @rtype: number, vector
+        @return: updated time and state
         """
         # Load the previous system state
         if t_override == None and X_override == None:
@@ -212,12 +255,15 @@ class RK4Adaptive(OdeInt):
         """
         Integrates over a specified duration of time.
 
-        Parameters :
-            duration : total simulation time
-            dt0      : initial size of time-step
-            delta    : desired accuracy in state vector (per unit time)
-            indices  : the indices of the parameters in the state vector for
-                       which we want to estimate the local truncation error
+        @type  duration: number
+        @param duration: total simulation time
+        @type       dt0: number
+        @param      dt0: initial length of time step
+        @type     delta: number
+        @param    delta: desired accuracy per unit time
+        @type   indices: vector
+        @param  indices: indices of parameters in state vector for which to
+                         estimate local truncation error
         """
         dt = float(dt0)
         self.dt_all.append(dt)
@@ -264,13 +310,16 @@ class RK4Adaptive(OdeInt):
         X(t + 2*dt).
 
         For RK4, this per-step error is given by
-            epsilon = c*dt^5 = (1/30)(x1 - x2)
+        
+        epsilon = c*dt^5 = (1/30)(x1 - x2)
 
-        Parameters :
-            X1      : estimate of X(t + 2*dt) with two iterations with size dt
-            X2      : estimate of X(t + 2*dt) with one iteration of size 2*dt
-            indices : the indices of the parameters in the state vector for
-                      which we want to estimate the local truncation error
+        @type       X1: vector
+        @param      X1: estimate of X(t + 2*dt) with two iterations with size dt
+        @type       X2: vector
+        @param      X2: estimate of X(t + 2*dt) with one iteration of size 2*dt
+        @type  indices: vector
+        @param indices: indices of parameters in state vector for which to
+                        estimate local truncation error
         """
         epsilons = [1.0 / 30 * (X1.data[i] - X2.data[i]) for i in indices]
         epsilons_sumsq = sum([epsilon**2 for epsilon in epsilons])
@@ -283,11 +332,14 @@ class BulSto(OdeInt):
     """
     Integrates a system of ODEs using the Bulirsch-Stoer method.
     
-    Parameters :
-        f      : vector function f(t, X) solving a system of ODEs
-        t0     : initial time
-        X0     : initial system state (default=[0.0, 0.0, ...])
-        n_dims : number of dimensions (required if X0 is not given)
+    @type       f: function
+    @param      f: vector function f(t, X) solving a system of ODEs
+    @type      t0: number
+    @param     t0: initial time
+    @type      X0: vector
+    @param     X0: initial system state (default=[0.0, 0.0, ...])
+    @type  n_dims: number
+    @param n_dims: number of dimensions (required if X0 is not given)
     """
     def __init__(self, f, t0=0.0, X0=[], n_dims=None, **kwargs):
         OdeInt.__init__(self, f, t0, X0, n_dims, kwargs)
@@ -295,6 +347,15 @@ class BulSto(OdeInt):
     def step(self, dt, delta):
         """
         Integrates a single step.
+
+
+        @type       dt: number
+        @param      dt: length of time step
+        @type     delta: number
+        @param    delta: desired accuracy per unit time
+        
+        @rtype: number, vector
+        @return: updated time and state
         """
         # Load the previous system state
         t = self.t[-1]
@@ -325,7 +386,7 @@ class BulSto(OdeInt):
 
             # e2 records the previous e1; used for error estimation later
             e2 = e1
-            e1 = [mathsci.datatypes.Vector([0.0 for i in enumerate(X)])
+            e1 = [Vector([0.0 for i in enumerate(X)])
                   for j in range(n)]
             e1[0] = (X1 + X2 + self.f(t, X2, **self.kwargs)
                      .mul_scalar(ddt / 2)).div_scalar(2)
@@ -347,11 +408,14 @@ class BulSto(OdeInt):
         """
         Integrates over multiple steps.
 
-        Parameters  :
-            dt      : length of time-step
-            n_steps : number of steps to integrate
-            delta   : desired accuracy per unit time
-            verbose : print the state at each step [default=False]
+        @type       dt: number    
+        @param      dt: length of time-step
+        @type  n_steps: number
+        @param n_steps: number of integration steps
+        @type    delta: number
+        @param   delta: desired accuracy per unit time
+        @type  verbose: boolean
+        @param verbose: print state at each step [default=False]
         """
         dt = float(dt)
         n_steps = int(n_steps)
@@ -371,12 +435,12 @@ class BulStoAdaptive(OdeInt):
 
     This class is a little different from the others since the integration is
     performed recursively:
-        (1) There is no step() method
-        (2) The initial conditions are passed to the integrate() method instead
-            of the constructor
+        1. There is no step() method
+        2. The initial conditions are passed to the integrate() method instead
+           of the constructor
     
-    Parameters :
-        f      : vector function f(t, X) solving a system of ODEs
+    @type  f: function
+    @param f: vector function f(t, X) solving a system of ODEs
     """
     def __init__(self, f, **kwargs):
         self.f = f
@@ -389,14 +453,20 @@ class BulStoAdaptive(OdeInt):
         """
         Resursively performs the steps of adaptive Bulirsch-Stoer.
 
-        Parameters   :
-            duration : total length of the simulation
-            delta    : desired accuracy
-            t0       : initial time [default=0.0]
-            X0       : initial system state [default=[0.0, 0.0,..., 0.0]
-            n_dims   : number of dimensions (required if X0 is not given)
-            nmax     : maximum subdivisions of the current time-step
-            verbose  : print the state at each step [default=False]
+        @type  duration: number
+        @param duration: total simulation time
+        @type     delta: number
+        @param    delta: desired accuracy per unit time
+        @type        t0: number
+        @param       t0: initial time
+        @type        X0: vector
+        @param       X0: initial system state (default=[0.0, 0.0, ...])
+        @type    n_dims: number
+        @param   n_dims: number of dimensions (required if X0 is not given)
+        @type      nmax: number
+        @param     nmax: maximum subdivisions of current time step
+        @type   verbose: boolean
+        @param  verbose: print state at each step [default=False]
         """
         if isinstance(X0, list) or isinstance(X0, tuple):
             if len(X0) == 0:
@@ -405,11 +475,11 @@ class BulStoAdaptive(OdeInt):
                                      "must specify number of dimensions")
                 else:
                     X0 = [0.0] * int(n_dims)
-                    X0 = mathsci.datatypes.Vector(X0)
+                    X0 = Vector(X0)
             else:
                 X0 = map(float, X0)
-                X0 = mathsci.datatypes.Vector(X0)
-        elif isinstance(X0, mathsci.datatypes.Vector):
+                X0 = Vector(X0)
+        elif isinstance(X0, Vector):
             pass
         else:
             raise ValueError("Initial state is not list, tuple or Vector")
@@ -441,7 +511,7 @@ class BulStoAdaptive(OdeInt):
 
             # Compute n rows of extrapolation table (list of Vectors)
             e2 = e1
-            e1 = [mathsci.datatypes.Vector([0.0 for i in enumerate(X)])
+            e1 = [Vector([0.0 for i in enumerate(X)])
                   for j in range(n)]
             e1[0] = (X1 + X2 + self.f(t, X2, **self.kwargs)
                      .mul_scalar(ddt / 2)).div_scalar(2)
