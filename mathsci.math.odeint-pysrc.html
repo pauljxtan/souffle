@@ -121,10 +121,13 @@
 <a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line">        <tt class="py-name">n_steps</tt> <tt class="py-op">=</tt> <tt class="py-name">int</tt><tt class="py-op">(</tt><tt class="py-name">n_steps</tt><tt class="py-op">)</tt> </tt>
 <a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line"> </tt>
 <a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">i</tt> <tt class="py-keyword">in</tt> <tt class="py-name">range</tt><tt class="py-op">(</tt><tt class="py-name">n_steps</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line">            <tt class="py-name">t_new</tt><tt class="py-op">,</tt> <tt class="py-name">X_new</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-6" class="py-name" targets="Method mathsci.math.odeint.BulSto.step()=mathsci.math.odeint.BulSto-class.html#step,Method mathsci.math.odeint.Euler.step()=mathsci.math.odeint.Euler-class.html#step,Method mathsci.math.odeint.RK4.step()=mathsci.math.odeint.RK4-class.html#step,Method mathsci.math.odeint.RK4Adaptive.step()=mathsci.math.odeint.RK4Adaptive-class.html#step"><a title="mathsci.math.odeint.BulSto.step
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line">            <tt class="py-name">t_new</tt><tt class="py-op">,</tt> <tt class="py-name">X_new</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-6" class="py-name" targets="Method mathsci.math.odeint.BulSto.step()=mathsci.math.odeint.BulSto-class.html#step,Method mathsci.math.odeint.Euler.step()=mathsci.math.odeint.Euler-class.html#step,Method mathsci.math.odeint.RK4.step()=mathsci.math.odeint.RK4-class.html#step,Method mathsci.math.odeint.RK4Adaptive.step()=mathsci.math.odeint.RK4Adaptive-class.html#step,Method mathsci.math.stochastic.RandomWalk1D.step()=mathsci.math.stochastic.RandomWalk1D-class.html#step,Method mathsci.math.stochastic.RandomWalk2D.step()=mathsci.math.stochastic.RandomWalk2D-class.html#step,Method mathsci.math.stochastic.RandomWalk3D.step()=mathsci.math.stochastic.RandomWalk3D-class.html#step"><a title="mathsci.math.odeint.BulSto.step
 mathsci.math.odeint.Euler.step
 mathsci.math.odeint.RK4.step
-mathsci.math.odeint.RK4Adaptive.step" class="py-name" href="#" onclick="return doclink('link-6', 'step', 'link-6');">step</a></tt><tt class="py-op">(</tt><tt class="py-name">dt</tt><tt class="py-op">)</tt> </tt>
+mathsci.math.odeint.RK4Adaptive.step
+mathsci.math.stochastic.RandomWalk1D.step
+mathsci.math.stochastic.RandomWalk2D.step
+mathsci.math.stochastic.RandomWalk3D.step" class="py-name" href="#" onclick="return doclink('link-6', 'step', 'link-6');">step</a></tt><tt class="py-op">(</tt><tt class="py-name">dt</tt><tt class="py-op">)</tt> </tt>
 <a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">t</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-name">t_new</tt><tt class="py-op">)</tt> </tt>
 <a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">X</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-name">X_new</tt><tt class="py-op">)</tt> </tt>
 <a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">verbose</tt><tt class="py-op">:</tt> </tt>
@@ -162,14 +165,18 @@ mathsci.math.odeint.RK4Adaptive.step" class="py-name" href="#" onclick="return d
 <a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line"><tt class="py-docstring">    @param n_dims: number of dimensions (required if X0 is not given)</tt> </tt>
 <a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
 <a name="Euler.__init__"></a><div id="Euler.__init__-def"><a name="L105"></a><tt class="py-lineno">105</tt> <a class="py-toggle" href="#" id="Euler.__init__-toggle" onclick="return toggle('Euler.__init__');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="mathsci.math.odeint.Euler-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">f</tt><tt class="py-op">,</tt> <tt class="py-param">t0</tt><tt class="py-op">=</tt><tt class="py-number">0.0</tt><tt class="py-op">,</tt> <tt class="py-param">X0</tt><tt class="py-op">=</tt><tt class="py-op">[</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt class="py-param">n_dims</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-param">kwargs</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-</div><div id="Euler.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Euler.__init__-expanded"><a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line">        <tt id="link-8" class="py-name" targets="Class mathsci.math.odeint.OdeInt=mathsci.math.odeint.OdeInt-class.html"><a title="mathsci.math.odeint.OdeInt" class="py-name" href="#" onclick="return doclink('link-8', 'OdeInt', 'link-8');">OdeInt</a></tt><tt class="py-op">.</tt><tt id="link-9" class="py-name" targets="Method mathsci.datatypes.Matrix.__init__()=mathsci.datatypes.Matrix-class.html#__init__,Method mathsci.datatypes.Vector.__init__()=mathsci.datatypes.Vector-class.html#__init__,Method mathsci.math.odeint.BulSto.__init__()=mathsci.math.odeint.BulSto-class.html#__init__,Method mathsci.math.odeint.BulStoAdaptive.__init__()=mathsci.math.odeint.BulStoAdaptive-class.html#__init__,Method mathsci.math.odeint.Euler.__init__()=mathsci.math.odeint.Euler-class.html#__init__,Method mathsci.math.odeint.OdeInt.__init__()=mathsci.math.odeint.OdeInt-class.html#__init__,Method mathsci.math.odeint.RK4.__init__()=mathsci.math.odeint.RK4-class.html#__init__,Method mathsci.math.odeint.RK4Adaptive.__init__()=mathsci.math.odeint.RK4Adaptive-class.html#__init__"><a title="mathsci.datatypes.Matrix.__init__
+</div><div id="Euler.__init__-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Euler.__init__-expanded"><a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line">        <tt id="link-8" class="py-name" targets="Class mathsci.math.odeint.OdeInt=mathsci.math.odeint.OdeInt-class.html"><a title="mathsci.math.odeint.OdeInt" class="py-name" href="#" onclick="return doclink('link-8', 'OdeInt', 'link-8');">OdeInt</a></tt><tt class="py-op">.</tt><tt id="link-9" class="py-name" targets="Method mathsci.datatypes.Matrix.__init__()=mathsci.datatypes.Matrix-class.html#__init__,Method mathsci.datatypes.Vector.__init__()=mathsci.datatypes.Vector-class.html#__init__,Method mathsci.math.odeint.BulSto.__init__()=mathsci.math.odeint.BulSto-class.html#__init__,Method mathsci.math.odeint.BulStoAdaptive.__init__()=mathsci.math.odeint.BulStoAdaptive-class.html#__init__,Method mathsci.math.odeint.Euler.__init__()=mathsci.math.odeint.Euler-class.html#__init__,Method mathsci.math.odeint.OdeInt.__init__()=mathsci.math.odeint.OdeInt-class.html#__init__,Method mathsci.math.odeint.RK4.__init__()=mathsci.math.odeint.RK4-class.html#__init__,Method mathsci.math.odeint.RK4Adaptive.__init__()=mathsci.math.odeint.RK4Adaptive-class.html#__init__,Method mathsci.math.stochastic.RandomWalk.__init__()=mathsci.math.stochastic.RandomWalk-class.html#__init__,Method mathsci.math.stochastic.RandomWalk1D.__init__()=mathsci.math.stochastic.RandomWalk1D-class.html#__init__,Method mathsci.math.stochastic.RandomWalk2D.__init__()=mathsci.math.stochastic.RandomWalk2D-class.html#__init__,Method mathsci.math.stochastic.RandomWalk3D.__init__()=mathsci.math.stochastic.RandomWalk3D-class.html#__init__"><a title="mathsci.datatypes.Matrix.__init__
 mathsci.datatypes.Vector.__init__
 mathsci.math.odeint.BulSto.__init__
 mathsci.math.odeint.BulStoAdaptive.__init__
 mathsci.math.odeint.Euler.__init__
 mathsci.math.odeint.OdeInt.__init__
 mathsci.math.odeint.RK4.__init__
-mathsci.math.odeint.RK4Adaptive.__init__" class="py-name" href="#" onclick="return doclink('link-9', '__init__', 'link-9');">__init__</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt> <tt class="py-name">f</tt><tt class="py-op">,</tt> <tt class="py-name">t0</tt><tt class="py-op">,</tt> <tt class="py-name">X0</tt><tt class="py-op">,</tt> <tt class="py-name">n_dims</tt><tt class="py-op">,</tt> <tt class="py-name">kwargs</tt><tt class="py-op">)</tt> </tt>
+mathsci.math.odeint.RK4Adaptive.__init__
+mathsci.math.stochastic.RandomWalk.__init__
+mathsci.math.stochastic.RandomWalk1D.__init__
+mathsci.math.stochastic.RandomWalk2D.__init__
+mathsci.math.stochastic.RandomWalk3D.__init__" class="py-name" href="#" onclick="return doclink('link-9', '__init__', 'link-9');">__init__</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt> <tt class="py-name">f</tt><tt class="py-op">,</tt> <tt class="py-name">t0</tt><tt class="py-op">,</tt> <tt class="py-name">X0</tt><tt class="py-op">,</tt> <tt class="py-name">n_dims</tt><tt class="py-op">,</tt> <tt class="py-name">kwargs</tt><tt class="py-op">)</tt> </tt>
 </div><a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line"> </tt>
 <a name="Euler.step"></a><div id="Euler.step-def"><a name="L108"></a><tt class="py-lineno">108</tt> <a class="py-toggle" href="#" id="Euler.step-toggle" onclick="return toggle('Euler.step');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="mathsci.math.odeint.Euler-class.html#step">step</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">dt</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
 </div><div id="Euler.step-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="Euler.step-expanded"><a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
@@ -228,7 +235,11 @@ mathsci.math.odeint.BulStoAdaptive.__init__
 mathsci.math.odeint.Euler.__init__
 mathsci.math.odeint.OdeInt.__init__
 mathsci.math.odeint.RK4.__init__
-mathsci.math.odeint.RK4Adaptive.__init__" class="py-name" href="#" onclick="return doclink('link-12', '__init__', 'link-9');">__init__</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt> <tt class="py-name">f</tt><tt class="py-op">,</tt> <tt class="py-name">t0</tt><tt class="py-op">,</tt> <tt class="py-name">X0</tt><tt class="py-op">,</tt> <tt class="py-name">n_dims</tt><tt class="py-op">,</tt> <tt class="py-name">kwargs</tt><tt class="py-op">)</tt> </tt>
+mathsci.math.odeint.RK4Adaptive.__init__
+mathsci.math.stochastic.RandomWalk.__init__
+mathsci.math.stochastic.RandomWalk1D.__init__
+mathsci.math.stochastic.RandomWalk2D.__init__
+mathsci.math.stochastic.RandomWalk3D.__init__" class="py-name" href="#" onclick="return doclink('link-12', '__init__', 'link-9');">__init__</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt> <tt class="py-name">f</tt><tt class="py-op">,</tt> <tt class="py-name">t0</tt><tt class="py-op">,</tt> <tt class="py-name">X0</tt><tt class="py-op">,</tt> <tt class="py-name">n_dims</tt><tt class="py-op">,</tt> <tt class="py-name">kwargs</tt><tt class="py-op">)</tt> </tt>
 </div><a name="L159"></a><tt class="py-lineno">159</tt>  <tt class="py-line"> </tt>
 <a name="RK4.step"></a><div id="RK4.step-def"><a name="L160"></a><tt class="py-lineno">160</tt> <a class="py-toggle" href="#" id="RK4.step-toggle" onclick="return toggle('RK4.step');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="mathsci.math.odeint.RK4-class.html#step">step</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">dt</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
 </div><div id="RK4.step-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="RK4.step-expanded"><a name="L161"></a><tt class="py-lineno">161</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
@@ -286,7 +297,11 @@ mathsci.math.odeint.BulStoAdaptive.__init__
 mathsci.math.odeint.Euler.__init__
 mathsci.math.odeint.OdeInt.__init__
 mathsci.math.odeint.RK4.__init__
-mathsci.math.odeint.RK4Adaptive.__init__" class="py-name" href="#" onclick="return doclink('link-23', '__init__', 'link-9');">__init__</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt> <tt class="py-name">f</tt><tt class="py-op">,</tt> <tt class="py-name">t0</tt><tt class="py-op">,</tt> <tt class="py-name">X0</tt><tt class="py-op">,</tt> <tt class="py-name">n_dims</tt><tt class="py-op">,</tt> <tt class="py-name">kwargs</tt><tt class="py-op">)</tt> </tt>
+mathsci.math.odeint.RK4Adaptive.__init__
+mathsci.math.stochastic.RandomWalk.__init__
+mathsci.math.stochastic.RandomWalk1D.__init__
+mathsci.math.stochastic.RandomWalk2D.__init__
+mathsci.math.stochastic.RandomWalk3D.__init__" class="py-name" href="#" onclick="return doclink('link-23', '__init__', 'link-9');">__init__</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt> <tt class="py-name">f</tt><tt class="py-op">,</tt> <tt class="py-name">t0</tt><tt class="py-op">,</tt> <tt class="py-name">X0</tt><tt class="py-op">,</tt> <tt class="py-name">n_dims</tt><tt class="py-op">,</tt> <tt class="py-name">kwargs</tt><tt class="py-op">)</tt> </tt>
 <a name="L210"></a><tt class="py-lineno">210</tt>  <tt class="py-line">        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">dt_all</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
 </div><a name="L211"></a><tt class="py-lineno">211</tt>  <tt class="py-line"> </tt>
 <a name="RK4Adaptive.step"></a><div id="RK4Adaptive.step-def"><a name="L212"></a><tt class="py-lineno">212</tt> <a class="py-toggle" href="#" id="RK4Adaptive.step-toggle" onclick="return toggle('RK4Adaptive.step');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="mathsci.math.odeint.RK4Adaptive-class.html#step">step</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">dt</tt><tt class="py-op">,</tt> <tt class="py-param">t_override</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">,</tt> <tt class="py-param">X_override</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
@@ -357,16 +372,25 @@ mathsci.math.odeint.RK4Adaptive.__init__" class="py-name" href="#" onclick="retu
 <a name="L277"></a><tt class="py-lineno">277</tt>  <tt class="py-line">            <tt class="py-name">t_new_1a</tt><tt class="py-op">,</tt> <tt class="py-name">X_new_1a</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-33" class="py-name"><a title="mathsci.math.odeint.BulSto.step
 mathsci.math.odeint.Euler.step
 mathsci.math.odeint.RK4.step
-mathsci.math.odeint.RK4Adaptive.step" class="py-name" href="#" onclick="return doclink('link-33', 'step', 'link-6');">step</a></tt><tt class="py-op">(</tt><tt class="py-name">dt</tt><tt class="py-op">)</tt> </tt>
+mathsci.math.odeint.RK4Adaptive.step
+mathsci.math.stochastic.RandomWalk1D.step
+mathsci.math.stochastic.RandomWalk2D.step
+mathsci.math.stochastic.RandomWalk3D.step" class="py-name" href="#" onclick="return doclink('link-33', 'step', 'link-6');">step</a></tt><tt class="py-op">(</tt><tt class="py-name">dt</tt><tt class="py-op">)</tt> </tt>
 <a name="L278"></a><tt class="py-lineno">278</tt>  <tt class="py-line">            <tt class="py-name">t_new_1b</tt><tt class="py-op">,</tt> <tt class="py-name">X_new_1b</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-34" class="py-name"><a title="mathsci.math.odeint.BulSto.step
 mathsci.math.odeint.Euler.step
 mathsci.math.odeint.RK4.step
-mathsci.math.odeint.RK4Adaptive.step" class="py-name" href="#" onclick="return doclink('link-34', 'step', 'link-6');">step</a></tt><tt class="py-op">(</tt><tt class="py-name">dt</tt><tt class="py-op">,</tt> <tt class="py-name">t_new_1a</tt><tt class="py-op">,</tt> <tt class="py-name">X_new_1a</tt><tt class="py-op">)</tt> </tt>
+mathsci.math.odeint.RK4Adaptive.step
+mathsci.math.stochastic.RandomWalk1D.step
+mathsci.math.stochastic.RandomWalk2D.step
+mathsci.math.stochastic.RandomWalk3D.step" class="py-name" href="#" onclick="return doclink('link-34', 'step', 'link-6');">step</a></tt><tt class="py-op">(</tt><tt class="py-name">dt</tt><tt class="py-op">,</tt> <tt class="py-name">t_new_1a</tt><tt class="py-op">,</tt> <tt class="py-name">X_new_1a</tt><tt class="py-op">)</tt> </tt>
 <a name="L279"></a><tt class="py-lineno">279</tt>  <tt class="py-line">            <tt class="py-comment"># Get the second estimate of X(t + 2*dt)</tt> </tt>
 <a name="L280"></a><tt class="py-lineno">280</tt>  <tt class="py-line">            <tt class="py-name">t_new_2</tt><tt class="py-op">,</tt> <tt class="py-name">X_new_2</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-35" class="py-name"><a title="mathsci.math.odeint.BulSto.step
 mathsci.math.odeint.Euler.step
 mathsci.math.odeint.RK4.step
-mathsci.math.odeint.RK4Adaptive.step" class="py-name" href="#" onclick="return doclink('link-35', 'step', 'link-6');">step</a></tt><tt class="py-op">(</tt><tt class="py-number">2</tt> <tt class="py-op">*</tt> <tt class="py-name">dt</tt><tt class="py-op">)</tt> </tt>
+mathsci.math.odeint.RK4Adaptive.step
+mathsci.math.stochastic.RandomWalk1D.step
+mathsci.math.stochastic.RandomWalk2D.step
+mathsci.math.stochastic.RandomWalk3D.step" class="py-name" href="#" onclick="return doclink('link-35', 'step', 'link-6');">step</a></tt><tt class="py-op">(</tt><tt class="py-number">2</tt> <tt class="py-op">*</tt> <tt class="py-name">dt</tt><tt class="py-op">)</tt> </tt>
 <a name="L281"></a><tt class="py-lineno">281</tt>  <tt class="py-line">            <tt class="py-comment"># Compute the error</tt> </tt>
 <a name="L282"></a><tt class="py-lineno">282</tt>  <tt class="py-line">            <tt class="py-name">error</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-36" class="py-name" targets="Method mathsci.math.odeint.RK4Adaptive.step_error()=mathsci.math.odeint.RK4Adaptive-class.html#step_error"><a title="mathsci.math.odeint.RK4Adaptive.step_error" class="py-name" href="#" onclick="return doclink('link-36', 'step_error', 'link-36');">step_error</a></tt><tt class="py-op">(</tt><tt class="py-name">X_new_1b</tt><tt class="py-op">,</tt> <tt class="py-name">X_new_2</tt><tt class="py-op">,</tt> <tt class="py-name">indices</tt><tt class="py-op">)</tt> </tt>
 <a name="L283"></a><tt class="py-lineno">283</tt>  <tt class="py-line">            <tt class="py-name">rho</tt> <tt class="py-op">=</tt> <tt class="py-name">delta</tt> <tt class="py-op">*</tt> <tt class="py-name">dt</tt> <tt class="py-op">/</tt> <tt class="py-name">error</tt> </tt>
@@ -388,7 +412,10 @@ mathsci.math.odeint.RK4Adaptive.step" class="py-name" href="#" onclick="return d
 <a name="L299"></a><tt class="py-lineno">299</tt>  <tt class="py-line">                <tt class="py-name">t_new</tt><tt class="py-op">,</tt> <tt class="py-name">X_new</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-37" class="py-name"><a title="mathsci.math.odeint.BulSto.step
 mathsci.math.odeint.Euler.step
 mathsci.math.odeint.RK4.step
-mathsci.math.odeint.RK4Adaptive.step" class="py-name" href="#" onclick="return doclink('link-37', 'step', 'link-6');">step</a></tt><tt class="py-op">(</tt><tt class="py-name">dt</tt><tt class="py-op">)</tt> </tt>
+mathsci.math.odeint.RK4Adaptive.step
+mathsci.math.stochastic.RandomWalk1D.step
+mathsci.math.stochastic.RandomWalk2D.step
+mathsci.math.stochastic.RandomWalk3D.step" class="py-name" href="#" onclick="return doclink('link-37', 'step', 'link-6');">step</a></tt><tt class="py-op">(</tt><tt class="py-name">dt</tt><tt class="py-op">)</tt> </tt>
 <a name="L300"></a><tt class="py-lineno">300</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">t</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-name">t_new</tt><tt class="py-op">)</tt> </tt>
 <a name="L301"></a><tt class="py-lineno">301</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">X</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-name">X_new</tt><tt class="py-op">)</tt> </tt>
 <a name="L302"></a><tt class="py-lineno">302</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">dt_all</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-name">dt</tt><tt class="py-op">)</tt> </tt>
@@ -441,7 +468,11 @@ mathsci.math.odeint.BulStoAdaptive.__init__
 mathsci.math.odeint.Euler.__init__
 mathsci.math.odeint.OdeInt.__init__
 mathsci.math.odeint.RK4.__init__
-mathsci.math.odeint.RK4Adaptive.__init__" class="py-name" href="#" onclick="return doclink('link-40', '__init__', 'link-9');">__init__</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt> <tt class="py-name">f</tt><tt class="py-op">,</tt> <tt class="py-name">t0</tt><tt class="py-op">,</tt> <tt class="py-name">X0</tt><tt class="py-op">,</tt> <tt class="py-name">n_dims</tt><tt class="py-op">,</tt> <tt class="py-name">kwargs</tt><tt class="py-op">)</tt> </tt>
+mathsci.math.odeint.RK4Adaptive.__init__
+mathsci.math.stochastic.RandomWalk.__init__
+mathsci.math.stochastic.RandomWalk1D.__init__
+mathsci.math.stochastic.RandomWalk2D.__init__
+mathsci.math.stochastic.RandomWalk3D.__init__" class="py-name" href="#" onclick="return doclink('link-40', '__init__', 'link-9');">__init__</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt> <tt class="py-name">f</tt><tt class="py-op">,</tt> <tt class="py-name">t0</tt><tt class="py-op">,</tt> <tt class="py-name">X0</tt><tt class="py-op">,</tt> <tt class="py-name">n_dims</tt><tt class="py-op">,</tt> <tt class="py-name">kwargs</tt><tt class="py-op">)</tt> </tt>
 </div><a name="L346"></a><tt class="py-lineno">346</tt>  <tt class="py-line"> </tt>
 <a name="BulSto.step"></a><div id="BulSto.step-def"><a name="L347"></a><tt class="py-lineno">347</tt> <a class="py-toggle" href="#" id="BulSto.step-toggle" onclick="return toggle('BulSto.step');">-</a><tt class="py-line">    <tt class="py-keyword">def</tt> <a class="py-def-name" href="mathsci.math.odeint.BulSto-class.html#step">step</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">,</tt> <tt class="py-param">dt</tt><tt class="py-op">,</tt> <tt class="py-param">delta</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
 </div><div id="BulSto.step-collapsed" style="display:none;" pad="+++" indent="++++++++"></div><div id="BulSto.step-expanded"><a name="L348"></a><tt class="py-lineno">348</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
@@ -524,7 +555,10 @@ mathsci.math.odeint.RK4Adaptive.__init__" class="py-name" href="#" onclick="retu
 <a name="L425"></a><tt class="py-lineno">425</tt>  <tt class="py-line">            <tt class="py-name">t_new</tt><tt class="py-op">,</tt> <tt class="py-name">X_new</tt> <tt class="py-op">=</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt id="link-53" class="py-name"><a title="mathsci.math.odeint.BulSto.step
 mathsci.math.odeint.Euler.step
 mathsci.math.odeint.RK4.step
-mathsci.math.odeint.RK4Adaptive.step" class="py-name" href="#" onclick="return doclink('link-53', 'step', 'link-6');">step</a></tt><tt class="py-op">(</tt><tt class="py-name">dt</tt><tt class="py-op">,</tt> <tt class="py-name">delta</tt><tt class="py-op">)</tt> </tt>
+mathsci.math.odeint.RK4Adaptive.step
+mathsci.math.stochastic.RandomWalk1D.step
+mathsci.math.stochastic.RandomWalk2D.step
+mathsci.math.stochastic.RandomWalk3D.step" class="py-name" href="#" onclick="return doclink('link-53', 'step', 'link-6');">step</a></tt><tt class="py-op">(</tt><tt class="py-name">dt</tt><tt class="py-op">,</tt> <tt class="py-name">delta</tt><tt class="py-op">)</tt> </tt>
 <a name="L426"></a><tt class="py-lineno">426</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">t</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-name">t_new</tt><tt class="py-op">)</tt> </tt>
 <a name="L427"></a><tt class="py-lineno">427</tt>  <tt class="py-line">            <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">X</tt><tt class="py-op">.</tt><tt class="py-name">append</tt><tt class="py-op">(</tt><tt class="py-name">X_new</tt><tt class="py-op">)</tt> </tt>
 <a name="L428"></a><tt class="py-lineno">428</tt>  <tt class="py-line">            <tt class="py-keyword">if</tt> <tt class="py-name">verbose</tt><tt class="py-op">:</tt> </tt>
@@ -678,7 +712,7 @@ expandto(location.href);
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Wed Sep 17 15:57:27 2014
+    Generated by Epydoc 3.0.1 on Wed Sep 17 20:51:53 2014
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"
