@@ -20,8 +20,17 @@ Documented in Epytext -- see the gh-pages branch (hosted on http://pauljxtan.git
     * __stochastic__: stochastic processes
 * __physics__: physical applications
     * __astro__: astrophysics / celestial mechanics
+    * __elecstat__: electrostatics
+    * __mechanics__: mechanics
+    * __oscillators__: oscillators
+    * __thermo__: thermodynamics
 * __utils__: miscellaneous utility functions
 
 ### Examples ###
-* __integrate_lorenz_attractor__: integrates the Lorenz attractor in a chaotic regime
+* __electric_potential_field__: visualizing the electric potential and electric field of a source charge configuration
 * __integrate_comet_orbit__: integrates a comet orbit
+* __integrate_driven_pendulum__: integrating a driven pendulum
+* __integrate_lorenz_attractor__: integrates the Lorenz attractor in a chaotic regime
+* __integrate_nonlinear_pendulum__: integrating a nonlinear pendulum
+* __integrate_predator_prey__: integrating the Lotka-Volterra equations to describe predator-prey dynamics
+* __integrate_stellar_structure__: integrating the stellar structure equations of hydrostatic equilibrium and mass conservation to solve for the mass and density at a given temperature
