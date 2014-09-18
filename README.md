@@ -9,8 +9,17 @@ The documentation markup language is Epytext -- see the gh-pages branch (hosted 
 * __datatypes__: generic datatypes
 * __math__: the mathematical framework
     * __chaos__: chaotic dynamics
+    * __derivative__: evaluating derivatives
+    * __discrete__: discrete math
+    * __integral__: evaluating integrals
     * __linalg__: fundamental linear algebra operations
+    * __lineq__: solving linear equations
+    * __maxmin__: finding maxima and minima of functions
+    * __nonlineq__: solving nonlinear equations
     * __odeint__: integrating ordinary differential equations
+    * __stochastic__: stochastic processes
+* __physics__: physical applications
+    * TBC
 * __utils__: miscellaneous utility functions
 
 ### Examples ###
