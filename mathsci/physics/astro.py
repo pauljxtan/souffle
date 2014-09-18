@@ -53,20 +53,20 @@ def stellar_structure(r, X, **kwargs):
     rho = X[1]
 
     # Get kwargs
-    if len(kwargs) != 3:
+    if len(kwargs) != 2:
         raise ValueError("Bad kwargs; please provide all of the "\
-                         "following parameters: rho, mu, T")
+                         "following parameters: mu, T")
 
     # Hydrostatic equilibrium
-    dP_dr = - mathsci.constants.G * M / r**2 * kwargs['rho']
+    dP_dr = - mathsci.constants.G * M / r**2 * rho
     
     # Pressure
-    P, dP_drho = ideal_gas_pressure(kwargs['rho'], kwargs['mu'], kwargs['T'])
+    P, dP_drho = ideal_gas_pressure(rho, kwargs['mu'], kwargs['T'])
     drho_dP = 1.0 / dP_drho
     drho_dr = drho_dP * dP_dr
     
     # Mass conservation
-    dM_dr = 4 * math.pi * r**2 * kwargs['rho']
+    dM_dr = 4 * math.pi * r**2 * rho
     
     X_dot = [dM_dr, drho_dr]
     
