@@ -38,12 +38,6 @@ def main():
     fig1_sp1.set_xlabel("Time [s]")
     fig1_sp1.set_ylabel("Angle from vertical [rad]")
 
-    fig2 = pyplot.figure()
-    fig2_sp1 = fig2.add_subplot(111)
-    fig2_sp1.plot(t, omega)
-    fig2_sp1.set_xlabel("Time [s]")
-    fig2_sp1.set_ylabel("Angular velocity [rad/s]")
-
     pyplot.show()
 
 if __name__ == "__main__":
