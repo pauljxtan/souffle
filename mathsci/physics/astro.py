@@ -2,8 +2,10 @@
 Astrophysics, celestial mechanics.
 """
 
+import math
 import mathsci.constants
 import mathsci.datatypes
+import mathsci.physics.thermo
 
 def orbit_1body(t, X, **kwargs):
     """
@@ -61,7 +63,8 @@ def stellar_structure(r, X, **kwargs):
     dP_dr = - mathsci.constants.G * M / r**2 * rho
     
     # Pressure
-    P, dP_drho = ideal_gas_pressure(rho, kwargs['mu'], kwargs['T'])
+    P, dP_drho = mathsci.physics.thermo.ideal_gas_pressure(rho, kwargs['mu'],
+                                                           kwargs['T'])
     drho_dP = 1.0 / dP_drho
     drho_dr = drho_dP * dP_dr
     
