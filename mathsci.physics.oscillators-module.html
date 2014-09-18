@@ -3,7 +3,7 @@
           "DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <title>mathsci.utils</title>
+  <title>mathsci.physics.oscillators</title>
   <link rel="stylesheet" href="epydoc.css" type="text/css" />
   <script type="text/javascript" src="epydoc.js"></script>
 </head>
@@ -35,7 +35,8 @@
     <td width="100%">
       <span class="breadcrumbs">
         <a href="mathsci-module.html">Package&nbsp;mathsci</a> ::
-        Module&nbsp;utils
+        <a href="mathsci.physics-module.html">Package&nbsp;physics</a> ::
+        Module&nbsp;oscillators
       </span>
     </td>
     <td>
@@ -45,15 +46,15 @@
     onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
         <tr><td align="right"><span class="options"
             >[<a href="frames.html" target="_top">frames</a
-            >]&nbsp;|&nbsp;<a href="mathsci.utils-module.html"
+            >]&nbsp;|&nbsp;<a href="mathsci.physics.oscillators-module.html"
             target="_top">no&nbsp;frames</a>]</span></td></tr>
       </table>
     </td>
   </tr>
 </table>
 <!-- ==================== MODULE DESCRIPTION ==================== -->
-<h1 class="epydoc">Module utils</h1><p class="nomargin-top"><span class="codelink"><a href="mathsci.utils-pysrc.html">source&nbsp;code</a></span></p>
-<p>Miscellaneous utility functions.</p>
+<h1 class="epydoc">Module oscillators</h1><p class="nomargin-top"><span class="codelink"><a href="mathsci.physics.oscillators-pysrc.html">source&nbsp;code</a></span></p>
+<p>Oscillators.</p>
 
 <!-- ==================== FUNCTIONS ==================== -->
 <a name="section-Functions"></a>
@@ -78,31 +79,12 @@
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a href="mathsci.utils-module.html#frange" class="summary-sig-name">frange</a>(<span class="summary-sig-arg">a</span>,
-        <span class="summary-sig-arg">b</span>,
-        <span class="summary-sig-arg">n</span>)</span><br />
-      Returns an equally spaced sequence of floats, in the interval [a, b],
-      with n elements.</td>
+          <td><span class="summary-sig"><a href="mathsci.physics.oscillators-module.html#brusselator" class="summary-sig-name">brusselator</a>(<span class="summary-sig-arg">t</span>,
+        <span class="summary-sig-arg">X</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span><br />
+      The Brusselator.</td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="mathsci.utils-pysrc.html#frange">source&nbsp;code</a></span>
-            
-          </td>
-        </tr>
-      </table>
-      
-    </td>
-  </tr>
-<tr>
-    <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">boolean</span>
-    </td><td class="summary">
-      <table width="100%" cellpadding="0" cellspacing="0" border="0">
-        <tr>
-          <td><span class="summary-sig"><a href="mathsci.utils-module.html#same_sign" class="summary-sig-name">same_sign</a>(<span class="summary-sig-arg">nums</span>)</span><br />
-      Returns True if all numbers in nums have the same sign; otherwise, 
-      returns False (including the case where at least one number is zero).</td>
-          <td align="right" valign="top">
-            <span class="codelink"><a href="mathsci.utils-pysrc.html#same_sign">source&nbsp;code</a></span>
+            <span class="codelink"><a href="mathsci.physics.oscillators-pysrc.html#brusselator">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -116,10 +98,12 @@
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a href="mathsci.utils-module.html#zeros" class="summary-sig-name">zeros</a>(<span class="summary-sig-arg">n</span>)</span><br />
-      Returns a sequence of zeros with n elements.</td>
+          <td><span class="summary-sig"><a href="mathsci.physics.oscillators-module.html#lotka_volterra" class="summary-sig-name">lotka_volterra</a>(<span class="summary-sig-arg">t</span>,
+        <span class="summary-sig-arg">X</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span><br />
+      The Lotka-Volterra (&quot;predator-prey&quot;) equations.</td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="mathsci.utils-pysrc.html#zeros">source&nbsp;code</a></span>
+            <span class="codelink"><a href="mathsci.physics.oscillators-pysrc.html#lotka_volterra">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -133,10 +117,12 @@
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a href="mathsci.utils-module.html#ones" class="summary-sig-name">ones</a>(<span class="summary-sig-arg">n</span>)</span><br />
-      Returns a sequence of ones with n elements.</td>
+          <td><span class="summary-sig"><a href="mathsci.physics.oscillators-module.html#vanderpol" class="summary-sig-name">vanderpol</a>(<span class="summary-sig-arg">t</span>,
+        <span class="summary-sig-arg">X</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span><br />
+      The van der Pol oscillator.</td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="mathsci.utils-pysrc.html#ones">source&nbsp;code</a></span>
+            <span class="codelink"><a href="mathsci.physics.oscillators-pysrc.html#vanderpol">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -166,7 +152,63 @@
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="__package__"></a><span class="summary-name">__package__</span> = <code title="None">None</code>
+        <a name="BRUSS_A"></a><span class="summary-name">BRUSS_A</span> = <code title="1.0">1.0</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="BRUSS_B"></a><span class="summary-name">BRUSS_B</span> = <code title="3.0">3.0</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="LOTKA_ALPHA"></a><span class="summary-name">LOTKA_ALPHA</span> = <code title="1.5">1.5</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="LOTKA_BETA"></a><span class="summary-name">LOTKA_BETA</span> = <code title="1.0">1.0</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="LOTKA_GAMMA"></a><span class="summary-name">LOTKA_GAMMA</span> = <code title="2.0">2.0</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="LOTKA_DELTA"></a><span class="summary-name">LOTKA_DELTA</span> = <code title="1.0">1.0</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="VANDERPOL_MU"></a><span class="summary-name">VANDERPOL_MU</span> = <code title="5.0">5.0</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="VANDERPOL_OMEGA"></a><span class="summary-name">VANDERPOL_OMEGA</span> = <code title="1.0">1.0</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__package__"></a><span class="summary-name">__package__</span> = <code title="'mathsci.physics'"><code class="variable-quote">'</code><code class="variable-string">mathsci.physics</code><code class="variable-quote">'</code></code>
     </td>
   </tr>
 </table>
@@ -188,110 +230,103 @@
   </td>
 </tr>
 </table>
-<a name="frange"></a>
+<a name="brusselator"></a>
 <div>
 <table class="details" border="1" cellpadding="3"
        cellspacing="0" width="100%" bgcolor="white">
 <tr><td>
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
   <tr valign="top"><td>
-  <h3 class="epydoc"><span class="sig"><span class="sig-name">frange</span>(<span class="sig-arg">a</span>,
-        <span class="sig-arg">b</span>,
-        <span class="sig-arg">n</span>)</span>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">brusselator</span>(<span class="sig-arg">t</span>,
+        <span class="sig-arg">X</span>,
+        <span class="sig-arg">**kwargs</span>)</span>
   </h3>
   </td><td align="right" valign="top"
-    ><span class="codelink"><a href="mathsci.utils-pysrc.html#frange">source&nbsp;code</a></span>&nbsp;
+    ><span class="codelink"><a href="mathsci.physics.oscillators-pysrc.html#brusselator">source&nbsp;code</a></span>&nbsp;
     </td>
   </tr></table>
   
-  <p>Returns an equally spaced sequence of floats, in the interval [a, b], 
-  with n elements. (Essentially emulates the linspace() function in 
-  numpy.)</p>
+  <p>The Brusselator.</p>
   <dl class="fields">
     <dt>Parameters:</dt>
     <dd><ul class="nomargin-top">
-        <li><strong class="pname"><code>a</code></strong> (number) - start of interval</li>
-        <li><strong class="pname"><code>b</code></strong> (number) - end of interval</li>
-        <li><strong class="pname"><code>n</code></strong> (number) - length of sequence</li>
+        <li><strong class="pname"><code>t</code></strong> (number) - current time</li>
+        <li><strong class="pname"><code>X</code></strong> (vector) - current state</li>
     </ul></dd>
     <dt>Returns: vector</dt>
-        <dd>sequence</dd>
+        <dd>evolved state</dd>
   </dl>
 </td></tr></table>
 </div>
-<a name="same_sign"></a>
+<a name="lotka_volterra"></a>
 <div>
 <table class="details" border="1" cellpadding="3"
        cellspacing="0" width="100%" bgcolor="white">
 <tr><td>
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
   <tr valign="top"><td>
-  <h3 class="epydoc"><span class="sig"><span class="sig-name">same_sign</span>(<span class="sig-arg">nums</span>)</span>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">lotka_volterra</span>(<span class="sig-arg">t</span>,
+        <span class="sig-arg">X</span>,
+        <span class="sig-arg">**kwargs</span>)</span>
   </h3>
   </td><td align="right" valign="top"
-    ><span class="codelink"><a href="mathsci.utils-pysrc.html#same_sign">source&nbsp;code</a></span>&nbsp;
+    ><span class="codelink"><a href="mathsci.physics.oscillators-pysrc.html#lotka_volterra">source&nbsp;code</a></span>&nbsp;
     </td>
   </tr></table>
   
-  <p>Returns True if all numbers in nums have the same sign; otherwise, 
-  returns False (including the case where at least one number is zero).</p>
+  <p>The Lotka-Volterra (&quot;predator-prey&quot;) equations.</p>
+  <p>We define the following constants:</p>
+  <p>alpha = growth rate of prey beta  = rate at which predators consume 
+  prey gamma = death rate of predators delta = rate at which predators 
+  increase by consuming prey</p>
+  <p>The prey population, x, increases at a rate of dx/dt = Ax, but is 
+  consumed by predators at a rate of dx/dt = -Bxy.</p>
+  <p>The predator population, y, decreases at a rate of dy/dt = -Cy, but 
+  increases at a rate of dy/dt = Dxy.</p>
   <dl class="fields">
     <dt>Parameters:</dt>
     <dd><ul class="nomargin-top">
-        <li><strong class="pname"><code>nums</code></strong> (vector) - list of numbers to check</li>
+        <li><strong class="pname"><code>t</code></strong> (number) - current time</li>
+        <li><strong class="pname"><code>X</code></strong> (vector) - current state</li>
     </ul></dd>
-    <dt>Returns: boolean</dt>
-        <dd>boolean</dd>
+    <dt>Returns: vector</dt>
+        <dd>evolved state</dd>
   </dl>
 </td></tr></table>
 </div>
-<a name="zeros"></a>
+<a name="vanderpol"></a>
 <div>
 <table class="details" border="1" cellpadding="3"
        cellspacing="0" width="100%" bgcolor="white">
 <tr><td>
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
   <tr valign="top"><td>
-  <h3 class="epydoc"><span class="sig"><span class="sig-name">zeros</span>(<span class="sig-arg">n</span>)</span>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">vanderpol</span>(<span class="sig-arg">t</span>,
+        <span class="sig-arg">X</span>,
+        <span class="sig-arg">**kwargs</span>)</span>
   </h3>
   </td><td align="right" valign="top"
-    ><span class="codelink"><a href="mathsci.utils-pysrc.html#zeros">source&nbsp;code</a></span>&nbsp;
+    ><span class="codelink"><a href="mathsci.physics.oscillators-pysrc.html#vanderpol">source&nbsp;code</a></span>&nbsp;
     </td>
   </tr></table>
   
-  <p>Returns a sequence of zeros with n elements.</p>
+  <p>The van der Pol oscillator. This is a non-conservative oscillator, 
+  with nonlinear damping, that shows up in laser physics and electronic 
+  circuits.</p>
+  <p>The system is described by</p>
+  <p>d^2x/dx^2 - mu * (1 - x^2) * dx/dt + omega * x = 0</p>
+  <p>where mu and omega are some constants.</p>
+  <p>Applying the transformation y = dx/dt, we have the equations of 
+  motion</p>
+  <p>y     = dx/dt dv/dt = mu * (1 - x^2) * v - omega^2 * x</p>
   <dl class="fields">
     <dt>Parameters:</dt>
     <dd><ul class="nomargin-top">
-        <li><strong class="pname"><code>n</code></strong> (number) - length of sequence</li>
+        <li><strong class="pname"><code>t</code></strong> (number) - current time</li>
+        <li><strong class="pname"><code>X</code></strong> (vector) - current state</li>
     </ul></dd>
     <dt>Returns: vector</dt>
-        <dd>sequence</dd>
-  </dl>
-</td></tr></table>
-</div>
-<a name="ones"></a>
-<div>
-<table class="details" border="1" cellpadding="3"
-       cellspacing="0" width="100%" bgcolor="white">
-<tr><td>
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-  <tr valign="top"><td>
-  <h3 class="epydoc"><span class="sig"><span class="sig-name">ones</span>(<span class="sig-arg">n</span>)</span>
-  </h3>
-  </td><td align="right" valign="top"
-    ><span class="codelink"><a href="mathsci.utils-pysrc.html#ones">source&nbsp;code</a></span>&nbsp;
-    </td>
-  </tr></table>
-  
-  <p>Returns a sequence of ones with n elements.</p>
-  <dl class="fields">
-    <dt>Parameters:</dt>
-    <dd><ul class="nomargin-top">
-        <li><strong class="pname"><code>n</code></strong> (number) - length of sequence</li>
-    </ul></dd>
-    <dt>Returns: vector</dt>
-        <dd>sequence</dd>
+        <dd>evolved state</dd>
   </dl>
 </td></tr></table>
 </div>

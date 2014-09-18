@@ -3,7 +3,7 @@
           "DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <title>mathsci.utils</title>
+  <title>mathsci.physics.mechanics</title>
   <link rel="stylesheet" href="epydoc.css" type="text/css" />
   <script type="text/javascript" src="epydoc.js"></script>
 </head>
@@ -35,7 +35,8 @@
     <td width="100%">
       <span class="breadcrumbs">
         <a href="mathsci-module.html">Package&nbsp;mathsci</a> ::
-        Module&nbsp;utils
+        <a href="mathsci.physics-module.html">Package&nbsp;physics</a> ::
+        Module&nbsp;mechanics
       </span>
     </td>
     <td>
@@ -45,15 +46,15 @@
     onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
         <tr><td align="right"><span class="options"
             >[<a href="frames.html" target="_top">frames</a
-            >]&nbsp;|&nbsp;<a href="mathsci.utils-module.html"
+            >]&nbsp;|&nbsp;<a href="mathsci.physics.mechanics-module.html"
             target="_top">no&nbsp;frames</a>]</span></td></tr>
       </table>
     </td>
   </tr>
 </table>
 <!-- ==================== MODULE DESCRIPTION ==================== -->
-<h1 class="epydoc">Module utils</h1><p class="nomargin-top"><span class="codelink"><a href="mathsci.utils-pysrc.html">source&nbsp;code</a></span></p>
-<p>Miscellaneous utility functions.</p>
+<h1 class="epydoc">Module mechanics</h1><p class="nomargin-top"><span class="codelink"><a href="mathsci.physics.mechanics-pysrc.html">source&nbsp;code</a></span></p>
+<p>Mechanics.</p>
 
 <!-- ==================== FUNCTIONS ==================== -->
 <a name="section-Functions"></a>
@@ -78,31 +79,12 @@
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a href="mathsci.utils-module.html#frange" class="summary-sig-name">frange</a>(<span class="summary-sig-arg">a</span>,
-        <span class="summary-sig-arg">b</span>,
-        <span class="summary-sig-arg">n</span>)</span><br />
-      Returns an equally spaced sequence of floats, in the interval [a, b],
-      with n elements.</td>
+          <td><span class="summary-sig"><a href="mathsci.physics.mechanics-module.html#nonlinear_pendulum" class="summary-sig-name">nonlinear_pendulum</a>(<span class="summary-sig-arg">t</span>,
+        <span class="summary-sig-arg">X</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span><br />
+      The nonlinear pendulum.</td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="mathsci.utils-pysrc.html#frange">source&nbsp;code</a></span>
-            
-          </td>
-        </tr>
-      </table>
-      
-    </td>
-  </tr>
-<tr>
-    <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">boolean</span>
-    </td><td class="summary">
-      <table width="100%" cellpadding="0" cellspacing="0" border="0">
-        <tr>
-          <td><span class="summary-sig"><a href="mathsci.utils-module.html#same_sign" class="summary-sig-name">same_sign</a>(<span class="summary-sig-arg">nums</span>)</span><br />
-      Returns True if all numbers in nums have the same sign; otherwise, 
-      returns False (including the case where at least one number is zero).</td>
-          <td align="right" valign="top">
-            <span class="codelink"><a href="mathsci.utils-pysrc.html#same_sign">source&nbsp;code</a></span>
+            <span class="codelink"><a href="mathsci.physics.mechanics-pysrc.html#nonlinear_pendulum">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -116,10 +98,12 @@
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a href="mathsci.utils-module.html#zeros" class="summary-sig-name">zeros</a>(<span class="summary-sig-arg">n</span>)</span><br />
-      Returns a sequence of zeros with n elements.</td>
+          <td><span class="summary-sig"><a href="mathsci.physics.mechanics-module.html#driven_pendulum" class="summary-sig-name">driven_pendulum</a>(<span class="summary-sig-arg">t</span>,
+        <span class="summary-sig-arg">X</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span><br />
+      The driven pendulum.</td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="mathsci.utils-pysrc.html#zeros">source&nbsp;code</a></span>
+            <span class="codelink"><a href="mathsci.physics.mechanics-pysrc.html#driven_pendulum">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -133,10 +117,31 @@
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a href="mathsci.utils-module.html#ones" class="summary-sig-name">ones</a>(<span class="summary-sig-arg">n</span>)</span><br />
-      Returns a sequence of ones with n elements.</td>
+          <td><span class="summary-sig"><a href="mathsci.physics.mechanics-module.html#double_pendulum" class="summary-sig-name">double_pendulum</a>(<span class="summary-sig-arg">t</span>,
+        <span class="summary-sig-arg">X</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span><br />
+      The double pendulum.</td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="mathsci.utils-pysrc.html#ones">source&nbsp;code</a></span>
+            <span class="codelink"><a href="mathsci.physics.mechanics-pysrc.html#double_pendulum">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">vector</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="mathsci.physics.mechanics-module.html#symmetric_top" class="summary-sig-name">symmetric_top</a>(<span class="summary-sig-arg">t</span>,
+        <span class="summary-sig-arg">X</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span><br />
+      The symmetric top.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mathsci.physics.mechanics-pysrc.html#symmetric_top">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -166,7 +171,35 @@
     <td width="15%" align="right" valign="top" class="summary">
       <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
-        <a name="__package__"></a><span class="summary-name">__package__</span> = <code title="None">None</code>
+        <a name="NONLINPEND_L"></a><span class="summary-name">NONLINPEND_L</span> = <code title="0.1">0.1</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="DRIVPEND_L"></a><span class="summary-name">DRIVPEND_L</span> = <code title="0.1">0.1</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="DRIVPEND_A"></a><span class="summary-name">DRIVPEND_A</span> = <code title="5.0">5.0</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="DRIVPEND_OMEGAD"></a><span class="summary-name">DRIVPEND_OMEGAD</span> = <code title="10.0">10.0</code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__package__"></a><span class="summary-name">__package__</span> = <code title="'mathsci.physics'"><code class="variable-quote">'</code><code class="variable-string">mathsci.physics</code><code class="variable-quote">'</code></code>
     </td>
   </tr>
 </table>
@@ -188,110 +221,137 @@
   </td>
 </tr>
 </table>
-<a name="frange"></a>
+<a name="nonlinear_pendulum"></a>
 <div>
 <table class="details" border="1" cellpadding="3"
        cellspacing="0" width="100%" bgcolor="white">
 <tr><td>
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
   <tr valign="top"><td>
-  <h3 class="epydoc"><span class="sig"><span class="sig-name">frange</span>(<span class="sig-arg">a</span>,
-        <span class="sig-arg">b</span>,
-        <span class="sig-arg">n</span>)</span>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">nonlinear_pendulum</span>(<span class="sig-arg">t</span>,
+        <span class="sig-arg">X</span>,
+        <span class="sig-arg">**kwargs</span>)</span>
   </h3>
   </td><td align="right" valign="top"
-    ><span class="codelink"><a href="mathsci.utils-pysrc.html#frange">source&nbsp;code</a></span>&nbsp;
+    ><span class="codelink"><a href="mathsci.physics.mechanics-pysrc.html#nonlinear_pendulum">source&nbsp;code</a></span>&nbsp;
     </td>
   </tr></table>
   
-  <p>Returns an equally spaced sequence of floats, in the interval [a, b], 
-  with n elements. (Essentially emulates the linspace() function in 
-  numpy.)</p>
+  <p>The nonlinear pendulum.</p>
+  <p>The pendulum has length L with attached mass m, with theta denoting 
+  the angle from vertical. We ignore friction and assume a massless 
+  pendulum.</p>
+  <p>The acceleration of the mass is</p>
+  <p>a = L * d^2theta/dtheta^2</p>
+  <p>The force on the mass is</p>
+  <p>F = m * g</p>
+  <p>with tangential component m * g * sin(theta).</p>
+  <p>Thus by Newton's 2nd law, the angular acceleration is</p>
+  <p>m * L * d^2theta/dtheta^2 = - m * g * sin(theta) d^2theta/dtheta^2 = -
+  (g / L) * sin(theta)</p>
+  <p>To convert this to a first-order system, we define the angular 
+  velocity</p>
+  <p>omega = dtheta/dt</p>
+  <p>and rewrite the angular acceleration as</p>
+  <p>domega/dt = - (g / L) * sin(theta)</p>
   <dl class="fields">
     <dt>Parameters:</dt>
     <dd><ul class="nomargin-top">
-        <li><strong class="pname"><code>a</code></strong> (number) - start of interval</li>
-        <li><strong class="pname"><code>b</code></strong> (number) - end of interval</li>
-        <li><strong class="pname"><code>n</code></strong> (number) - length of sequence</li>
+        <li><strong class="pname"><code>t</code></strong> (number) - current time</li>
+        <li><strong class="pname"><code>X</code></strong> (vector) - current state</li>
     </ul></dd>
     <dt>Returns: vector</dt>
-        <dd>sequence</dd>
+        <dd>evolved state</dd>
   </dl>
 </td></tr></table>
 </div>
-<a name="same_sign"></a>
+<a name="driven_pendulum"></a>
 <div>
 <table class="details" border="1" cellpadding="3"
        cellspacing="0" width="100%" bgcolor="white">
 <tr><td>
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
   <tr valign="top"><td>
-  <h3 class="epydoc"><span class="sig"><span class="sig-name">same_sign</span>(<span class="sig-arg">nums</span>)</span>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">driven_pendulum</span>(<span class="sig-arg">t</span>,
+        <span class="sig-arg">X</span>,
+        <span class="sig-arg">**kwargs</span>)</span>
   </h3>
   </td><td align="right" valign="top"
-    ><span class="codelink"><a href="mathsci.utils-pysrc.html#same_sign">source&nbsp;code</a></span>&nbsp;
+    ><span class="codelink"><a href="mathsci.physics.mechanics-pysrc.html#driven_pendulum">source&nbsp;code</a></span>&nbsp;
     </td>
   </tr></table>
   
-  <p>Returns True if all numbers in nums have the same sign; otherwise, 
-  returns False (including the case where at least one number is zero).</p>
+  <p>The driven pendulum. Adds an oscillatory force exerted on the mass to 
+  the nonlinear pendulum. (See nonlinear_pendulum() for more 
+  derivation.)</p>
+  <p>The equations of motion are:</p>
+  <p>omega     = dtheta/dt domega/dt = - (g / L) * sin(theta) + A * 
+  cos(theta) * sin(omega_d * t)</p>
+  <p>where omega_d is the angular driving force and A is some constant.</p>
   <dl class="fields">
     <dt>Parameters:</dt>
     <dd><ul class="nomargin-top">
-        <li><strong class="pname"><code>nums</code></strong> (vector) - list of numbers to check</li>
+        <li><strong class="pname"><code>t</code></strong> (number) - current time</li>
+        <li><strong class="pname"><code>X</code></strong> (vector) - current state</li>
     </ul></dd>
-    <dt>Returns: boolean</dt>
-        <dd>boolean</dd>
+    <dt>Returns: vector</dt>
+        <dd>evolved state</dd>
   </dl>
 </td></tr></table>
 </div>
-<a name="zeros"></a>
+<a name="double_pendulum"></a>
 <div>
 <table class="details" border="1" cellpadding="3"
        cellspacing="0" width="100%" bgcolor="white">
 <tr><td>
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
   <tr valign="top"><td>
-  <h3 class="epydoc"><span class="sig"><span class="sig-name">zeros</span>(<span class="sig-arg">n</span>)</span>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">double_pendulum</span>(<span class="sig-arg">t</span>,
+        <span class="sig-arg">X</span>,
+        <span class="sig-arg">**kwargs</span>)</span>
   </h3>
   </td><td align="right" valign="top"
-    ><span class="codelink"><a href="mathsci.utils-pysrc.html#zeros">source&nbsp;code</a></span>&nbsp;
+    ><span class="codelink"><a href="mathsci.physics.mechanics-pysrc.html#double_pendulum">source&nbsp;code</a></span>&nbsp;
     </td>
   </tr></table>
   
-  <p>Returns a sequence of zeros with n elements.</p>
+  <p>The double pendulum.</p>
   <dl class="fields">
     <dt>Parameters:</dt>
     <dd><ul class="nomargin-top">
-        <li><strong class="pname"><code>n</code></strong> (number) - length of sequence</li>
+        <li><strong class="pname"><code>t</code></strong> (number) - current time</li>
+        <li><strong class="pname"><code>X</code></strong> (vector) - current state</li>
     </ul></dd>
     <dt>Returns: vector</dt>
-        <dd>sequence</dd>
+        <dd>evolved state</dd>
   </dl>
 </td></tr></table>
 </div>
-<a name="ones"></a>
+<a name="symmetric_top"></a>
 <div>
 <table class="details" border="1" cellpadding="3"
        cellspacing="0" width="100%" bgcolor="white">
 <tr><td>
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
   <tr valign="top"><td>
-  <h3 class="epydoc"><span class="sig"><span class="sig-name">ones</span>(<span class="sig-arg">n</span>)</span>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">symmetric_top</span>(<span class="sig-arg">t</span>,
+        <span class="sig-arg">X</span>,
+        <span class="sig-arg">**kwargs</span>)</span>
   </h3>
   </td><td align="right" valign="top"
-    ><span class="codelink"><a href="mathsci.utils-pysrc.html#ones">source&nbsp;code</a></span>&nbsp;
+    ><span class="codelink"><a href="mathsci.physics.mechanics-pysrc.html#symmetric_top">source&nbsp;code</a></span>&nbsp;
     </td>
   </tr></table>
   
-  <p>Returns a sequence of ones with n elements.</p>
+  <p>The symmetric top.</p>
   <dl class="fields">
     <dt>Parameters:</dt>
     <dd><ul class="nomargin-top">
-        <li><strong class="pname"><code>n</code></strong> (number) - length of sequence</li>
+        <li><strong class="pname"><code>t</code></strong> (number) - current time</li>
+        <li><strong class="pname"><code>X</code></strong> (vector) - current state</li>
     </ul></dd>
     <dt>Returns: vector</dt>
-        <dd>sequence</dd>
+        <dd>evolved state</dd>
   </dl>
 </td></tr></table>
 </div>
