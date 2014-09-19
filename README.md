@@ -34,3 +34,9 @@ Documented in Epytext -- see the gh-pages branch (hosted on http://pauljxtan.git
 * __integrate_nonlinear_pendulum__: integrating a nonlinear pendulum
 * __integrate_predator_prey__: integrating the Lotka-Volterra equations to describe predator-prey dynamics
 * __integrate_stellar_structure__: integrating the stellar structure equations of hydrostatic equilibrium and mass conservation to solve for the mass and density at a given temperature
+* __integrate_vanderpol_oscillator__: integrating the van der Pol oscillator to find limit cycles
+* __light_bulb__: investigating the efficiency of a light bulb
+* __random_walk_3d__: simulating a 3-D random walk
+* __telescope_diffraction_limit__: investigating the diffraction limit of a telescope
+* __trig_funcs__: computing various trigonometric functions by solving nonlinear equations
+* __wiens_displacement_constant__: solving a nonlinear equation to compute Wien's displacement constant, and use it to estimate the surface temperature of the Sun
