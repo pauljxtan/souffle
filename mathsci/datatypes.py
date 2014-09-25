@@ -91,6 +91,12 @@ class Vector(object):
 
     ############################ Binary operators #############################
 
+    def __eq__(self, other):
+        for i in range(self.n_elems):
+            if self.data[i] != other.data[i]:
+                return False
+        return True
+
     def __add__(self, other):
         """
         Perform element-wise addition of one Vector by another.
