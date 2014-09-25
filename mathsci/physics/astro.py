@@ -18,7 +18,7 @@ def orbit_1body(t, X, **kwargs):
     @param X: current state
 
     @rtype: vector
-    @return: evolved state
+    @return: derivative
     """
     x = X[0]
     y = X[1]
@@ -49,7 +49,7 @@ def stellar_structure(r, X, **kwargs):
               X[1] = rho = density at radius r [kg m^{-3}]
 
     @rtype: vector
-    @return: evolved state vector
+    @return: derivative vector
     """
     M = X[0]
     rho = X[1]

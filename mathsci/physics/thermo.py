@@ -36,7 +36,7 @@ def stellar_structure(r, X, **kwargs):
               X[1] = rho = density at radius r [kg m^{-3}]
 
     @rtype: vector
-    @return: evolved state vector
+    @return: derivative vector
     """
     M = X[0]
     rho = X[1]

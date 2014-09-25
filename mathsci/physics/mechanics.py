@@ -51,7 +51,7 @@ def nonlinear_pendulum(t, X, **kwargs):
     @param X: current state
 
     @rtype: vector
-    @return: evolved state
+    @return: derivative
     """
     theta = X[0]
     omega = X[1]
@@ -90,7 +90,7 @@ def driven_pendulum(t, X, **kwargs):
     @param X: current state
 
     @rtype: vector
-    @return: evolved state
+    @return: derivative
     """
     theta = X[0]
     omega = X[1]
@@ -122,7 +122,7 @@ def double_pendulum(t, X, **kwargs):
     @param X: current state
 
     @rtype: vector
-    @return: evolved state
+    @return: derivative
     """
     theta_1 = X[0]
     theta_2 = X[1]
@@ -143,7 +143,7 @@ def symmetric_top(t, X, **kwargs):
     @param X: current state
 
     @rtype: vector
-    @return: evolved state
+    @return: derivative
     """
     theta = X[0]
     phi = X[1]

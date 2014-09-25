@@ -28,7 +28,7 @@ def brusselator(t, X, **kwargs):
     @param X: current state
 
     @rtype: vector
-    @return: evolved state
+    @return: derivative
     """
     x = X[0]
     y = X[1]
@@ -69,7 +69,7 @@ def lotka_volterra(t, X, **kwargs):
     @param X: current state
 
     @rtype: vector
-    @return: evolved state
+    @return: derivative
     """
     x = X[0]
     y = X[1]
@@ -109,7 +109,7 @@ def vanderpol(t, X, **kwargs):
     @param X: current state
 
     @rtype: vector
-    @return: evolved state
+    @return: derivative
     """
     x = X[0]
     y = X[1]

@@ -4,7 +4,7 @@
 Chaotic dynamics.
 """
 
-from mathsci.datatypes import Vector
+import mathsci
 
 ##### Default constants #####
 LORENZ_SIGMA = 10.0
@@ -22,7 +22,7 @@ def lorenz_attractor(t, X, **kwargs):
     @param X: current state
     
     @rtype: vector
-    @return: evolved state
+    @return: derivative
     """
     x = X[0]
     y = X[1]
@@ -41,4 +41,4 @@ def lorenz_attractor(t, X, **kwargs):
         z_dot = x * y - kwargs["beta"] * z
 
     X_dot = [x_dot, y_dot, z_dot]
-    return Vector(X_dot)
+    return mathsci.datatypes.Vector(X_dot)
