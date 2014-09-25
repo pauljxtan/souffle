@@ -4,7 +4,7 @@
 Chaotic dynamics.
 """
 
-import mathsci
+import mathsci.datatypes
 
 ##### Default constants #####
 LORENZ_SIGMA = 10.0
