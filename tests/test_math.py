@@ -2,7 +2,7 @@ import math
 import unittest
 
 from mathsci.datatypes import Vector, Matrix
-from mathsci.math import chaos, derivative, discrete, linalg
+from mathsci.math import chaos, derivative, discrete, linalg, lineq, maxmin
 
 class TestMath(unittest.TestCase):
 
@@ -41,7 +41,27 @@ class TestMath(unittest.TestCase):
         self.assertEqual(linalg.dot_product(A, B), 156)
         self.assertEqual(linalg.determinant_minors(C), 488)
 
+    def test_lineq(self):
+        A = Matrix([[2.0,  1.0,  4.0,  1.0],
+                    [3.0,  4.0, -1.0, -1.0],
+                    [1.0, -4.0,  1.0,  5.0],
+                    [2.0, -2.0,  1.0,  3.0]])
+        b = [-4, 3, 9, 7]
+        
+        x = lineq.gauss_elim(A, b)
+        self.assertTrue(abs(x[0] -  2.0) < 1e-9)
+        self.assertTrue(abs(x[1] - -1.0) < 1e-9)
+        self.assertTrue(abs(x[2] - -2.0) < 1e-9)
+        self.assertTrue(abs(x[3] -  1.0) < 1e-9)
+
+    def test_maxmin(self):
+        f1 = lambda x: (x - 3)**2
+        f2 = lambda x: -(x - 3)**2
+
+        self.assertTrue(abs(maxmin.golden_ratio_min(f1, -100, 100, 1e-6)[0]
+                            - 3) < 1e-7)
+        self.assertTrue(abs(maxmin.golden_ratio_max(f2, -100, 100, 1e-6)[0]
+                            - 3) < 1e-7)
+
 if __name__ == '__main__':
     unittest.main()
-
-
