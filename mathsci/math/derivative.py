@@ -132,6 +132,3 @@ def central_difference_order(f, x, h, n):
 
 def partial():
     return
-
-if __name__ == "__main__":
-    pass

@@ -29,7 +29,3 @@ def binomial_coefficient(n, k):
     @return: n choose k
     """
     return factorial(n) / (factorial(k) * factorial(n - k))
-
-if __name__ == "__main__":
-    print "10! =", factorial(10)
-    print "4 choose 2 =", binomial_coefficient(4, 2)
