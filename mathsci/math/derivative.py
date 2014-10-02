@@ -90,7 +90,7 @@ def central_difference_degree(f, x, h, deg):
 def central_difference_second(f, x, h):
     """
     Evaluates the second derivative at x, with step size h, using a central
-    difference scheme (of degree 1).
+    difference scheme (of degree 2).
 
     @type  f: function
     @param f: function to differentiate
@@ -104,8 +104,8 @@ def central_difference_second(f, x, h):
     """
     x = float(x)
     h = float(h)
-    D = (central_difference(f, x + h / 2, h)
-         - central_difference(f, x - h / 2, h)) / h
+    D = 2 * (central_difference(f, x + h / 2, h)
+             - central_difference(f, x - h / 2, h)) / h
     return D
 
 def central_difference_order(f, x, h, n):
