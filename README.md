@@ -1,8 +1,10 @@
 mathsci
 ========
-Python modules for computational science and mathematics. For personal education and amusement, only standard library modules are used (except in __examples__ where matplotlib is used for visualization), and clarity is greatly emphasized over performance. Absolutely not meant for serious applications -- one would certainly prefer numpy/scipy/etc. to my inefficient routines.
+Python modules for computational science and mathematics. For personal education and amusement, only standard library modules are used (except in __examples__ where matplotlib is used for visualization), and clarity is greatly emphasized over performance. Not optimized for efficiency.
 
 Documented in Epytext -- see the gh-pages branch (hosted on http://pauljxtan.github.io/mathsci) for the latest API docs.
+
+See __tests__ for unit tests.
 
 ### Modules ###
 * __constants__: various physical constants
