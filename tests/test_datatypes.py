@@ -2,11 +2,12 @@ import unittest
 
 from mathsci.datatypes import Vector, Matrix
 
-class TestUtils(unittest.TestCase):
+class TestDatatypes(unittest.TestCase):
 
     def test_Vector(self):
         x = Vector([1.0, 2.0, 3.0])
         y = Vector([4.0, 5.0, 6.0])
+
         # Element-wise addition
         self.assertEqual(x + y, Vector([5.0, 7.0, 9.0]))
         # Element-wise subtraction
@@ -24,6 +25,12 @@ class TestUtils(unittest.TestCase):
         self.assertEqual(x.mul_scalar(4.0), Vector([4.0, 8.0, 12.0]))
         # Scalar division
         self.assertEqual(x.div_scalar(4.0), Vector([0.25, 0.5, 0.75]))
+
+        # Append element
+        x.pushback(4.0)
+        y.pushback(7.0)
+        self.assertEqual(x, Vector([1.0, 2.0, 3.0, 4.0]))
+        self.assertEqual(y, Vector([4.0, 5.0, 6.0, 7.0]))
 
 if __name__ == '__main__':
     unittest.main()
