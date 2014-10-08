@@ -32,5 +32,17 @@ class TestDatatypes(unittest.TestCase):
         self.assertEqual(x, Vector([1.0, 2.0, 3.0, 4.0]))
         self.assertEqual(y, Vector([4.0, 5.0, 6.0, 7.0]))
 
+    def test_Matrix(self):
+        x = Matrix([[1.0, 2.0, 3.0],
+                    [4.0, 5.0, 6.0],
+                    [7.0, 8.0, 9.0]])
+        y = Matrix([[1.0, 3.0, 2.0],
+                    [4.0, 3.0, 5.0],
+                    [4.0, 6.0, 5.0]])
+
+        self.assertEqual(x + y, Matrix([[2.0, 5.0, 5.0],
+                                        [8.0, 8.0, 11.0],
+                                        [11.0, 14.0, 14.0]]))
+
 if __name__ == '__main__':
     unittest.main()
