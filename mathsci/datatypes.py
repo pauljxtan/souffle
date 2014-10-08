@@ -92,6 +92,11 @@ class Vector(object):
     ############################ Binary operators #############################
 
     def __eq__(self, other):
+        if not isinstance(other, Vector):
+            raise ValueError(ERR_OP_NOT_VEC)
+        if self.n_elems != other.n_elems:
+            raise ValueError(ERR_OP_BAD_DIMS)
+
         for i in range(self.n_elems):
             if self.data[i] != other.data[i]:
                 return False
@@ -241,6 +246,48 @@ class Matrix(object):
                 output += "\n"
         output += "]"
         return output
+
+    ############################# Unary operators #############################
+
+    def __pos__(self):
+        """
+        Implements behaviour for unary positive.
+        """
+        for i in range(self.n_rows):
+            for j in range(self.n_cols):
+                self.data[i][j] = +self.data[i][j]
+
+    def __neg__(self):
+        """
+        Implements behaviour for unary negation.
+        """
+        for i in range(self.n_rows):
+            for j in range(self.n_cols):
+                self.data[i][j] = -self.data[i][j]
+
+    def __abs__(self):
+        """
+        Implements behaviour for absolute value (NOT modulus; use dot()).
+        """
+        for i in range(self.n_rows):
+            for j in range(self.n_cols):
+                self.data[i][j] = abs(self.data[i][j])
+
+    # more...
+    
+    ############################ Binary operators #############################
+
+    def __eq__(self, other):
+        if not isinstance(other, Matrix):
+            raise ValueError(ERR_OP_NOT_MAT)
+        if self.n_rows != other.n_rows and self.n_cols != other.n_cols:
+            raise ValueError(ERR_OP_BAD_DIMS)
+
+        for i in range(self.n_rows):
+            for j in range(self.n_cols):
+                if self.data[i][j] != other.data[i][j]:
+                    return False
+        return True
 
     def __add__(self, other):
         """
