@@ -40,9 +40,35 @@ class TestDatatypes(unittest.TestCase):
                     [4.0, 3.0, 5.0],
                     [4.0, 6.0, 5.0]])
 
+        # Element-wise addition
         self.assertEqual(x + y, Matrix([[2.0, 5.0, 5.0],
                                         [8.0, 8.0, 11.0],
                                         [11.0, 14.0, 14.0]]))
+        # Element-wise subtraction
+        self.assertEqual(x - y, Matrix([[0.0, -1.0, 1.0],
+                                        [0.0, 2.0, 1.0],
+                                        [3.0, 2.0, 4.0]]))
+        # Element-wise multiplication
+        self.assertEqual(x * y, Matrix([[1.0, 6.0, 6.0],
+                                        [16.0, 15.0, 30.0],
+                                        [28.0, 48.0, 45.0]]))
+
+        # Matrix multiplication
+        self.assertEqual(x.matrix_product(y), Matrix([[21.0, 27.0, 27.0],
+                                                      [48.0, 63.0, 63.0],
+                                                      [75.0, 99.0, 99.0]]))
+
+        # Append row
+        x.pushback_row([1.2, 3.4, 5.6])
+        self.assertEqual(x, Matrix([[1.0, 2.0, 3.0],
+                                    [4.0, 5.0, 6.0],
+                                    [7.0, 8.0, 9.0],
+                                    [1.2, 3.4, 5.6]]))
+        # Append column
+        y.pushback_col([9.8, 7.6, 5.4])
+        self.assertEqual(y, Matrix([[1.0, 3.0, 2.0, 9.8],
+                                    [4.0, 3.0, 5.0, 7.6],
+                                    [4.0, 6.0, 5.0, 5.4]]))
 
 if __name__ == '__main__':
     unittest.main()
