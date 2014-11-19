@@ -398,32 +398,3 @@ class Matrix(object):
 
     def inverse(self):
         return
-
-if __name__ == "__main__":
-    A = Matrix([[1, 2], [3, 4]])
-    B = Matrix([[5, 6], [7, 8]])
-
-    print A + B
-    print A - B
-    print A * B
-    print A / B
-    print A.matrix_product(B)
-    print
-
-    c = Vector([1, 2, 3, 4, 5])
-    d = Vector([2, 3, 4, 5, 6])
-
-    print c + d
-    print c - d
-    print c * d
-    print c / d
-
-    c.pushback(9)
-    print c
-    print c[2], c[4], c[-1], c[-3]
-    print
-
-    A.pushback_row([9, 0])
-    print A
-    A.pushback_col([7, 8, 9])
-    print A
