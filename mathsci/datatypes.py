@@ -202,7 +202,7 @@ class Vector(object):
 
         return Vector(result)
         
-    def pushback(self, value):
+    def append(self, value):
         """
         Adds the input value to the end of the Vector.
         """
@@ -361,7 +361,7 @@ class Matrix(object):
 
         return Matrix(result)
 
-    def pushback_row(self, row):
+    def append_row(self, row):
         """
         Adds the input row to the bottom of the Matrix.
         """
@@ -371,7 +371,7 @@ class Matrix(object):
         self.data.append(row)
         self.n_rows = len(self.data)
 
-    def pushback_col(self, col):
+    def append_col(self, col):
         """
         Add the input column to the right of the Matrix.
         """
@@ -382,7 +382,7 @@ class Matrix(object):
             self.data[i].append(col[i])
         self.n_cols = len(self.data[0])
 
-    def matrix_product(self, other):
+    def mul_matrix(self, other):
         if not isinstance(other, Matrix):
             raise ValueError(ERR_OP_NOT_MAT)
 

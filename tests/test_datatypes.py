@@ -27,8 +27,8 @@ class TestDatatypes(unittest.TestCase):
         self.assertEqual(x.div_scalar(4.0), Vector([0.25, 0.5, 0.75]))
 
         # Append element
-        x.pushback(4.0)
-        y.pushback(7.0)
+        x.append(4.0)
+        y.append(7.0)
         self.assertEqual(x, Vector([1.0, 2.0, 3.0, 4.0]))
         self.assertEqual(y, Vector([4.0, 5.0, 6.0, 7.0]))
 
@@ -54,18 +54,18 @@ class TestDatatypes(unittest.TestCase):
                                         [28.0, 48.0, 45.0]]))
 
         # Matrix multiplication
-        self.assertEqual(x.matrix_product(y), Matrix([[21.0, 27.0, 27.0],
+        self.assertEqual(x.mul_matrix(y), Matrix([[21.0, 27.0, 27.0],
                                                       [48.0, 63.0, 63.0],
                                                       [75.0, 99.0, 99.0]]))
 
         # Append row
-        x.pushback_row([1.2, 3.4, 5.6])
+        x.append_row([1.2, 3.4, 5.6])
         self.assertEqual(x, Matrix([[1.0, 2.0, 3.0],
                                     [4.0, 5.0, 6.0],
                                     [7.0, 8.0, 9.0],
                                     [1.2, 3.4, 5.6]]))
         # Append column
-        y.pushback_col([9.8, 7.6, 5.4])
+        y.append_col([9.8, 7.6, 5.4])
         self.assertEqual(y, Matrix([[1.0, 3.0, 2.0, 9.8],
                                     [4.0, 3.0, 5.0, 7.6],
                                     [4.0, 6.0, 5.0, 5.4]]))
