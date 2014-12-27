@@ -2,7 +2,7 @@ import math
 import unittest
 
 from mathsci.datatypes import Vector, Matrix
-from mathsci.math import chaos, derivative, discrete, linalg, lineq, maxmin
+from mathsci.math import chaos, derivative, discrete, integral, linalg, lineq, maxmin
 
 class TestMath(unittest.TestCase):
 
@@ -29,6 +29,19 @@ class TestMath(unittest.TestCase):
     def test_discrete(self):
         self.assertEqual(discrete.factorial(7), 5040)
         self.assertEqual(discrete.binomial_coefficient(7, 3), 35)
+
+    def test_integral(self):
+        f = lambda x: 9.0 + 8.0*x + 7.0*x**2 + 6.0*x**3
+        F = lambda x: 9.0*x + 4.0*x**2 + 7.0/3.0*x**3 + 3.0/2.0*x**4
+        a = 0.12
+        b = 3.45
+        sol = F(b) - F(a)
+
+        self.assertTrue(abs(integral.trapezoidal(f, a, b, 1e5) - sol) < 1e-5)
+        self.assertTrue(abs(integral.simpsons(f, a, b, 1e5) - sol) < 1e-5)
+        
+        # not working yet
+        #self.assertTrue(abs(integral.gauss_quad(f, a, b, 1e5) - sol) < 1e-5)
 
     def test_linalg(self):
         A = [1, 3, 2, 4, 3, 5]
