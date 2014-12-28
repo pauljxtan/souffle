@@ -2,7 +2,7 @@ import math
 import unittest
 
 from mathsci.datatypes import Vector, Matrix
-from mathsci.math import chaos, derivative, discrete, integral, linalg, lineq, maxmin
+from mathsci.math import chaos, derivative, discrete, integral, linalg, lineq, maxmin, nonlineq
 
 class TestMath(unittest.TestCase):
 
@@ -75,6 +75,18 @@ class TestMath(unittest.TestCase):
                             - 3) < 1e-7)
         self.assertTrue(abs(maxmin.golden_ratio_max(f2, -100, 100, 1e-6)[0]
                             - 3) < 1e-7)
+
+    def test_nonlineq(self):
+        f = lambda x: x**2 - 7
+        f_deriv = lambda x: 2*x
+        x1 = 0.01
+        x2 = 5.00
+        delta = 1e-6
+
+        self.assertTrue(abs(nonlineq.bisection(f, x1, x2, delta)[0] - math.sqrt(7)) < delta)
+        self.assertTrue(abs(nonlineq.newton(f, f_deriv, x1, delta)[0] - math.sqrt(7)) < delta)
+        self.assertTrue(abs(nonlineq.secant(f, x1, x2, delta)[0] - math.sqrt(7)) < delta)
+
 
 if __name__ == '__main__':
     unittest.main()
