@@ -3,6 +3,7 @@ Computing integrals.
 """
 
 # TODO:
+#     FIX GAUSSIAN QUADRATURE
 #     Include error estimates for each method?
 
 import math
@@ -178,10 +179,3 @@ def gauss_quad_map(x, w, a, b):
 
 def multiple():
     return
-
-if __name__ == "__main__":
-    #x, w = gauss_quad_poswei(10)
-    #print x.data
-    #print w.data
-    I = gauss_quad(lambda x: x**2, 2.0, 3.0, 1000)
-    print I
