@@ -2,7 +2,7 @@ import math
 import unittest
 
 from mathsci.datatypes import Vector, Matrix
-from mathsci.math import chaos, derivative, discrete, integral, linalg, lineq, maxmin, nonlineq
+from mathsci.math import chaos, derivative, discrete, integral, linalg, lineq, maxmin, misc, nonlineq
 
 class TestMath(unittest.TestCase):
 
@@ -17,7 +17,7 @@ class TestMath(unittest.TestCase):
                           x * y - beta * z]))
 
     def test_derivative(self):
-        f = lambda x: 2 * x**3;
+        f = lambda x: 2 * x**3
         fp = lambda x: 6 * x**2
         x = 4
 
@@ -75,6 +75,11 @@ class TestMath(unittest.TestCase):
                             - 3) < 1e-7)
         self.assertTrue(abs(maxmin.golden_ratio_max(f2, -100, 100, 1e-6)[0]
                             - 3) < 1e-7)
+
+    def test_misc(self):
+        # Compute the so-called "golden ratio" (1/phi) using a continued fraction
+        phi = (1.0 + math.sqrt(5.0)) / 2.0
+        self.assertTrue(abs(misc.continued_fraction(lambda i: 1.0, lambda i: 1.0, 128) - 1.0 / phi) < 1e-6)
 
     def test_nonlineq(self):
         f = lambda x: x**2 - 7
