@@ -6,7 +6,7 @@ import mathsci.utils as utl
 
 def bisection(f, x1, x2, delta, n_iter=0):
     """
-    Computl.s a nearby root of a function f(x), given an initial search bracket
+    Computes a nearby root of a function f(x), given an initial search bracket
     (x1, x2), using the bisection method recursively.
     
     @type       f: function
@@ -54,7 +54,7 @@ def bisection(f, x1, x2, delta, n_iter=0):
 
 def newton(f, f_deriv, x0, delta, max_iter=10000):
     """
-    Computl.s a nearby root of a function f(x) using Newton's method, given the
+    Computes a nearby root of a function f(x) using Newton's method, given the
     first derivative df/dx, an initial value x0 and the target accuracy delta.
     
     @type         f: function
@@ -96,7 +96,7 @@ def newton(f, f_deriv, x0, delta, max_iter=10000):
 
 def secant(f, x0, x1, delta, max_iter=10000):
     """
-    Computl.s a nearby root of a function f(x) using the secant method, given
+    Computes a nearby root of a function f(x) using the secant method, given
     the first derivative df/dx, two initial values x0 and x1, and the target
     accuracy delta.
     
