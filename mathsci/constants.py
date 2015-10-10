@@ -1,6 +1,8 @@
 """
 Physical constants (in SI units).
 """
+from __future__ import absolute_import
+import math
 
 # Vacuum permittivity [F m^{-1}]
 eps_0 = 8.854187817e-12
@@ -37,3 +39,6 @@ m_e = 9.10938291e-31
 
 # Hydrogen mass [kg]
 m_H = 1.673532499e-27
+
+# Golden ratio
+GOLDEN_RATIO = (1 + math.sqrt(5)) / 2

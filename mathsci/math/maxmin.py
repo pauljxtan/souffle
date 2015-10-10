@@ -1,12 +1,8 @@
-#!/usr/bin/env python
-
 """
 Finding the maxima and minima of functions.
 """
-
 import math
-
-GOLDEN_RATIO = (1 + math.sqrt(5)) / 2
+from mathsci.constants import GOLDEN_RATIO
 
 def golden_ratio_min(f, x1, x4, delta, n_iter=0):
     """
