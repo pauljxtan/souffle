@@ -2,7 +2,7 @@
 Oscillators.
 """
 
-import mathsci.datatypes
+import mathsci.datatypes as dtt
 
 ##### Default constants #####
 # Brusselator, unstable regime
@@ -44,7 +44,7 @@ def brusselator(t, X, **kwargs):
         y_dot = kwargs["b"] * x - kwargs["a"] * x**2 * y
 
     X_dot = [x_dot, y_dot]
-    return mathsci.datatypes.Vector(X_dot)
+    return dtt.Vector(X_dot)
 
 def lotka_volterra(t, X, **kwargs):
     """
@@ -85,7 +85,7 @@ def lotka_volterra(t, X, **kwargs):
         y_dot = - y * (kwargs["gamma"] - kwargs["delta"] * x)
 
     X_dot = [x_dot, y_dot]
-    return mathsci.datatypes.Vector(X_dot)
+    return dtt.Vector(X_dot)
 
 def vanderpol(t, X, **kwargs):
     """
@@ -125,4 +125,4 @@ def vanderpol(t, X, **kwargs):
         y_dot = kwargs["mu"] * (1 - x**2) * y - kwargs["omega"]**2 * x
 
     X_dot = [x_dot, y_dot]
-    return mathsci.datatypes.Vector(X_dot)
+    return dtt.Vector(X_dot)

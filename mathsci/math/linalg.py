@@ -1,8 +1,9 @@
 """
 Provides fundamental linear algebra operations (Euclidean).
 """
-
 import math
+# Need absolute import here due to circular dependency with mathsci.constants
+# TODO: refactor code?
 import mathsci.datatypes
 
 def dot_product(A, B):
@@ -25,6 +26,7 @@ def dot_product(A, B):
 
     return result
 
+# TODO
 def cross_product(A, B):
     """
     Computes the cross product of vectors A and B.
@@ -37,6 +39,7 @@ def cross_product(A, B):
     """
     return
 
+# TODO:
 def determinant_minors(A):
     """
     Recursively computes the determinant of a square matrix A using expansion
@@ -80,6 +83,7 @@ def determinant_minors(A):
                    * determinant_minors(M))
     return result
 
+# TODO:
 def inverse(A):
     """
     Returns the inverse of a square matrix A.

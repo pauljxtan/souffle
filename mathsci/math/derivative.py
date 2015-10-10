@@ -1,7 +1,6 @@
 """
 Evaluating derivatives.
 """
-
 # TODO:
 #     Include error estimates for each method?
 
@@ -65,6 +64,7 @@ def central_difference(f, x, h):
     D = (f(x + h / 2.0) - f(x - h / 2.0)) / h
     return D
 
+# TODO
 def central_difference_degree(f, x, h, deg):
     """
     Evaluates the first derivative at x, with step size h, using a central
@@ -108,6 +108,7 @@ def central_difference_second(f, x, h):
              - central_difference(f, x - h / 2, h)) / h
     return D
 
+# TODO
 def central_difference_order(f, x, h, n):
     """
     Evaluates the n-th derivative at x, with step size h, using a central
@@ -130,5 +131,6 @@ def central_difference_order(f, x, h, n):
     n = int(n)
     return
 
+# TODO
 def partial():
     return

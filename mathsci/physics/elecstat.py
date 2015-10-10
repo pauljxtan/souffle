@@ -3,7 +3,7 @@ Electrostatics.
 """
 
 import math
-import mathsci.constants
+import mathsci.constants as const
 
 def potential(q, r):
     """
@@ -19,7 +19,7 @@ def potential(q, r):
     """
     q = float(q)
     r = float(r)
-    return q / 4 / math.pi / mathsci.constants.eps_0 / r
+    return q / 4 / math.pi / const.eps_0 / r
 
 def field(q, r):
     """
@@ -36,4 +36,4 @@ def field(q, r):
     """
     q = float(q)
     r = float(r)
-    return q / 4 / math.pi / mathsci.constants.eps_0 / r**2
+    return q / 4 / math.pi / const.eps_0 / r**2

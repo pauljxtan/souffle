@@ -5,7 +5,7 @@ Solving systems of linear equations.
 # TODO:
 #     Modify gauss_elim() to use Matrix class
 
-import mathsci.datatypes
+import mathsci.datatypes as dt
 
 def gauss_elim(A, b):
     """
@@ -20,13 +20,13 @@ def gauss_elim(A, b):
     @rtype: vector
     @return: solution vector of length m
     """
-    if not (isinstance(A, mathsci.datatypes.Matrix)
+    if not (isinstance(A, dt.Matrix)
             or isinstance(A, list) or isinstance(A, tuple)):
         raise ValueError("A is not Matrix, list or tuple")
     if not (isinstance(b, list) or isinstance(b, tuple)):
         raise ValueError("b is not list or tuple")
 
-    if isinstance(A, mathsci.datatypes.Matrix):
+    if isinstance(A, dt.Matrix):
         A = A.data
     b = map(float, b)
 
@@ -73,13 +73,3 @@ def gauss_elim(A, b):
             x[i] -= A[i][j] * x[j]
 
     return x
-
-if __name__ == "__main__":
-    # Test gauss_elim
-    A = mathsci.datatypes.Matrix([[2.0, 1.0, 4.0, 1.0],
-                                        [3.0, 4.0, -1.0, -1.0],
-                                        [1.0, -4.0, 1.0, 5.0],
-                                        [2.0, -2.0, 1.0, 3.0]])
-    b = [-4, 3, 9, 7]
-    x = gauss_elim(A, b)
-    print x

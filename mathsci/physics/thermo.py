@@ -2,7 +2,7 @@
 Thermodynamics.
 """
 
-import mathsci.constants
+import mathsci.constants as const
 
 def ideal_gas_pressure(rho, mu, T):
     """
@@ -18,9 +18,9 @@ def ideal_gas_pressure(rho, mu, T):
     @rtype: number, number
     @return: pressure, first derivative of pressure
     """
-    P = rho / (mu * mathsci.constants.m_H) * mathsci.constants.k_B * T
+    P = rho / (mu * const.m_H) * const.k_B * T
     # Derivative w.r.t density
-    dP_drho = 1.0 / (mu * mathsci.constants.m_H) * mathsci.constants.k_B * T
+    dP_drho = 1.0 / (mu * const.m_H) * const.k_B * T
 
     return P, dP_drho
 
@@ -47,7 +47,7 @@ def stellar_structure(r, X, **kwargs):
                          "following parameters: rho, mu, T")
 
     # Hydrostatic equilibrium
-    dP_dr = - mathsci.constants.G * M / r**2 * kwargs['rho']
+    dP_dr = - const.G * M / r**2 * kwargs['rho']
     
     # Pressure
     P, dP_drho = ideal_gas_pressure(kwargs['rho'], kwargs['mu'], kwargs['T'])

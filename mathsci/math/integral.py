@@ -1,14 +1,13 @@
 """
 Computing integrals.
 """
-
 # TODO:
 #     FIX GAUSSIAN QUADRATURE
 #     Include error estimates for each method?
 
 import math
-import mathsci.utils
-import mathsci.datatypes
+import mathsci.utils as ut
+import mathsci.datatypes as dtt
 
 def trapezoidal(f, a, b, n):
     """
@@ -71,15 +70,19 @@ def simpsons(f, a, b, n):
     I = 1.0 / 3 * h * s
     return I
 
+# TODO
 def adaptive_simpsons():
     return
 
+# TODO
 def romberg():
     return
 
+# TODO
 def cubic():
     return
 
+# TODO
 def quartic():
     return
 
@@ -122,23 +125,23 @@ def gauss_quad_poswei(n):
     @return: sample points, weights
     """
     # Initial guess for the roots of the Legendre polynomial
-    r = mathsci.utils.frange(3, 4*n - 1, n)
-    r = mathsci.datatypes.Vector(r)
+    r = ut.frange(3, 4*n - 1, n)
+    r = dtt.Vector(r)
     r.div_scalar(4*n + 2)
     x = [math.cos(math.pi*a + 1 / (8*n**2 * math.tan(a))) for a in r]
-    x = mathsci.datatypes.Vector(x)
+    x = dtt.Vector(x)
 
     # Use Newton's method to compute the roots
     epsilon = 1.0e9
     # Target accuracy
     delta = 1.0e-9
-    dp = mathsci.utils.zeros(n)
-    dp = mathsci.datatypes.Vector(dp)
+    dp = ut.zeros(n)
+    dp = dtt.Vector(dp)
     while abs(epsilon) > delta:
-        p0 = mathsci.utils.ones(n)
-        p0 = mathsci.datatypes.Vector(p0)
-        p1 = mathsci.utils.ones(n)
-        p1 = mathsci.datatypes.Vector(p1)
+        p0 = ut.ones(n)
+        p0 = dtt.Vector(p0)
+        p1 = ut.ones(n)
+        p1 = dtt.Vector(p1)
         for i in range(1, n):
             p0, p1 = p1, ((p1 * x).mul_scalar(2*i + 1)
                           - p0.mul_scalar(i)).div_scalar(i + 1)
@@ -151,7 +154,7 @@ def gauss_quad_poswei(n):
     # TODO: haven't implemented the exponent magic method for Vector yet, so
     #       hacking this for now
     w = [2 * (n+1)**2 / (n**2 * (1 - x[i]**2) * dp[i]**2) for i in range(n)]
-    w = mathsci.datatypes.Vector(w)
+    w = dtt.Vector(w)
 
     return x, w
 
@@ -177,5 +180,6 @@ def gauss_quad_map(x, w, a, b):
 
     return x_map, w_map
 
+# TODO
 def multiple():
     return

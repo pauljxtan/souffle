@@ -5,7 +5,7 @@ and adaptive methods.
 See odeint_derivations.pdf for more detailed description.
 """
 
-from mathsci.datatypes import Vector
+import mathsci.datatypes as dtt
 
 class OdeInt(object):
     """
@@ -25,7 +25,7 @@ class OdeInt(object):
     def __init__(self, f, t0, X0, n_dims, kwargs):
         self.f = f
         self.t = []
-        # X will be a list of Vectors
+        # X will be a list of dtt.Vectors
         self.X = []
         # These arguments are parameters apart from t and X that we want to
         # pass to the ODE function
@@ -40,14 +40,14 @@ class OdeInt(object):
                                      "must specify number of dimensions")
                 else:
                     X0 = [0.0] * int(n_dims)
-                    X0 = Vector(X0)
+                    X0 = dtt.Vector(X0)
             else:
                 X0 = map(float, X0)
-                X0 = Vector(X0)
-        elif isinstance(X0, Vector):
+                X0 = dtt.Vector(X0)
+        elif isinstance(X0, dtt.Vector):
             pass
         else:
-            raise ValueError("Initial state is not list, tuple or Vector")
+            raise ValueError("Initial state is not list, tuple or dtt.Vector")
         self.X.append(X0)
 
     def integrate(self, dt, n_steps, verbose=False):
@@ -386,7 +386,7 @@ class BulSto(OdeInt):
 
             # e2 records the previous e1; used for error estimation later
             e2 = e1
-            e1 = [Vector([0.0 for i in enumerate(X)])
+            e1 = [dtt.Vector([0.0 for i in enumerate(X)])
                   for j in range(n)]
             e1[0] = (X1 + X2 + self.f(t, X2, **self.kwargs)
                      .mul_scalar(ddt / 2)).div_scalar(2)
@@ -475,14 +475,14 @@ class BulStoAdaptive(OdeInt):
                                      "must specify number of dimensions")
                 else:
                     X0 = [0.0] * int(n_dims)
-                    X0 = Vector(X0)
+                    X0 = dtt.Vector(X0)
             else:
                 X0 = map(float, X0)
-                X0 = Vector(X0)
-        elif isinstance(X0, Vector):
+                X0 = dtt.Vector(X0)
+        elif isinstance(X0, dtt.Vector):
             pass
         else:
-            raise ValueError("Initial state is not list, tuple or Vector")
+            raise ValueError("Initial state is not list, tuple or dtt.Vector")
         dt = duration
         t = t0
         X = X0
@@ -509,9 +509,9 @@ class BulStoAdaptive(OdeInt):
                 X1 += self.f(t, X2, **self.kwargs).mul_scalar(ddt)
                 X2 += self.f(t, X1, **self.kwargs).mul_scalar(ddt)
 
-            # Compute n rows of extrapolation table (list of Vectors)
+            # Compute n rows of extrapolation table (list of dtt.Vectors)
             e2 = e1
-            e1 = [Vector([0.0 for i in enumerate(X)])
+            e1 = [dtt.Vector([0.0 for i in enumerate(X)])
                   for j in range(n)]
             e1[0] = (X1 + X2 + self.f(t, X2, **self.kwargs)
                      .mul_scalar(ddt / 2)).div_scalar(2)

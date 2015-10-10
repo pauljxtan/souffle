@@ -2,11 +2,11 @@
 Solving nonlinear equations.
 """
 
-import mathsci.utils
+import mathsci.utils as utl
 
 def bisection(f, x1, x2, delta, n_iter=0):
     """
-    Computes a nearby root of a function f(x), given an initial search bracket
+    Computl.s a nearby root of a function f(x), given an initial search bracket
     (x1, x2), using the bisection method recursively.
     
     @type       f: function
@@ -24,7 +24,7 @@ def bisection(f, x1, x2, delta, n_iter=0):
     @return: final value, iteration counter
     """
     # If f(x1) and f(x2) have the same sign, terminate immediately
-    if mathsci.utils.same_sign([f(x1), f(x2)]):
+    if utl.same_sign([f(x1), f(x2)]):
         pass
         #raise ValueError("f(x1) and f(x2) have the same sign")
 
@@ -36,7 +36,7 @@ def bisection(f, x1, x2, delta, n_iter=0):
         return x_mid, n_iter
 
     # If f(x_mid) and f(x1) have the same sign, set x1 = x_mid
-    if mathsci.utils.same_sign([f(x_mid), f(x1)]):
+    if utl.same_sign([f(x_mid), f(x1)]):
         x1 = x_mid
     # Otherwise, set x2 = x_mid
     else:
@@ -54,7 +54,7 @@ def bisection(f, x1, x2, delta, n_iter=0):
 
 def newton(f, f_deriv, x0, delta, max_iter=10000):
     """
-    Computes a nearby root of a function f(x) using Newton's method, given the
+    Computl.s a nearby root of a function f(x) using Newton's method, given the
     first derivative df/dx, an initial value x0 and the target accuracy delta.
     
     @type         f: function
@@ -77,7 +77,7 @@ def newton(f, f_deriv, x0, delta, max_iter=10000):
     accuracy = 1.0e9
     n_iter = 0
     
-    # iterate until solution reaches desired accuracy
+    # iterate until solutl.on reaches desired accuracy
     while accuracy > delta:
         x = x0 - f(x0) / f_deriv(x0)
         n_iter += 1
@@ -96,7 +96,7 @@ def newton(f, f_deriv, x0, delta, max_iter=10000):
 
 def secant(f, x0, x1, delta, max_iter=10000):
     """
-    Computes a nearby root of a function f(x) using the secant method, given
+    Computl.s a nearby root of a function f(x) using the secant method, given
     the first derivative df/dx, two initial values x0 and x1, and the target
     accuracy delta.
     
@@ -121,7 +121,7 @@ def secant(f, x0, x1, delta, max_iter=10000):
     accuracy = 1.0e9
     n_iter = 0
     
-    # iterate until solution reaches desired accuracy
+    # iterate until solutl.on reaches desired accuracy
     while accuracy > delta:
         x = x1 - f(x1) * (x1 - x0) / (f(x1) - f(x0))
         n_iter += 1

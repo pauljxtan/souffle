@@ -3,8 +3,8 @@ Mechanics.
 """
 
 import math
-import mathsci.datatypes
-import mathsci.constants
+import mathsci.datatypes as dtt
+import mathsci.constants as const
 
 ##### Default constants #####
 # Nonlinear pendulum
@@ -58,18 +58,18 @@ def nonlinear_pendulum(t, X, **kwargs):
 
     if len(kwargs) == 0:
         theta_dot = omega
-        omega_dot = (-(mathsci.constants.g / NONLINPEND_L)
+        omega_dot = (-(const.g / NONLINPEND_L)
                      * math.sin(theta))
     elif len(kwargs) != 1:
         raise ValueError("Bad kwargs; please provide all of the "\
                          "following parameters: l")
     else:
         theta_dot = omega
-        omega_dot = (-(mathsci.constants.g / kwargs["l"])
+        omega_dot = (-(const.g / kwargs["l"])
                      * math.sin(theta))
 
     X_dot = [theta_dot, omega_dot]
-    return mathsci.datatypes.Vector(X_dot)
+    return dtt.Vector(X_dot)
 
 def driven_pendulum(t, X, **kwargs):
     """
@@ -97,7 +97,7 @@ def driven_pendulum(t, X, **kwargs):
 
     if len(kwargs) == 0:
         theta_dot = omega
-        omega_dot = (-(mathsci.constants.g / DRIVPEND_L) * math.sin(theta)
+        omega_dot = (-(const.g / DRIVPEND_L) * math.sin(theta)
                      + DRIVPEND_A * math.cos(theta)
                      * math.sin(DRIVPEND_OMEGAD*t))
     elif len(kwargs) != 3:
@@ -105,13 +105,14 @@ def driven_pendulum(t, X, **kwargs):
                          "following parameters: l, a, omegad")
     else:
         theta_dot = omega
-        omega_dot = (-(mathsci.constants.g / kwargs["l"]) * math.sin(theta)
+        omega_dot = (-(const.g / kwargs["l"]) * math.sin(theta)
                      + kwargs["a"] * math.cos(theta)
                      * math.sin(kwargs["omegad"]*t))
 
     X_dot = [theta_dot, omega_dot]
-    return mathsci.datatypes.Vector(X_dot)
+    return dtt.Vector(X_dot)
 
+# TODO
 def double_pendulum(t, X, **kwargs):
     """
     The double pendulum.
@@ -133,6 +134,7 @@ def double_pendulum(t, X, **kwargs):
 
     return
 
+# TODO
 def symmetric_top(t, X, **kwargs):
     """
     The symmetric top.

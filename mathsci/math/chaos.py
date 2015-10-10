@@ -1,10 +1,7 @@
-#!/usr/bin/env python
-
 """
 Chaotic dynamics.
 """
-
-import mathsci.datatypes
+import mathsci.datatypes as dtt
 
 ##### Default constants #####
 LORENZ_SIGMA = 10.0
@@ -29,6 +26,7 @@ def lorenz_attractor(t, X, **kwargs):
     z = X[2]
 
     if len(kwargs) == 0:
+        # Use defaults
         x_dot = LORENZ_SIGMA * (y - x)
         y_dot = x * (LORENZ_RHO - z) - y
         z_dot = x * y - LORENZ_BETA * z
@@ -41,4 +39,4 @@ def lorenz_attractor(t, X, **kwargs):
         z_dot = x * y - kwargs["beta"] * z
 
     X_dot = [x_dot, y_dot, z_dot]
-    return mathsci.datatypes.Vector(X_dot)
+    return dtt.Vector(X_dot)

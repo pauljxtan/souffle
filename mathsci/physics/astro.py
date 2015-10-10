@@ -3,9 +3,9 @@ Astrophysics, celestial mechanics.
 """
 
 import math
-import mathsci.constants
-import mathsci.datatypes
-import mathsci.physics.thermo
+import mathsci.constants as const
+import mathsci.datatypes as dtt
+import mathsci.physics.thermo as thermo
 
 def orbit_1body(t, X, **kwargs):
     """
@@ -31,11 +31,11 @@ def orbit_1body(t, X, **kwargs):
     # Solve the ODEs
     x_dot = vx
     y_dot = vy
-    vx_dot = - mathsci.constants.G * mathsci.constants.M_sol * x / r**3
-    vy_dot = - mathsci.constants.G * mathsci.constants.M_sol * y / r**3
+    vx_dot = - const.G * const.M_sol * x / r**3
+    vy_dot = - const.G * const.M_sol * y / r**3
 
     X_dot = [x_dot, y_dot, vx_dot, vy_dot]
-    return mathsci.datatypes.Vector(X_dot)
+    return dtt.Vector(X_dot)
 
 def stellar_structure(r, X, **kwargs):
     """
@@ -60,11 +60,10 @@ def stellar_structure(r, X, **kwargs):
                          "following parameters: mu, T")
 
     # Hydrostatic equilibrium
-    dP_dr = - mathsci.constants.G * M / r**2 * rho
+    dP_dr = - const.G * M / r**2 * rho
     
     # Pressure
-    P, dP_drho = mathsci.physics.thermo.ideal_gas_pressure(rho, kwargs['mu'],
-                                                           kwargs['T'])
+    P, dP_drho = thermo.ideal_gas_pressure(rho, kwargs['mu'], kwargs['T'])
     drho_dP = 1.0 / dP_drho
     drho_dr = drho_dP * dP_dr
     
@@ -73,4 +72,4 @@ def stellar_structure(r, X, **kwargs):
     
     X_dot = [dM_dr, drho_dr]
     
-    return mathsci.datatypes.Vector(X_dot)
+    return dtt.Vector(X_dot)

@@ -8,14 +8,14 @@ Provides generic datatypes.
 #     define all useful magic methods (most of them)
 #     add more type checking
 
-import mathsci.math.linalg
-
 ERR_INPUT_NOT_LIST_TUPLE = "Input data is not list or tuple"
 ERR_INPUT_BAD_DIMS = "Input data has incompatible dimensions"
-ERR_KEY_NOT_INT_LIST_TUPLE = "key is not int, list or tuple"
+ERR_KEY_NOT_INT_LIST_TUPLE = "Key is not int, list or tuple"
 ERR_OP_BAD_DIMS = "Operand has incompatible dimensions for element-wise operation"
 ERR_OP_NOT_VEC = "Operand is not Vector"
 ERR_OP_NOT_MAT = "Operand is not Matrix"
+
+import mathsci.math.linalg
 
 class Vector(object):
     """
