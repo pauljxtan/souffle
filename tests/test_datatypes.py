@@ -71,4 +71,4 @@ class TestDatatypes(unittest.TestCase):
                                     [4.0, 6.0, 5.0, 5.4]]))
 
 if __name__ == '__main__':
-    unittest.main()
+    unittest.main(verbosity=2)

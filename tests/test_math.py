@@ -39,9 +39,7 @@ class TestMath(unittest.TestCase):
 
         self.assertTrue(abs(integral.trapezoidal(f, a, b, 1e5) - sol) < 1e-5)
         self.assertTrue(abs(integral.simpsons(f, a, b, 1e5) - sol) < 1e-5)
-        
-        # not working yet
-        #self.assertTrue(abs(integral.gauss_quad(f, a, b, 1e5) - sol) < 1e-5)
+        #self.assertTrue(abs(integral.gauss_quad(f, a, b, 1000) - sol) < 1e-5)
 
     def test_linalg(self):
         A = [1, 3, 2, 4, 3, 5]
@@ -94,4 +92,4 @@ class TestMath(unittest.TestCase):
 
 
 if __name__ == '__main__':
-    unittest.main()
+    unittest.main(verbosity=2)

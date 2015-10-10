@@ -16,4 +16,4 @@ class TestUtils(unittest.TestCase):
         self.assertEqual(ones(5), [1.0, 1.0, 1.0, 1.0, 1.0])
 
 if __name__ == '__main__':
-    unittest.main()
+    unittest.main(verbosity=2)
