@@ -1,6 +1,6 @@
 mathsci
 ========
-Python modules for computational science and mathematics. For personal education and amusement, only standard library modules are used, and clarity is greatly emphasized over performance. Not optimized for efficiency.
+Python modules for computational science and mathematics. For personal education and amusement, only standard library modules are used, and clarity is greatly emphasized over performance. __Not optimized for efficiency__.
 
 Documented in Epytext -- see the gh-pages branch (hosted on http://pauljxtan.github.io/mathsci) for the latest API docs.
 
@@ -29,7 +29,7 @@ See __tests__ for unit tests.
 * __utils__: miscellaneous utility functions
 
 ### Examples ###
-To run these example scripts, please add __mathsci__ to your python path. __Matplotlib__ is used for visualization in most of them, so make sure to have that installed as well.
+To run these example scripts, please add this repository to your python path. __Matplotlib__ is used for visualization in most of them, so make sure to have that installed as well.
 * __electric_potential_field__: visualizing the electric potential and electric field of a source charge configuration
 * __integrate_comet_orbit__: integrates a comet orbit
 * __integrate_driven_pendulum__: integrating a driven pendulum
@@ -42,4 +42,4 @@ To run these example scripts, please add __mathsci__ to your python path. __Matp
 * __random_walk_3d__: simulating a 3-D random walk
 * __telescope_diffraction_limit__: investigating the diffraction limit of a telescope
 * __trig_funcs__: computing various trigonometric functions by solving nonlinear equations
-* __wiens_displacement_constant__: solving a nonlinear equation to compute Wien's displacement constant, and use it to estimate the surface temperature of the Sun
+* __wiens_displacement_constant__: solving a nonlinear equation to compute Wien's displacement constant, and using it to estimate the surface temperature of the Sun
