@@ -3,9 +3,9 @@ Provides generic datatypes.
 """
 
 # TODO:
-#     define __getitem__ for Vector and Matrix
+#**** define __getitem__ for and Matrix
 #     define slicing methods for Vector and Matrix
-#     define all useful magic methods (most of them)
+#     define all useful magic methods
 #     add more type checking
 
 ERR_INPUT_NOT_LIST_TUPLE = "Input data is not list or tuple"
@@ -30,10 +30,25 @@ class Vector(object):
             self.data = data
         self.n_elems = len(self.data)
 
+    #### Representations
+
+    def __str__(self):
+        """
+        Returns the string representation of the Vector.
+        """
+        data_str = map(str, self.data)
+        output = "["
+        output += " ".join([elem for elem in data_str])
+        output += "]" 
+
+        return output
+
+    #### Container methods
+
     def __getitem__(self, key=None):
         """
         Returns the element(s) specified by the index/indices in key. Supports
-        backwards indexing. If key is None, returns the entire Vactor.
+        backwards indexing. If key is None, returns the entire Vector.
         """
         if isinstance(key, int):
             if key >= 0:
@@ -53,43 +68,39 @@ class Vector(object):
 
         return result
 
-    def __str__(self):
-        """
-        Returns the string representation of the Vector.
-        """
-        data_str = map(str, self.data)
-        output = "["
-        output += " ".join([elem for elem in data_str])
-        output += "]" 
-
-        return output
-
-    ############################# Unary operators #############################
+    #### Unary operators
 
     def __pos__(self):
         """
         Implements behaviour for unary positive.
         """
+        result = []
         for i in range(self.n_elems):
-            self.data[i] = +self.data[i]
+            result.append(+self.data[i])
+
+        return Vector(result)
 
     def __neg__(self):
         """
         Implements behaviour for unary negation.
         """
+        result = []
         for i in range(self.n_elems):
-            self.data[i] = -self.data[i]
+            result.append(-self.data[i])
+
+        return Vector(result)
 
     def __abs__(self):
         """
         Implements behaviour for absolute value (NOT modulus; use dot()).
         """
-        for i in range(self.n_elems):                
-            self.data[i] = abs(self.data[i])
+        result = []
+        for i in range(self.n_elems):
+            result.append(abs(self.data[i]))
 
-    # more...
+        return Vector(result)
 
-    ############################ Binary operators #############################
+    #### Comparisons
 
     def __eq__(self, other):
         if not isinstance(other, Vector):
@@ -102,6 +113,72 @@ class Vector(object):
                 return False
         return True
 
+    def __lt__(self, other):
+        """
+        Returns a boolean Vector containing the results of element-wise
+        less-than comparisons.
+        """
+        if not isinstance(other, Vector):
+            raise ValueError(ERR_OP_NOT_VEC)
+        if self.n_elems != other.n_elems:
+            raise ValueError(ERR_OP_BAD_DIMS)
+
+        result = []
+        for i in range(self.n_elems):
+            result.append(self.data[i] < other.data[i])
+
+        return Vector(result)
+
+    def __gt__(self, other):
+        """
+        Returns a boolean Vector containing the results of element-wise
+        greater-than comparisons.
+        """
+        if not isinstance(other, Vector):
+            raise ValueError(ERR_OP_NOT_VEC)
+        if self.n_elems != other.n_elems:
+            raise ValueError(ERR_OP_BAD_DIMS)
+
+        result = []
+        for i in range(self.n_elems):
+            result.append(self.data[i] > other.data[i])
+
+        return Vector(result)
+
+    def __le__(self, other):
+        """
+        Returns a boolean Vector containing the results of element-wise
+        less-than-or-equal comparisons.
+        """
+        if not isinstance(other, Vector):
+            raise ValueError(ERR_OP_NOT_VEC)
+        if self.n_elems != other.n_elems:
+            raise ValueError(ERR_OP_BAD_DIMS)
+
+        result = []
+        for i in range(self.n_elems):
+            result.append(self.data[i] <= other.data[i])
+
+        return Vector(result)
+
+    def __ge__(self, other):
+        """
+        Returns a boolean Vector containing the results of element-wise
+        greater-than-or-equal comparisons.
+        """
+        if not isinstance(other, Vector):
+            raise ValueError(ERR_OP_NOT_VEC)
+        if self.n_elems != other.n_elems:
+            raise ValueError(ERR_OP_BAD_DIMS)
+
+        result = []
+        for i in range(self.n_elems):
+            result.append(self.data[i] >= other.data[i])
+
+        return Vector(result)
+
+    #### Element-wise arithmetic
+
     def __add__(self, other):
         """
         Perform element-wise addition of one Vector by another.
@@ -111,9 +188,9 @@ class Vector(object):
         if not (self.n_elems == other.n_elems):
             raise ValueError(ERR_OP_BAD_DIMS)
 
-        result = [0.0 for i in range(self.n_elems)]
+        result = []
         for i in range(self.n_elems):
-            result[i] = self.data[i] + other.data[i]
+            result.append(self.data[i] + other.data[i])
         
         return Vector(result)
 
@@ -126,9 +203,9 @@ class Vector(object):
         if not (self.n_elems == other.n_elems):
             raise ValueError(ERR_OP_BAD_DIMS)
         
-        result = [0.0 for i in range(self.n_elems)]
+        result = []
         for i in range(self.n_elems):
-            result[i] = self.data[i] - other.data[i]
+            result.append(self.data[i] - other.data[i])
         
         return Vector(result)
 
@@ -141,9 +218,9 @@ class Vector(object):
         if not (self.n_elems == other.n_elems):
             raise ValueError(ERR_OP_BAD_DIMS)
                              
-        result = [0.0 for i in range(self.n_elems)]
+        result = []
         for i in range(self.n_elems):
-            result[i] = self.data[i] * other.data[i]
+            result.append(self.data[i] * other.data[i])
 
         return Vector(result)
 
@@ -156,11 +233,15 @@ class Vector(object):
         if not (self.n_elems == other.n_elems):
             raise ValueError(ERR_OP_BAD_DIMS)
                              
-        result = [0.0 for i in range(self.n_elems)]
+        result = []
         for i in range(self.n_elems):
-            result[i] = float(self.data[i]) / other.data[i]
+            result.append(self.data[i] / other.data[i])
 
         return Vector(result)
+
+    #### Type conversion
+
+    #### Scalar arithmetic
 
     def add_scalar(self, value):
         """
@@ -201,12 +282,48 @@ class Vector(object):
             result[i] /= value
 
         return Vector(result)
-        
+    
+    #### Vector operations
+
+    def dot_product(self, other):
+        """
+        Returns the dot product.
+        """
+        if not isinstance(other, Vector):
+            raise ValueError(ERR_OP_NOT_VEC)
+        if not (self.n_elems == other.n_elems):
+            raise ValueError(ERR_OP_BAD_DIMS)
+
+        return mathsci.math.linalg.dot_product(self.data, other.data)
+
+    #### Adding/removing elements
+
     def append(self, value):
         """
         Adds the input value to the end of the Vector.
         """
         self.data.append(value)
+        self.n_elems = len(self.data)
+
+    def prepend(self, value):
+        """
+        Adds the input value to the beginning of the Vector.
+        """
+        self.data.insert(0, value)
+        self.n_elems = len(self.data)
+
+    def insert(self, idx, value):
+        """
+        Inserts the input value at the given index.
+        """
+        self.data.insert(idx, value)
+        self.n_elems = len(self.data)
+
+    def remove(self, idx):
+        """
+        Removes the element at the given index.
+        """
+        del self.data[idx]
         self.n_elems = len(self.data)
 
 class Matrix(object):
@@ -223,12 +340,8 @@ class Matrix(object):
         # TODO: raise error if not all rows have same length
         self.n_rows = len(data)
         self.n_cols = len(data[0])
-    
-    def __getitem__(self):
-        """
-        DEFINE ME
-        """
-        return
+   
+    #### Representations
 
     def __str__(self):
         """
@@ -247,35 +360,51 @@ class Matrix(object):
         output += "]"
         return output
 
-    ############################# Unary operators #############################
+    #### Container methods
+
+    # TODO    
+    def __getitem__(self):
+        return
+
+    #### Unary operators
 
     def __pos__(self):
         """
         Implements behaviour for unary positive.
         """
+        result = [[0.0 for i in range(self.n_rows)]
+                  for j in range(self.n_cols)]
         for i in range(self.n_rows):
             for j in range(self.n_cols):
-                self.data[i][j] = +self.data[i][j]
+                result[i][j] = +self.data[i][j]
+
+        return result
 
     def __neg__(self):
         """
         Implements behaviour for unary negation.
         """
+        result = [[0.0 for i in range(self.n_rows)]
+                  for j in range(self.n_cols)]
         for i in range(self.n_rows):
             for j in range(self.n_cols):
-                self.data[i][j] = -self.data[i][j]
+                result[i][j] = -self.data[i][j]
+
+        return result
 
     def __abs__(self):
         """
         Implements behaviour for absolute value (NOT modulus; use dot()).
         """
+        result = [[0.0 for i in range(self.n_rows)]
+                  for j in range(self.n_cols)]
         for i in range(self.n_rows):
             for j in range(self.n_cols):
-                self.data[i][j] = abs(self.data[i][j])
+                result[i][j] = abs(self.data[i][j])
 
-    # more...
+        return result
     
-    ############################ Binary operators #############################
+    #### Comparisons
 
     def __eq__(self, other):
         if not isinstance(other, Matrix):
@@ -288,6 +417,8 @@ class Matrix(object):
                 if self.data[i][j] != other.data[i][j]:
                     return False
         return True
+
+    #### Element-wise arithmetic
 
     def __add__(self, other):
         """
@@ -361,6 +492,31 @@ class Matrix(object):
 
         return Matrix(result)
 
+    #### Matrix operations
+
+    def mul_matrix(self, other):
+        """
+        Performs matrix multiplication.
+        """
+        if not isinstance(other, Matrix):
+            raise ValueError(ERR_OP_NOT_MAT)
+
+        result = [[0.0 for i in range(self.n_rows)]
+                  for j in range(other.n_cols)]
+
+        for i in range(self.n_rows):
+            for j in range(other.n_cols):
+                result[i][j] = (mathsci.math.linalg.dot_product
+                                (self.data[i], zip(*other.data)[j]))
+
+        return Matrix(result)
+
+    # TODO
+    def inverse(self):
+        return
+
+    #### Adding/removing elements
+    
     def append_row(self, row):
         """
         Adds the input row to the bottom of the Matrix.
@@ -381,20 +537,3 @@ class Matrix(object):
         for i in range(self.n_rows):
             self.data[i].append(col[i])
         self.n_cols = len(self.data[0])
-
-    def mul_matrix(self, other):
-        if not isinstance(other, Matrix):
-            raise ValueError(ERR_OP_NOT_MAT)
-
-        result = [[0.0 for i in range(self.n_rows)]
-                  for j in range(other.n_cols)]
-
-        for i in range(self.n_rows):
-            for j in range(other.n_cols):
-                result[i][j] = (mathsci.math.linalg.dot_product
-                                (self.data[i], zip(*other.data)[j]))
-
-        return Matrix(result)
-
-    def inverse(self):
-        return
