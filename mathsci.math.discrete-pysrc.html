@@ -69,23 +69,29 @@
 <a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
 <a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line">    <tt class="py-name">n</tt> <tt class="py-op">=</tt> <tt class="py-name">int</tt><tt class="py-op">(</tt><tt class="py-name">n</tt><tt class="py-op">)</tt> </tt>
 <a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line"> </tt>
-<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">n</tt> <tt class="py-op">&gt;</tt> <tt class="py-number">1</tt><tt class="py-op">:</tt> </tt>
-<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">n</tt> <tt class="py-op">*</tt> <tt id="link-0" class="py-name" targets="Function mathsci.math.discrete.factorial()=mathsci.math.discrete-module.html#factorial"><a title="mathsci.math.discrete.factorial" class="py-name" href="#" onclick="return doclink('link-0', 'factorial', 'link-0');">factorial</a></tt><tt class="py-op">(</tt><tt class="py-name">n</tt> <tt class="py-op">-</tt> <tt class="py-number">1</tt><tt class="py-op">)</tt> </tt>
-<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line">    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
-<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-number">1</tt> </tt>
-</div><a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line"> </tt>
-<a name="binomial_coefficient"></a><div id="binomial_coefficient-def"><a name="L21"></a><tt class="py-lineno">21</tt> <a class="py-toggle" href="#" id="binomial_coefficient-toggle" onclick="return toggle('binomial_coefficient');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="mathsci.math.discrete-module.html#binomial_coefficient">binomial_coefficient</a><tt class="py-op">(</tt><tt class="py-param">n</tt><tt class="py-op">,</tt> <tt class="py-param">k</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
-</div><div id="binomial_coefficient-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="binomial_coefficient-expanded"><a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
-<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line"><tt class="py-docstring">    Computes "n choose k".</tt> </tt>
-<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
-<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line"><tt class="py-docstring">    @type n: number</tt> </tt>
-<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line"><tt class="py-docstring">    @type k: number</tt> </tt>
-<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
-<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line"><tt class="py-docstring">    @rtype: number</tt> </tt>
-<a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line"><tt class="py-docstring">    @return: n choose k</tt> </tt>
-<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
-<a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt id="link-1" class="py-name"><a title="mathsci.math.discrete.factorial" class="py-name" href="#" onclick="return doclink('link-1', 'factorial', 'link-0');">factorial</a></tt><tt class="py-op">(</tt><tt class="py-name">n</tt><tt class="py-op">)</tt> <tt class="py-op">/</tt> <tt class="py-op">(</tt><tt id="link-2" class="py-name"><a title="mathsci.math.discrete.factorial" class="py-name" href="#" onclick="return doclink('link-2', 'factorial', 'link-0');">factorial</a></tt><tt class="py-op">(</tt><tt class="py-name">k</tt><tt class="py-op">)</tt> <tt class="py-op">*</tt> <tt id="link-3" class="py-name"><a title="mathsci.math.discrete.factorial" class="py-name" href="#" onclick="return doclink('link-3', 'factorial', 'link-0');">factorial</a></tt><tt class="py-op">(</tt><tt class="py-name">n</tt> <tt class="py-op">-</tt> <tt class="py-name">k</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
-</div><a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">n</tt> <tt class="py-op">&lt;</tt> <tt class="py-number">0</tt><tt class="py-op">:</tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line">        <tt class="py-keyword">raise</tt> <tt class="py-name">ValueError</tt><tt class="py-op">(</tt><tt class="py-string">"This factorial function is undefined for negative "</tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line">                         <tt class="py-string">"numbers"</tt><tt class="py-op">)</tt> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">n</tt> <tt class="py-op">==</tt> <tt class="py-number">1</tt><tt class="py-op">:</tt> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-number">1</tt> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">n</tt> <tt class="py-op">*</tt> <tt id="link-0" class="py-name" targets="Function mathsci.math.discrete.factorial()=mathsci.math.discrete-module.html#factorial"><a title="mathsci.math.discrete.factorial" class="py-name" href="#" onclick="return doclink('link-0', 'factorial', 'link-0');">factorial</a></tt><tt class="py-op">(</tt><tt class="py-name">n</tt> <tt class="py-op">-</tt> <tt class="py-number">1</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line"> </tt>
+<a name="binomial_coefficient"></a><div id="binomial_coefficient-def"><a name="L23"></a><tt class="py-lineno">23</tt> <a class="py-toggle" href="#" id="binomial_coefficient-toggle" onclick="return toggle('binomial_coefficient');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="mathsci.math.discrete-module.html#binomial_coefficient">binomial_coefficient</a><tt class="py-op">(</tt><tt class="py-param">n</tt><tt class="py-op">,</tt> <tt class="py-param">k</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="binomial_coefficient-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="binomial_coefficient-expanded"><a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line"><tt class="py-docstring">    Computes the coefficient of the x^k term in the binomial expansion of</tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line"><tt class="py-docstring">    (1+x)^n. This quantity is also referred to as "n choose k" in</tt> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line"><tt class="py-docstring">    combinatorics, that is, the number of ways to select k elements from a</tt> </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line"><tt class="py-docstring">    set of n elements. The family of binomial coefficients form Pascal's</tt> </tt>
+<a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line"><tt class="py-docstring">    triangle, by way of Pascal's rule.</tt> </tt>
+<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line"><tt class="py-docstring">    @type n: number</tt> </tt>
+<a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line"><tt class="py-docstring">    @type k: number</tt> </tt>
+<a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line"><tt class="py-docstring">    @rtype: number</tt> </tt>
+<a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line"><tt class="py-docstring">    @return: n choose k</tt> </tt>
+<a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt id="link-1" class="py-name"><a title="mathsci.math.discrete.factorial" class="py-name" href="#" onclick="return doclink('link-1', 'factorial', 'link-0');">factorial</a></tt><tt class="py-op">(</tt><tt class="py-name">n</tt><tt class="py-op">)</tt> <tt class="py-op">/</tt> <tt class="py-op">(</tt><tt id="link-2" class="py-name"><a title="mathsci.math.discrete.factorial" class="py-name" href="#" onclick="return doclink('link-2', 'factorial', 'link-0');">factorial</a></tt><tt class="py-op">(</tt><tt class="py-name">k</tt><tt class="py-op">)</tt> <tt class="py-op">*</tt> <tt id="link-3" class="py-name"><a title="mathsci.math.discrete.factorial" class="py-name" href="#" onclick="return doclink('link-3', 'factorial', 'link-0');">factorial</a></tt><tt class="py-op">(</tt><tt class="py-name">n</tt> <tt class="py-op">-</tt> <tt class="py-name">k</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line"> </tt><script type="text/javascript">
 <!--
 expandto(location.href);
 // -->
@@ -115,7 +121,7 @@ expandto(location.href);
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Mon Oct  5 22:44:51 2015
+    Generated by Epydoc 3.0.1 on Sun Oct 11 12:35:40 2015
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"

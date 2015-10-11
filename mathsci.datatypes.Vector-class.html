@@ -105,11 +105,10 @@ object --+
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a href="mathsci.datatypes.Vector-class.html#__getitem__" class="summary-sig-name">__getitem__</a>(<span class="summary-sig-arg">self</span>,
-        <span class="summary-sig-arg">key</span>=<span class="summary-sig-default">None</span>)</span><br />
-      Returns the element(s) specified by the index/indices in key.</td>
+          <td><span class="summary-sig"><a href="mathsci.datatypes.Vector-class.html#__str__" class="summary-sig-name">__str__</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Returns the string representation of the Vector.</td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="mathsci.datatypes-pysrc.html#Vector.__getitem__">source&nbsp;code</a></span>
+            <span class="codelink"><a href="mathsci.datatypes-pysrc.html#Vector.__str__">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -123,10 +122,11 @@ object --+
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a href="mathsci.datatypes.Vector-class.html#__str__" class="summary-sig-name">__str__</a>(<span class="summary-sig-arg">self</span>)</span><br />
-      Returns the string representation of the Vector.</td>
+          <td><span class="summary-sig"><a href="mathsci.datatypes.Vector-class.html#__getitem__" class="summary-sig-name">__getitem__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">key</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Returns the element(s) specified by the index/indices in key.</td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="mathsci.datatypes-pysrc.html#Vector.__str__">source&nbsp;code</a></span>
+            <span class="codelink"><a href="mathsci.datatypes-pysrc.html#Vector.__getitem__">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -195,6 +195,82 @@ object --+
         <span class="summary-sig-arg">other</span>)</span></td>
           <td align="right" valign="top">
             <span class="codelink"><a href="mathsci.datatypes-pysrc.html#Vector.__eq__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__lt__"></a><span class="summary-sig-name">__lt__</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">other</span>)</span><br />
+      Returns a boolean Vector containing the results of element-wise 
+      less-than comparisons.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mathsci.datatypes-pysrc.html#Vector.__lt__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__gt__"></a><span class="summary-sig-name">__gt__</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">other</span>)</span><br />
+      Returns a boolean Vector containing the results of element-wise 
+      greater-than comparisons.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mathsci.datatypes-pysrc.html#Vector.__gt__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__le__"></a><span class="summary-sig-name">__le__</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">other</span>)</span><br />
+      Returns a boolean Vector containing the results of element-wise 
+      less-than-or-equal comparisons.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mathsci.datatypes-pysrc.html#Vector.__le__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__ge__"></a><span class="summary-sig-name">__ge__</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">other</span>)</span><br />
+      Returns a boolean Vector containing the results of element-wise 
+      greater-than-or-equal comparisons.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mathsci.datatypes-pysrc.html#Vector.__ge__">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -354,11 +430,84 @@ object --+
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
+          <td><span class="summary-sig"><a name="dot_product"></a><span class="summary-sig-name">dot_product</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">other</span>)</span><br />
+      Returns the dot product.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mathsci.datatypes-pysrc.html#Vector.dot_product">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
           <td><span class="summary-sig"><a name="append"></a><span class="summary-sig-name">append</span>(<span class="summary-sig-arg">self</span>,
         <span class="summary-sig-arg">value</span>)</span><br />
       Adds the input value to the end of the Vector.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="mathsci.datatypes-pysrc.html#Vector.append">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="prepend"></a><span class="summary-sig-name">prepend</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">value</span>)</span><br />
+      Adds the input value to the beginning of the Vector.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mathsci.datatypes-pysrc.html#Vector.prepend">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="insert"></a><span class="summary-sig-name">insert</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">idx</span>,
+        <span class="summary-sig-arg">value</span>)</span><br />
+      Inserts the input value at the given index.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mathsci.datatypes-pysrc.html#Vector.insert">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="remove"></a><span class="summary-sig-name">remove</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">idx</span>)</span><br />
+      Removes the element at the given index.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="mathsci.datatypes-pysrc.html#Vector.remove">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -452,28 +601,6 @@ object --+
   </dl>
 </td></tr></table>
 </div>
-<a name="__getitem__"></a>
-<div>
-<table class="details" border="1" cellpadding="3"
-       cellspacing="0" width="100%" bgcolor="white">
-<tr><td>
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-  <tr valign="top"><td>
-  <h3 class="epydoc"><span class="sig"><span class="sig-name">__getitem__</span>(<span class="sig-arg">self</span>,
-        <span class="sig-arg">key</span>=<span class="sig-default">None</span>)</span>
-    <br /><em class="fname">(Indexing operator)</em>
-  </h3>
-  </td><td align="right" valign="top"
-    ><span class="codelink"><a href="mathsci.datatypes-pysrc.html#Vector.__getitem__">source&nbsp;code</a></span>&nbsp;
-    </td>
-  </tr></table>
-  
-  <p>Returns the element(s) specified by the index/indices in key. Supports
-  backwards indexing. If key is None, returns the entire Vactor.</p>
-  <dl class="fields">
-  </dl>
-</td></tr></table>
-</div>
 <a name="__str__"></a>
 <div>
 <table class="details" border="1" cellpadding="3"
@@ -494,6 +621,28 @@ object --+
     <dt>Overrides:
         object.__str__
     </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="__getitem__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__getitem__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">key</span>=<span class="sig-default">None</span>)</span>
+    <br /><em class="fname">(Indexing operator)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="mathsci.datatypes-pysrc.html#Vector.__getitem__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the element(s) specified by the index/indices in key. Supports
+  backwards indexing. If key is None, returns the entire Vector.</p>
+  <dl class="fields">
   </dl>
 </td></tr></table>
 </div>
@@ -521,7 +670,7 @@ object --+
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Mon Oct  5 22:44:51 2015
+    Generated by Epydoc 3.0.1 on Sun Oct 11 12:35:39 2015
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"
