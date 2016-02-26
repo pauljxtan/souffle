@@ -1,7 +1,7 @@
 import unittest
 from mathsci.math import integral
 
-class Tests(unittest.TestCase):
+class IntegralTests(unittest.TestCase):
 
     def test_trapezoidal(self):
         f = lambda x: 1.2 * x**3.4
@@ -23,7 +23,14 @@ class Tests(unittest.TestCase):
         b = 6.7
         n = 1e3
         self.assertTrue(abs(integral.simpsons(f, a, b, n) - 135343.850360) < 1e-6)
-        return
+
+TEST_CASES = (IntegralTests, )
+
+def suite():
+    return unittest.TestSuite(
+        [unittest.TestLoader().loadTestsFromTestCase(test_case)
+        for test_case in TEST_CASES]
+    )
 
 if __name__ == '__main__':
-    unittest.main(verbosity=2)
+    unittest.TextTestRunner(verbosity=2).run(suite())
