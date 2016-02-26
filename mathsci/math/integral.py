@@ -77,8 +77,34 @@ def simpsons(f, a, b, n):
 def adaptive_simpsons():
     return
 
+def boole(f, a, b):
+    """
+    Evaluates the integral of f, with endpoints a and b, using Boole's rule.
+
+    @type  f: function
+    @param f: function integrate
+    @type  a: number
+    @param a: start of interval
+    @type  b: number
+    @param b: end of interval
+
+    @rtype: number
+    @return: integral of f between a and b
+    """
+    x1 = float(a)
+    x5 = float(b)
+
+    h = (x5 - x1) / 4
+    
+    x2 = x1 + h
+    x3 = x1 + 2*h
+    x4 = x1 + 3*h
+
+    return 2*h / 45 * (7*f(x1) + 32*f(x2) + 12*f(x3) + 32*f(x4) + 7 * f(x5))
+
 # TODO
 def romberg():
+
     return
 
 # TODO
