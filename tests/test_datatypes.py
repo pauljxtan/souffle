@@ -11,6 +11,7 @@ class TestDatatypes(unittest.TestCase):
         y = Vector([4.0, 5.0, 6.0])
         z = Vector([3.0, 2.0, 1.0])
         w = Vector([-1.2, 3.4, -5.6])
+        v = Vector([1, 2, 3])
 
         # Representations
         self.assertEqual(str(x), "[1.0 2.0 3.0]")
@@ -34,6 +35,10 @@ class TestDatatypes(unittest.TestCase):
         self.assertEqual(x - y, Vector([-3.0, -3.0, -3.0]))
         self.assertEqual(x * y, Vector([4.0, 10.0, 18.0]))
         self.assertEqual(x / y, Vector([0.25, 0.4, 0.5]))
+
+        # Type conversion
+        v.set_type(float)
+        self.assertEqual(v, Vector([float(1), float(2), float(3)]))
 
         # Scalar arithmetic
         self.assertEqual(x.add_scalar(4.0), Vector([5.0, 6.0, 7.0]))
@@ -62,6 +67,9 @@ class TestDatatypes(unittest.TestCase):
                     [4.0, 3.0, 5.0],
                     [4.0, 6.0, 5.0]])
         w = Matrix([[1.2, -3.4], [5.6, -7.8]])
+        v = Matrix([[1, 2, 3],
+                    [4, 5, 6],
+                    [7, 8, 9]])
         
         # Representations
         self.assertEqual(str(x), "[[1.0 2.0 3.0]\n"
@@ -83,6 +91,12 @@ class TestDatatypes(unittest.TestCase):
         self.assertEqual(x * y, Matrix([[1.0, 6.0, 6.0],
                                         [16.0, 15.0, 30.0],
                                         [28.0, 48.0, 45.0]]))
+
+        # Type conversion
+        v.set_type(float)
+        self.assertEqual(v, Matrix([[float(1), float(2), float(3)],
+                                    [float(4), float(5), float(6)],
+                                    [float(7), float(8), float(9)]]))
 
         # Matrix operations
         self.assertEqual(x.mul_matrix(y), Matrix([[21.0, 27.0, 27.0],
