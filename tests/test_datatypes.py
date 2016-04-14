@@ -63,25 +63,32 @@ class TestDatatypes(unittest.TestCase):
         x = Matrix([[1.0, 2.0, 3.0],
                     [4.0, 5.0, 6.0],
                     [7.0, 8.0, 9.0]])
+
         y = Matrix([[1.0, 3.0, 2.0],
                     [4.0, 3.0, 5.0],
                     [4.0, 6.0, 5.0]])
-        w = Matrix([[1.2, -3.4], [5.6, -7.8]])
+
+        w = Matrix([[1.2, -3.4],
+                    [5.6, -7.8]])
+
         v = Matrix([[1, 2, 3],
                     [4, 5, 6],
                     [7, 8, 9]])
         
         # Representations
+
         self.assertEqual(str(x), "[[1.0 2.0 3.0]\n"
                                  " [4.0 5.0 6.0]\n"
                                  " [7.0 8.0 9.0]]")
 
         # Unary operators
+
         #self.assertEqual(+w, Matrix([[+1.2, +(-3.4)], [+5.6, +(-7.8)]]))
         #self.assertEqual(-w, Matrix([[-1.2, -(-3.4)], [-5.6, -(-7.8)]]))
         #self.assertEqual(abs(w), Matrix([[1.2, 3.4], [5.6, 7.8]]))
 
         # Element-wise arithmetic
+
         self.assertEqual(x + y, Matrix([[2.0, 5.0, 5.0],
                                         [8.0, 8.0, 11.0],
                                         [11.0, 14.0, 14.0]]))
@@ -93,26 +100,47 @@ class TestDatatypes(unittest.TestCase):
                                         [28.0, 48.0, 45.0]]))
 
         # Type conversion
+
         v.set_type(float)
         self.assertEqual(v, Matrix([[float(1), float(2), float(3)],
                                     [float(4), float(5), float(6)],
                                     [float(7), float(8), float(9)]]))
 
         # Matrix operations
+
         self.assertEqual(x.mul_matrix(y), Matrix([[21.0, 27.0, 27.0],
                                                   [48.0, 63.0, 63.0],
                                                   [75.0, 99.0, 99.0]]))
 
+        # Accessing elements
+
+        self.assertEqual(x.get_row(1), [4.0, 5.0, 6.0])
+        self.assertEqual(y.get_col(1), [3.0, 3.0, 6.0])
+
         # Adding/removing elements
+
         x.append_row([1.2, 3.4, 5.6])
         self.assertEqual(x, Matrix([[1.0, 2.0, 3.0],
                                     [4.0, 5.0, 6.0],
                                     [7.0, 8.0, 9.0],
                                     [1.2, 3.4, 5.6]]))
+        
         y.append_col([9.8, 7.6, 5.4])
         self.assertEqual(y, Matrix([[1.0, 3.0, 2.0, 9.8],
                                     [4.0, 3.0, 5.0, 7.6],
                                     [4.0, 6.0, 5.0, 5.4]]))
+
+        x.remove_row(2)
+        self.assertEqual(x.n_rows, 3)
+        self.assertEqual(x, Matrix([[1.0, 2.0, 3.0],
+                                    [4.0, 5.0, 6.0],
+                                    [1.2, 3.4, 5.6]]))
+
+        y.remove_col(2)
+        self.assertEqual(y.n_cols, 3)
+        self.assertEqual(y, Matrix([[1.0, 3.0, 9.8],
+                                    [4.0, 3.0, 7.6],
+                                    [4.0, 6.0, 5.4]]))
 
 
 if __name__ == '__main__':

@@ -2,12 +2,6 @@
 Provides generic datatypes.
 """
 
-# TODO:
-#**** define __getitem__ for and Matrix
-#     define slicing methods for Vector and Matrix
-#     define all useful magic methods
-#     add more type checking
-
 ERR_INPUT_NOT_LIST_TUPLE = "Input data is not list or tuple"
 ERR_INPUT_BAD_DIMS = "Input data has incompatible dimensions"
 ERR_KEY_NOT_INT_LIST_TUPLE = "Key is not int, list or tuple"
@@ -527,6 +521,17 @@ class Matrix(object):
     def inverse(self):
         return
 
+    ### Accessing elements
+    
+    def get_row(self, row_idx):
+        return self.data[row_idx]
+
+    def get_col(self, col_idx):
+        col = []
+        for row in range(self.n_rows):
+            col.append(self.data[row][col_idx])
+        return col
+
     #### Adding/removing elements
     
     def append_row(self, row):
@@ -549,3 +554,12 @@ class Matrix(object):
         for i in range(self.n_rows):
             self.data[i].append(col[i])
         self.n_cols = len(self.data[0])
+
+    def remove_row(self, row_idx):
+        del self.data[row_idx]
+        self.n_rows -= 1
+
+    def remove_col(self, col_idx):
+        for row in range(self.n_rows):
+            del self.data[row][col_idx]
+        self.n_cols -= 1
