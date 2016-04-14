@@ -16,6 +16,10 @@ class Vector(object):
     The generic vector class.
     """
     def __init__(self, data=None):
+        """
+        @type  data: list or tuple
+        @param data: the data to load into the Vector
+        """
         if data == None:
             self.data = []
         else:
@@ -29,6 +33,9 @@ class Vector(object):
     def __str__(self):
         """
         Returns the string representation of the Vector.
+
+        @rtype: string
+        @return: the string representation of the Vector
         """
         data_str = map(str, self.data)
         output = "["
@@ -43,6 +50,11 @@ class Vector(object):
         """
         Returns the element(s) specified by the index/indices in key. Supports
         backwards indexing. If key is None, returns the entire Vector.
+
+        @type  k: integer, list or tuple
+        @param k: the index/indices of the element(s) to access
+
+        @return: the element(s) specified by the given index/indices
         """
         if isinstance(key, int):
             if key >= 0:
@@ -67,6 +79,9 @@ class Vector(object):
     def __pos__(self):
         """
         Implements behaviour for unary positive.
+
+        @rtype: Vector
+        @return: the Vector with all elements positive
         """
         result = []
         for i in range(self.n_elems):
@@ -77,6 +92,9 @@ class Vector(object):
     def __neg__(self):
         """
         Implements behaviour for unary negation.
+
+        @rtype: Vector
+        @return: the Vector with all elements negated
         """
         result = []
         for i in range(self.n_elems):
@@ -87,6 +105,9 @@ class Vector(object):
     def __abs__(self):
         """
         Implements behaviour for absolute value (NOT modulus; use dot()).
+
+        @rtype: Vector
+        @return: the Vector containing the absolute value of all elements
         """
         result = []
         for i in range(self.n_elems):
@@ -97,6 +118,15 @@ class Vector(object):
     #### Comparisons
 
     def __eq__(self, other):
+        """
+        Compares two Vectors by element to determine equality.
+
+        @type  other: Vector
+        @param other: the Vector to compare
+
+        @rtype: boolean
+        @return: whether the Vectors are equal
+        """
         if not isinstance(other, Vector):
             raise ValueError(ERR_OP_NOT_VEC)
         if self.n_elems != other.n_elems:
@@ -111,6 +141,12 @@ class Vector(object):
         """
         Returns a boolean Vector containing the results of element-wise
         less-than comparisons.
+
+        @type  other: Vector
+        @param other: the Vector to compare
+
+        @rtype: Vector of booleans
+        @return: the comparison result for each element
         """
         if not isinstance(other, Vector):
             raise ValueError(ERR_OP_NOT_VEC)
@@ -127,6 +163,12 @@ class Vector(object):
         """
         Returns a boolean Vector containing the results of element-wise
         greater-than comparisons.
+
+        @type  other: Vector
+        @param other: the Vector to compare
+
+        @rtype: Vector of booleans
+        @return: the comparison result for each element
         """
         if not isinstance(other, Vector):
             raise ValueError(ERR_OP_NOT_VEC)
@@ -143,6 +185,12 @@ class Vector(object):
         """
         Returns a boolean Vector containing the results of element-wise
         less-than-or-equal comparisons.
+
+        @type  other: Vector
+        @param other: the Vector to compare
+
+        @rtype: Vector of booleans
+        @return: the comparison result for each element
         """
         if not isinstance(other, Vector):
             raise ValueError(ERR_OP_NOT_VEC)
@@ -159,6 +207,12 @@ class Vector(object):
         """
         Returns a boolean Vector containing the results of element-wise
         greater-than-or-equal comparisons.
+
+        @type  other: Vector
+        @param other: the Vector to compare
+
+        @rtype: Vector of booleans
+        @return: the comparison result for each element
         """
         if not isinstance(other, Vector):
             raise ValueError(ERR_OP_NOT_VEC)
@@ -176,6 +230,12 @@ class Vector(object):
     def __add__(self, other):
         """
         Perform element-wise addition of one Vector by another.
+
+        @type  other: Vector
+        @param other: the Vector to add
+
+        @rtype: Vector
+        @return: the element-wise sum of the operands
         """
         if not isinstance(other, Vector):
             raise ValueError(ERR_OP_NOT_VEC)
@@ -191,6 +251,12 @@ class Vector(object):
     def __sub__(self, other):
         """
         Perform element-wise subtraction of one Vector by another.
+
+        @type  other: Vector
+        @param other: the Vector to subtract
+
+        @rtype: Vector
+        @return: the element-wise difference of the operands
         """
         if not isinstance(other, Vector):
             raise ValueError(ERR_OP_NOT_VEC)
@@ -206,6 +272,12 @@ class Vector(object):
     def __mul__(self, other):
         """
         Perform element-wise multiplication of one Vector by another.
+
+        @type  other: Vector
+        @param other: the Vector to multiply
+
+        @rtype: Vector
+        @return: the element-wise product of the operands
         """
         if not isinstance(other, Vector):
             raise ValueError(ERR_OP_NOT_VEC)
@@ -221,6 +293,12 @@ class Vector(object):
     def __div__(self, other):
         """
         Perform element-wise division of one Vector by another.
+
+        @type  other: Vector
+        @param other: the Vector to divide
+
+        @rtype: Vector
+        @return: the element-wise quotient of the operands
         """
         if not isinstance(other, Vector):
             raise ValueError(ERR_OP_NOT_VEC)
@@ -236,6 +314,12 @@ class Vector(object):
     #### Type conversion
 
     def set_type(self, ttype):
+        """
+        Sets the type for all elements.
+
+        @type  ttype: type
+        @param ttype: the type to which all elements should be converted
+        """
         self.data = map(ttype, self.data)
 
     #### Scalar arithmetic
@@ -243,6 +327,12 @@ class Vector(object):
     def add_scalar(self, value):
         """
         Returns a new Vector with the input value added to every element.
+
+        @type  value: number
+        @param value: the value to be added to each element
+
+        @rtype: Vector
+        @return: the resulting Vector
         """
         result = self.data[:]
         for i, v in enumerate(result):
@@ -253,6 +343,12 @@ class Vector(object):
     def sub_scalar(self, value):
         """
         Returns a new Vector with the input value subtracted from every element.
+
+        @type  value: number
+        @param value: the value to be subtracted from each element
+
+        @rtype: Vector
+        @return: the resulting Vector
         """
         result = self.data[:]
         for i, v in enumerate(result):
@@ -263,6 +359,12 @@ class Vector(object):
     def mul_scalar(self, value):
         """
         Returns a new Vector with every element multiplied by the input value.
+
+        @type  value: number
+        @param value: the value to multiply each element
+
+        @rtype: Vector
+        @return: the resulting Vector
         """
         result = self.data[:]
         for i, v in enumerate(result):
@@ -273,6 +375,12 @@ class Vector(object):
     def div_scalar(self, value):
         """
         Returns a new Vector with every element divided by the input value.
+
+        @type  value: number
+        @param value: the value to divide each element
+
+        @rtype: Vector
+        @return: the resulting Vector
         """
         result = self.data[:]
         for i, v in enumerate(result):
@@ -285,6 +393,12 @@ class Vector(object):
     def dot_product(self, other):
         """
         Returns the dot product.
+
+        @type  other: Vector
+        @param other: the Vector with which to compute the dot product
+
+        @rtype: Vector
+        @return: the dot product of the operands
         """
         if not isinstance(other, Vector):
             raise ValueError(ERR_OP_NOT_VEC)
@@ -298,6 +412,9 @@ class Vector(object):
     def append(self, value):
         """
         Adds the input value to the end of the Vector.
+
+        @type  value: number
+        @param value: the value to append to the Vector
         """
         self.data.append(value)
         self.n_elems = len(self.data)
@@ -305,6 +422,9 @@ class Vector(object):
     def prepend(self, value):
         """
         Adds the input value to the beginning of the Vector.
+
+        @type  value: number
+        @param value: the value to prepend to the Vector
         """
         self.data.insert(0, value)
         self.n_elems = len(self.data)
@@ -312,6 +432,11 @@ class Vector(object):
     def insert(self, idx, value):
         """
         Inserts the input value at the given index.
+
+        @type    idx: integer
+        @param   idx: the index at which to insert the value
+        @type  value: number
+        @param value: the value to insert
         """
         self.data.insert(idx, value)
         self.n_elems = len(self.data)
@@ -319,6 +444,9 @@ class Vector(object):
     def remove(self, idx):
         """
         Removes the element at the given index.
+
+        @type    idx: integer
+        @param   idx: the index of the element to be removed
         """
         del self.data[idx]
         self.n_elems = len(self.data)
@@ -331,6 +459,10 @@ class Matrix(object):
     The generic matrix class.
     """
     def __init__(self, data=None):
+        """
+        @type  data: a 2-dimensional combination of lists and/or tuples
+        @param data: the data to load into the Matrix
+        """
         if data == None:
             self.data = []
         else:
