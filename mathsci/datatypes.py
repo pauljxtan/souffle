@@ -241,6 +241,9 @@ class Vector(object):
 
     #### Type conversion
 
+    def set_type(self, ttype):
+        self.data = map(ttype, self.data)
+
     #### Scalar arithmetic
 
     def add_scalar(self, value):
@@ -325,6 +328,9 @@ class Vector(object):
         """
         del self.data[idx]
         self.n_elems = len(self.data)
+
+    def get_slice(self, idx_start, idx_end):
+        return self.data[idx_start : idx_end]
 
 class Matrix(object):
     """
@@ -453,8 +459,8 @@ class Matrix(object):
         for i in range(self.n_rows):
             for j in range(self.n_cols):
                 result[i][j] = self.data[i][j] - other.data[i][j]
-        
-        return Matrix(result)
+        return Matrix(result)        
+
 
     def __mul__(self, other):
         """
@@ -491,6 +497,12 @@ class Matrix(object):
                 result[i][j] = float(self.data[i][j]) / other.data[i][j]
 
         return Matrix(result)
+
+    #### Type conversion
+
+    def set_type(self, ttype):
+        for row in range(self.n_rows):
+            self.data[row] = map(ttype, self.data[row])
 
     #### Matrix operations
 
