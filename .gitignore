@@ -54,3 +54,5 @@ docs/_build/
 target/
 /.vs/mathsci/v14/.suo
 /mathsci.pyproj
+/mathsci.pyproj.user
+/mathsci.sln
