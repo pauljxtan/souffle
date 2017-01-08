@@ -416,9 +416,9 @@ class Matrix(object):
         if data == None:
             return
         try:
-            self.data = [[elem in row for elem in row] for row in data]
-            self.n_rows = len(data)
-            self.n_cols = len(data[0])
+            self.data = [[elem for elem in row] for row in data]
+            self.n_rows = len(self.data)
+            self.n_cols = len(self.data[0])
         except:
             raise ValueError(ERR_INPUT_INVALID)
         row_lens = [len(row) for row in self.data]
@@ -432,10 +432,10 @@ class Matrix(object):
         Returns the string representation of the Matrix.
         """
         output = "["
-        for i in range(self.n_rows):
+        for i, row in enumerate(self.data):
             if i != 0:
                 output += " "
-            output += "[{}]".format(" ".join([str(elem) for elem in self.data]))
+            output += "[{}]".format(" ".join([str(elem) for elem in row]))
             if i != self.n_rows - 1:
                 output += "\n"
         output += "]"
@@ -494,16 +494,9 @@ class Matrix(object):
         if not (self.n_rows == other.n_rows and self.n_cols == other.n_cols):
             raise ValueError(ERR_OP_BAD_DIMS)
 
-        result = [[0.0 for i in range(self.n_rows)]
-                  for j in range(self.n_cols)]
-
-        for i in range(self.n_rows):
-            for j in range(self.n_cols):
-                result[i][j] = self.data[i][j] + other.data[i][j]
-
         # TODO: use __getitem__() after implemented, e.g. self[i, j] (?)
-        return Matrix([[self.data[i][j] + other.data[i][j]
-                        for i in self.n_rows] for j in self.n_cols])
+        return Matrix([[self.data[j][i] + other.data[j][i]
+                        for i in range(self.n_rows)] for j in range(self.n_cols)])
 
     def __sub__(self, other):
         """
@@ -515,8 +508,8 @@ class Matrix(object):
             raise ValueError(ERR_OP_BAD_DIMS)
 
         # TODO: use __getitem__() after implemented, e.g. self[i, j] (?)
-        return Matrix([[self.data[i][j] - other.data[i][j]
-                        for i in self.n_rows] for j in self.n_cols])
+        return Matrix([[self.data[j][i] - other.data[j][i]
+                        for i in range(self.n_rows)] for j in range(self.n_cols)])
 
     def __mul__(self, other):
         """
@@ -528,8 +521,8 @@ class Matrix(object):
             raise ValueError(ERR_OP_BAD_DIMS)
 
         # TODO: use __getitem__() after implemented, e.g. self[i, j] (?)
-        return Matrix([[self.data[i][j] * other.data[i][j]
-                        for i in self.n_rows] for j in self.n_cols])
+        return Matrix([[self.data[j][i] * other.data[j][i]
+                        for i in range(self.n_rows)] for j in range(self.n_cols)])
 
     def __div__(self, other):
         """
@@ -541,8 +534,8 @@ class Matrix(object):
             raise ValueError(ERR_OP_BAD_DIMS)
 
         # TODO: use __getitem__() after implemented, e.g. self[i, j] (?)
-        return Matrix([[self.data[i][j] / other.data[i][j]
-                        for i in self.n_rows] for j in self.n_cols])
+        return Matrix([[self.data[j][i] / other.data[j][i]
+                        for i in range(self.n_rows)] for j in range(self.n_cols)])
 
     #### Type conversion
 
