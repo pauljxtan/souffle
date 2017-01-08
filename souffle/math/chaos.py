@@ -7,6 +7,7 @@ import souffle.datatypes as dtt
 LORENZ_SIGMA = 10.0
 LORENZ_BETA = 8.0 / 3.0
 LORENZ_RHO = 28.0
+LORENZ_KWARGS_KEYS = set(("sigma", "beta", "rho"))
 #############################
 
 def lorenz_attractor(t, X, **kwargs):
@@ -25,14 +26,15 @@ def lorenz_attractor(t, X, **kwargs):
     y = X[1]
     z = X[2]
 
+    if set(kwargs.keys()) != LORENZ_KWARGS_KEYS:
+        raise ValueError("Bad kwargs; please provide all of the "\
+                         "following parameters: sigma, rho, beta")
+
     if len(kwargs) == 0:
         # Use defaults
         x_dot = LORENZ_SIGMA * (y - x)
         y_dot = x * (LORENZ_RHO - z) - y
         z_dot = x * y - LORENZ_BETA * z
-    elif len(kwargs) != 3:
-        raise ValueError("Bad kwargs; please provide all of the "\
-                         "following parameters: sigma, rho, beta")
     else:
         x_dot = kwargs["sigma"] * (y - x)
         y_dot = x * (kwargs["rho"] - z) - y
