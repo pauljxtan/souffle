@@ -15,6 +15,8 @@ class TestMath(unittest.TestCase):
                                                 beta=beta, rho=rho),
                          Vector([sigma * (y - x), x * (rho - z) - y,
                           x * y - beta * z]))
+        with self.assertRaises(ValueError):
+            chaos.lorenz_attractor(t, [x, y, z], sigma=sigma, beta=beta)
 
     def test_derivative(self):
         f = lambda x: 2 * x**3
