@@ -103,7 +103,7 @@ class TestDatatypes(unittest.TestCase):
 
         # Type conversion
 
-        v.set_type(float)
+        v.get_typecasted(float)
         self.assertEqual(v, Matrix([[float(1), float(2), float(3)],
                                     [float(4), float(5), float(6)],
                                     [float(7), float(8), float(9)]]))

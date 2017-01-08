@@ -2,6 +2,8 @@
 Provides generic datatypes.
 """
 
+# TODO: Add missing/incomplete docstrings
+
 ERR_INPUT_NOT_LIST_TUPLE = "Input data is not list or tuple"
 ERR_INPUT_BAD_DIMS = "Input data has incompatible dimensions"
 ERR_KEY_NOT_INT_LIST_TUPLE = "Key is not int, list or tuple"
@@ -499,7 +501,9 @@ class Matrix(object):
             for j in range(self.n_cols):
                 result[i][j] = self.data[i][j] + other.data[i][j]
 
-        return Matrix(result)
+        # TODO: use __getitem__() after implemented, e.g. self[i, j] (?)
+        return Matrix([[self.data[i][j] + other.data[i][j]
+                        for i in self.n_rows] for j in self.n_cols])
 
     def __sub__(self, other):
         """
@@ -510,14 +514,9 @@ class Matrix(object):
         if not (self.n_rows == other.n_rows and self.n_cols == other.n_cols):
             raise ValueError(ERR_OP_BAD_DIMS)
 
-        result = [[0.0 for i in range(self.n_rows)]
-                  for j in range(self.n_cols)]
-
-        for i in range(self.n_rows):
-            for j in range(self.n_cols):
-                result[i][j] = self.data[i][j] - other.data[i][j]
-        return Matrix(result)        
-
+        # TODO: use __getitem__() after implemented, e.g. self[i, j] (?)
+        return Matrix([[self.data[i][j] - other.data[i][j]
+                        for i in self.n_rows] for j in self.n_cols])
 
     def __mul__(self, other):
         """
@@ -528,14 +527,9 @@ class Matrix(object):
         if not (self.n_rows == other.n_rows and self.n_cols == other.n_cols):
             raise ValueError(ERR_OP_BAD_DIMS)
 
-        result = [[0.0 for i in range(self.n_rows)]
-                  for j in range(self.n_cols)]
-
-        for i in range(self.n_rows):
-            for j in range(self.n_cols):
-                result[i][j] = self.data[i][j] * other.data[i][j]
-
-        return Matrix(result)
+        # TODO: use __getitem__() after implemented, e.g. self[i, j] (?)
+        return Matrix([[self.data[i][j] * other.data[i][j]
+                        for i in self.n_rows] for j in self.n_cols])
 
     def __div__(self, other):
         """
@@ -546,20 +540,14 @@ class Matrix(object):
         if not (self.n_rows == other.n_rows and self.n_cols == other.n_cols):
             raise ValueError(ERR_OP_BAD_DIMS)
 
-        result = [[0.0 for i in range(self.n_rows)]
-                  for j in range(self.n_cols)]
-
-        for i in range(self.n_rows):
-            for j in range(self.n_cols):
-                result[i][j] = float(self.data[i][j]) / other.data[i][j]
-
-        return Matrix(result)
+        # TODO: use __getitem__() after implemented, e.g. self[i, j] (?)
+        return Matrix([[self.data[i][j] / other.data[i][j]
+                        for i in self.n_rows] for j in self.n_cols])
 
     #### Type conversion
 
-    def set_type(self, ttype):
-        for row in range(self.n_rows):
-            self.data[row] = map(ttype, self.data[row])
+    def get_typecasted(self, ttype):
+        return Matrix([map(ttype, row) for row in self.data])
 
     #### Matrix operations
 
