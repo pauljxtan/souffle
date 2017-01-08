@@ -3,7 +3,7 @@
           "DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <title>exceptions.AssertionError</title>
+  <title>souffle.math.stochastic.RandomWalk</title>
   <link rel="stylesheet" href="epydoc.css" type="text/css" />
   <script type="text/javascript" src="epydoc.js"></script>
 </head>
@@ -34,9 +34,10 @@
   <tr valign="top">
     <td width="100%">
       <span class="breadcrumbs">
-        exceptions ::
-        AssertionError ::
-        Class&nbsp;AssertionError
+        <a href="souffle-module.html">Package&nbsp;souffle</a> ::
+        <a href="souffle.math-module.html">Package&nbsp;math</a> ::
+        <a href="souffle.math.stochastic-module.html">Module&nbsp;stochastic</a> ::
+        Class&nbsp;RandomWalk
       </span>
     </td>
     <td>
@@ -46,28 +47,28 @@
     onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
         <tr><td align="right"><span class="options"
             >[<a href="frames.html" target="_top">frames</a
-            >]&nbsp;|&nbsp;<a href="exceptions.AssertionError-class.html"
+            >]&nbsp;|&nbsp;<a href="souffle.math.stochastic.RandomWalk-class.html"
             target="_top">no&nbsp;frames</a>]</span></td></tr>
       </table>
     </td>
   </tr>
 </table>
 <!-- ==================== CLASS DESCRIPTION ==================== -->
-<h1 class="epydoc">Class AssertionError</h1><p class="nomargin-top"></p>
+<h1 class="epydoc">Class RandomWalk</h1><p class="nomargin-top"><span class="codelink"><a href="souffle.math.stochastic-pysrc.html#RandomWalk">source&nbsp;code</a></span></p>
 <pre class="base-tree">
-   object --+            
-            |            
-BaseException --+        
-                |        
-        Exception --+    
-                    |    
-        StandardError --+
-                        |
-                       <strong class="uidshort">AssertionError</strong>
+object --+
+         |
+        <strong class="uidshort">RandomWalk</strong>
 </pre>
 
+<dl><dt>Known Subclasses:</dt>
+<dd>
+      <ul class="subclass-list">
+<li><a href="souffle.math.stochastic.RandomWalk1D-class.html">RandomWalk1D</a></li><li>, <a href="souffle.math.stochastic.RandomWalk2D-class.html">RandomWalk2D</a></li><li>, <a href="souffle.math.stochastic.RandomWalk3D-class.html">RandomWalk3D</a></li>  </ul>
+</dd></dl>
+
 <hr />
-<p>Assertion failed.</p>
+<p>The base random walk class.</p>
 
 <!-- ==================== INSTANCE METHODS ==================== -->
 <a name="section-InstanceMethods"></a>
@@ -92,10 +93,14 @@ BaseException --+
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a href="exceptions.AssertionError-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">...</span>)</span><br />
+          <td><span class="summary-sig"><a href="souffle.math.stochastic.RandomWalk-class.html#__init__" class="summary-sig-name">__init__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">dims</span>,
+        <span class="summary-sig-arg">pos0</span>,
+        <span class="summary-sig-arg">lattice_dims</span>,
+        <span class="summary-sig-arg">kwargs</span>)</span><br />
       x.__init__(...) initializes x; see help(type(x)) for signature</td>
           <td align="right" valign="top">
-            
+            <span class="codelink"><a href="souffle.math.stochastic-pysrc.html#RandomWalk.__init__">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -105,15 +110,61 @@ BaseException --+
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">a new object with type S, a subtype of T</span>
+      <span class="summary-type">&nbsp;</span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a href="exceptions.AssertionError-class.html#__new__" class="summary-sig-name">__new__</a>(<span class="summary-sig-arg">T</span>,
-        <span class="summary-sig-arg">S</span>,
-        <span class="summary-sig-arg">...</span>)</span></td>
+          <td><span class="summary-sig"><a name="get_position"></a><span class="summary-sig-name">get_position</span>(<span class="summary-sig-arg">self</span>)</span></td>
           <td align="right" valign="top">
+            <span class="codelink"><a href="souffle.math.stochastic-pysrc.html#RandomWalk.get_position">source&nbsp;code</a></span>
             
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="get_trajectory"></a><span class="summary-sig-name">get_trajectory</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="souffle.math.stochastic-pysrc.html#RandomWalk.get_trajectory">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="unpack"></a><span class="summary-sig-name">unpack</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="souffle.math.stochastic-pysrc.html#RandomWalk.unpack">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="current_position"></a><span class="summary-sig-name">current_position</span>(<span class="summary-sig-arg">self</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="souffle.math.stochastic-pysrc.html#RandomWalk.current_position">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -123,23 +174,18 @@ BaseException --+
   </tr>
   <tr>
     <td colspan="2" class="summary">
-    <p class="indent-wrapped-lines"><b>Inherited from <code>BaseException</code></b>:
+    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
       <code>__delattr__</code>,
+      <code>__format__</code>,
       <code>__getattribute__</code>,
-      <code>__getitem__</code>,
-      <code>__getslice__</code>,
+      <code>__hash__</code>,
+      <code>__new__</code>,
       <code>__reduce__</code>,
+      <code>__reduce_ex__</code>,
       <code>__repr__</code>,
       <code>__setattr__</code>,
-      <code>__setstate__</code>,
-      <code>__str__</code>,
-      <code>__unicode__</code>
-      </p>
-    <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
-      <code>__format__</code>,
-      <code>__hash__</code>,
-      <code>__reduce_ex__</code>,
       <code>__sizeof__</code>,
+      <code>__str__</code>,
       <code>__subclasshook__</code>
       </p>
     </td>
@@ -164,10 +210,6 @@ BaseException --+
 </tr>
   <tr>
     <td colspan="2" class="summary">
-    <p class="indent-wrapped-lines"><b>Inherited from <code>BaseException</code></b>:
-      <code>args</code>,
-      <code>message</code>
-      </p>
     <p class="indent-wrapped-lines"><b>Inherited from <code>object</code></b>:
       <code>__class__</code>
       </p>
@@ -199,11 +241,15 @@ BaseException --+
 <tr><td>
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
   <tr valign="top"><td>
-  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">...</span>)</span>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__init__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">dims</span>,
+        <span class="sig-arg">pos0</span>,
+        <span class="sig-arg">lattice_dims</span>,
+        <span class="sig-arg">kwargs</span>)</span>
     <br /><em class="fname">(Constructor)</em>
   </h3>
   </td><td align="right" valign="top"
-    >&nbsp;
+    ><span class="codelink"><a href="souffle.math.stochastic-pysrc.html#RandomWalk.__init__">source&nbsp;code</a></span>&nbsp;
     </td>
   </tr></table>
   
@@ -211,31 +257,7 @@ BaseException --+
   <dl class="fields">
     <dt>Overrides:
         object.__init__
-    </dt>
-  </dl>
-</td></tr></table>
-</div>
-<a name="__new__"></a>
-<div>
-<table class="details" border="1" cellpadding="3"
-       cellspacing="0" width="100%" bgcolor="white">
-<tr><td>
-  <table width="100%" cellpadding="0" cellspacing="0" border="0">
-  <tr valign="top"><td>
-  <h3 class="epydoc"><span class="sig"><span class="sig-name">__new__</span>(<span class="sig-arg">T</span>,
-        <span class="sig-arg">S</span>,
-        <span class="sig-arg">...</span>)</span>
-  </h3>
-  </td><td align="right" valign="top"
-    >&nbsp;
-    </td>
-  </tr></table>
-  
-  
-  <dl class="fields">
-    <dt>Returns: a new object with type S, a subtype of T</dt>
-    <dt>Overrides:
-        object.__new__
+        <dd><em class="note">(inherited documentation)</em></dd>
     </dt>
   </dl>
 </td></tr></table>

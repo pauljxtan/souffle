@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>souffle.physics.oscillators</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="souffle-module.html">Package&nbsp;souffle</a> ::
+        <a href="souffle.physics-module.html">Package&nbsp;physics</a> ::
+        Module&nbsp;oscillators
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="souffle.physics.oscillators-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="souffle.physics.oscillators-module.html">Module souffle.physics.oscillators</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-docstring">Oscillators.</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-0" class="py-name" targets="Package souffle=souffle-module.html"><a title="souffle" class="py-name" href="#" onclick="return doclink('link-0', 'souffle', 'link-0');">souffle</a></tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Module souffle.datatypes=souffle.datatypes-module.html"><a title="souffle.datatypes" class="py-name" href="#" onclick="return doclink('link-1', 'datatypes', 'link-1');">datatypes</a></tt> <tt class="py-keyword">as</tt> <tt class="py-name">dtt</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-comment">##### Default constants #####</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-comment"># Brusselator, unstable regime</tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt id="link-2" class="py-name" targets="Variable souffle.physics.oscillators.BRUSS_A=souffle.physics.oscillators-module.html#BRUSS_A"><a title="souffle.physics.oscillators.BRUSS_A" class="py-name" href="#" onclick="return doclink('link-2', 'BRUSS_A', 'link-2');">BRUSS_A</a></tt> <tt class="py-op">=</tt> <tt class="py-number">1.0</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt id="link-3" class="py-name" targets="Variable souffle.physics.oscillators.BRUSS_B=souffle.physics.oscillators-module.html#BRUSS_B"><a title="souffle.physics.oscillators.BRUSS_B" class="py-name" href="#" onclick="return doclink('link-3', 'BRUSS_B', 'link-3');">BRUSS_B</a></tt> <tt class="py-op">=</tt> <tt class="py-number">3.0</tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-comment"># Lotka-Volterra</tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt id="link-4" class="py-name" targets="Variable souffle.physics.oscillators.LOTKA_ALPHA=souffle.physics.oscillators-module.html#LOTKA_ALPHA"><a title="souffle.physics.oscillators.LOTKA_ALPHA" class="py-name" href="#" onclick="return doclink('link-4', 'LOTKA_ALPHA', 'link-4');">LOTKA_ALPHA</a></tt> <tt class="py-op">=</tt> <tt class="py-number">1.5</tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"><tt id="link-5" class="py-name" targets="Variable souffle.physics.oscillators.LOTKA_BETA=souffle.physics.oscillators-module.html#LOTKA_BETA"><a title="souffle.physics.oscillators.LOTKA_BETA" class="py-name" href="#" onclick="return doclink('link-5', 'LOTKA_BETA', 'link-5');">LOTKA_BETA</a></tt> <tt class="py-op">=</tt> <tt class="py-number">1.0</tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"><tt id="link-6" class="py-name" targets="Variable souffle.physics.oscillators.LOTKA_GAMMA=souffle.physics.oscillators-module.html#LOTKA_GAMMA"><a title="souffle.physics.oscillators.LOTKA_GAMMA" class="py-name" href="#" onclick="return doclink('link-6', 'LOTKA_GAMMA', 'link-6');">LOTKA_GAMMA</a></tt> <tt class="py-op">=</tt> <tt class="py-number">2.0</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"><tt id="link-7" class="py-name" targets="Variable souffle.physics.oscillators.LOTKA_DELTA=souffle.physics.oscillators-module.html#LOTKA_DELTA"><a title="souffle.physics.oscillators.LOTKA_DELTA" class="py-name" href="#" onclick="return doclink('link-7', 'LOTKA_DELTA', 'link-7');">LOTKA_DELTA</a></tt> <tt class="py-op">=</tt> <tt class="py-number">1.0</tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"><tt class="py-comment"># van der Pol oscillator</tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"><tt id="link-8" class="py-name" targets="Variable souffle.physics.oscillators.VANDERPOL_MU=souffle.physics.oscillators-module.html#VANDERPOL_MU"><a title="souffle.physics.oscillators.VANDERPOL_MU" class="py-name" href="#" onclick="return doclink('link-8', 'VANDERPOL_MU', 'link-8');">VANDERPOL_MU</a></tt> <tt class="py-op">=</tt> <tt class="py-number">5.0</tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"><tt id="link-9" class="py-name" targets="Variable souffle.physics.oscillators.VANDERPOL_OMEGA=souffle.physics.oscillators-module.html#VANDERPOL_OMEGA"><a title="souffle.physics.oscillators.VANDERPOL_OMEGA" class="py-name" href="#" onclick="return doclink('link-9', 'VANDERPOL_OMEGA', 'link-9');">VANDERPOL_OMEGA</a></tt> <tt class="py-op">=</tt> <tt class="py-number">1.0</tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"><tt class="py-comment">#############################</tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"> </tt>
+<a name="brusselator"></a><div id="brusselator-def"><a name="L21"></a><tt class="py-lineno"> 21</tt> <a class="py-toggle" href="#" id="brusselator-toggle" onclick="return toggle('brusselator');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="souffle.physics.oscillators-module.html#brusselator">brusselator</a><tt class="py-op">(</tt><tt class="py-param">t</tt><tt class="py-op">,</tt> <tt class="py-param">X</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-param">kwargs</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="brusselator-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="brusselator-expanded"><a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"><tt class="py-docstring">    The Brusselator.</tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line"><tt class="py-docstring">    @type  t: number</tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line"><tt class="py-docstring">    @param t: current time</tt> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line"><tt class="py-docstring">    @type  X: vector</tt> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line"><tt class="py-docstring">    @param X: current state</tt> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line"><tt class="py-docstring">    @rtype: vector</tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line"><tt class="py-docstring">    @return: derivative</tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line">    <tt class="py-name">x</tt> <tt class="py-op">=</tt> <tt class="py-name">X</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line">    <tt class="py-name">y</tt> <tt class="py-op">=</tt> <tt class="py-name">X</tt><tt class="py-op">[</tt><tt class="py-number">1</tt><tt class="py-op">]</tt> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line"> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">kwargs</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-number">0</tt><tt class="py-op">:</tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line">        <tt class="py-name">x_dot</tt> <tt class="py-op">=</tt> <tt class="py-number">1</tt> <tt class="py-op">-</tt> <tt class="py-op">(</tt><tt id="link-10" class="py-name"><a title="souffle.physics.oscillators.BRUSS_B" class="py-name" href="#" onclick="return doclink('link-10', 'BRUSS_B', 'link-3');">BRUSS_B</a></tt> <tt class="py-op">+</tt> <tt class="py-number">1</tt><tt class="py-op">)</tt> <tt class="py-op">*</tt> <tt class="py-name">x</tt> <tt class="py-op">+</tt> <tt id="link-11" class="py-name"><a title="souffle.physics.oscillators.BRUSS_A" class="py-name" href="#" onclick="return doclink('link-11', 'BRUSS_A', 'link-2');">BRUSS_A</a></tt> <tt class="py-op">*</tt> <tt class="py-name">x</tt><tt class="py-op">**</tt><tt class="py-number">2</tt> <tt class="py-op">*</tt> <tt class="py-name">y</tt> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line">        <tt class="py-name">y_dot</tt> <tt class="py-op">=</tt> <tt id="link-12" class="py-name"><a title="souffle.physics.oscillators.BRUSS_B" class="py-name" href="#" onclick="return doclink('link-12', 'BRUSS_B', 'link-3');">BRUSS_B</a></tt> <tt class="py-op">*</tt> <tt class="py-name">x</tt> <tt class="py-op">-</tt> <tt id="link-13" class="py-name"><a title="souffle.physics.oscillators.BRUSS_A" class="py-name" href="#" onclick="return doclink('link-13', 'BRUSS_A', 'link-2');">BRUSS_A</a></tt> <tt class="py-op">*</tt> <tt class="py-name">x</tt><tt class="py-op">**</tt><tt class="py-number">2</tt> <tt class="py-op">*</tt> <tt class="py-name">y</tt> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line">    <tt class="py-keyword">elif</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">kwargs</tt><tt class="py-op">)</tt> <tt class="py-op">!=</tt> <tt class="py-number">2</tt><tt class="py-op">:</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line">        <tt class="py-keyword">raise</tt> <tt class="py-name">ValueError</tt><tt class="py-op">(</tt><tt class="py-string">"Bad kwargs; please provide all of the "</tt>\ </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line">                         <tt class="py-string">"following parameters: a, b"</tt><tt class="py-op">)</tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line">    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line">        <tt class="py-name">x_dot</tt> <tt class="py-op">=</tt> <tt class="py-number">1</tt> <tt class="py-op">-</tt> <tt class="py-op">(</tt><tt class="py-name">kwargs</tt><tt class="py-op">[</tt><tt class="py-string">"b"</tt><tt class="py-op">]</tt> <tt class="py-op">+</tt> <tt class="py-number">1</tt><tt class="py-op">)</tt> <tt class="py-op">*</tt> <tt class="py-name">x</tt> <tt class="py-op">+</tt> <tt class="py-name">kwargs</tt><tt class="py-op">[</tt><tt class="py-string">"a"</tt><tt class="py-op">]</tt> <tt class="py-op">*</tt> <tt class="py-name">x</tt><tt class="py-op">**</tt><tt class="py-number">2</tt> <tt class="py-op">*</tt> <tt class="py-name">y</tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line">        <tt class="py-name">y_dot</tt> <tt class="py-op">=</tt> <tt class="py-name">kwargs</tt><tt class="py-op">[</tt><tt class="py-string">"b"</tt><tt class="py-op">]</tt> <tt class="py-op">*</tt> <tt class="py-name">x</tt> <tt class="py-op">-</tt> <tt class="py-name">kwargs</tt><tt class="py-op">[</tt><tt class="py-string">"a"</tt><tt class="py-op">]</tt> <tt class="py-op">*</tt> <tt class="py-name">x</tt><tt class="py-op">**</tt><tt class="py-number">2</tt> <tt class="py-op">*</tt> <tt class="py-name">y</tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line"> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line">    <tt class="py-name">X_dot</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-name">x_dot</tt><tt class="py-op">,</tt> <tt class="py-name">y_dot</tt><tt class="py-op">]</tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">dtt</tt><tt class="py-op">.</tt><tt id="link-14" class="py-name" targets="Class souffle.datatypes.Vector=souffle.datatypes.Vector-class.html"><a title="souffle.datatypes.Vector" class="py-name" href="#" onclick="return doclink('link-14', 'Vector', 'link-14');">Vector</a></tt><tt class="py-op">(</tt><tt class="py-name">X_dot</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line"> </tt>
+<a name="lotka_volterra"></a><div id="lotka_volterra-def"><a name="L49"></a><tt class="py-lineno"> 49</tt> <a class="py-toggle" href="#" id="lotka_volterra-toggle" onclick="return toggle('lotka_volterra');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="souffle.physics.oscillators-module.html#lotka_volterra">lotka_volterra</a><tt class="py-op">(</tt><tt class="py-param">t</tt><tt class="py-op">,</tt> <tt class="py-param">X</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-param">kwargs</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="lotka_volterra-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="lotka_volterra-expanded"><a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line"><tt class="py-docstring">    The Lotka-Volterra ("predator-prey") equations.</tt> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line"><tt class="py-docstring">    We define the following constants:</tt> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line"><tt class="py-docstring">    </tt> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line"><tt class="py-docstring">    alpha = growth rate of prey</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line"><tt class="py-docstring">    beta  = rate at which predators consume prey</tt> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line"><tt class="py-docstring">    gamma = death rate of predators</tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line"><tt class="py-docstring">    delta = rate at which predators increase by consuming prey</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line"><tt class="py-docstring">    The prey population, x, increases at a rate of dx/dt = Ax, but is consumed</tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line"><tt class="py-docstring">    by predators at a rate of dx/dt = -Bxy.</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line"><tt class="py-docstring">    The predator population, y, decreases at a rate of dy/dt = -Cy, but</tt> </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line"><tt class="py-docstring">    increases at a rate of dy/dt = Dxy.</tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line"><tt class="py-docstring">    @type  t: number</tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line"><tt class="py-docstring">    @param t: current time</tt> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line"><tt class="py-docstring">    @type  X: vector</tt> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line"><tt class="py-docstring">    @param X: current state</tt> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line"><tt class="py-docstring">    @rtype: vector</tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line"><tt class="py-docstring">    @return: derivative</tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line">    <tt class="py-name">x</tt> <tt class="py-op">=</tt> <tt class="py-name">X</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line">    <tt class="py-name">y</tt> <tt class="py-op">=</tt> <tt class="py-name">X</tt><tt class="py-op">[</tt><tt class="py-number">1</tt><tt class="py-op">]</tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line"> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">kwargs</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-number">0</tt><tt class="py-op">:</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line">        <tt class="py-name">x_dot</tt> <tt class="py-op">=</tt> <tt class="py-name">x</tt> <tt class="py-op">*</tt> <tt class="py-op">(</tt><tt id="link-15" class="py-name"><a title="souffle.physics.oscillators.LOTKA_ALPHA" class="py-name" href="#" onclick="return doclink('link-15', 'LOTKA_ALPHA', 'link-4');">LOTKA_ALPHA</a></tt> <tt class="py-op">-</tt> <tt id="link-16" class="py-name"><a title="souffle.physics.oscillators.LOTKA_BETA" class="py-name" href="#" onclick="return doclink('link-16', 'LOTKA_BETA', 'link-5');">LOTKA_BETA</a></tt> <tt class="py-op">*</tt> <tt class="py-name">y</tt><tt class="py-op">)</tt> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line">        <tt class="py-name">y_dot</tt> <tt class="py-op">=</tt> <tt class="py-op">-</tt> <tt class="py-name">y</tt> <tt class="py-op">*</tt> <tt class="py-op">(</tt><tt id="link-17" class="py-name"><a title="souffle.physics.oscillators.LOTKA_GAMMA" class="py-name" href="#" onclick="return doclink('link-17', 'LOTKA_GAMMA', 'link-6');">LOTKA_GAMMA</a></tt> <tt class="py-op">-</tt> <tt id="link-18" class="py-name"><a title="souffle.physics.oscillators.LOTKA_DELTA" class="py-name" href="#" onclick="return doclink('link-18', 'LOTKA_DELTA', 'link-7');">LOTKA_DELTA</a></tt> <tt class="py-op">*</tt> <tt class="py-name">x</tt><tt class="py-op">)</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line">    <tt class="py-keyword">elif</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">kwargs</tt><tt class="py-op">)</tt> <tt class="py-op">!=</tt> <tt class="py-number">4</tt><tt class="py-op">:</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line">        <tt class="py-keyword">raise</tt> <tt class="py-name">ValueError</tt><tt class="py-op">(</tt><tt class="py-string">"Bad kwargs; please provide all of the "</tt>\ </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line">                         <tt class="py-string">"following parameters: alpha, beta, gamma, delta"</tt><tt class="py-op">)</tt> </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line">    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line">        <tt class="py-name">x_dot</tt> <tt class="py-op">=</tt> <tt class="py-name">x</tt> <tt class="py-op">*</tt> <tt class="py-op">(</tt><tt class="py-name">kwargs</tt><tt class="py-op">[</tt><tt class="py-string">"alpha"</tt><tt class="py-op">]</tt> <tt class="py-op">-</tt> <tt class="py-name">kwargs</tt><tt class="py-op">[</tt><tt class="py-string">"beta"</tt><tt class="py-op">]</tt> <tt class="py-op">*</tt> <tt class="py-name">y</tt><tt class="py-op">)</tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line">        <tt class="py-name">y_dot</tt> <tt class="py-op">=</tt> <tt class="py-op">-</tt> <tt class="py-name">y</tt> <tt class="py-op">*</tt> <tt class="py-op">(</tt><tt class="py-name">kwargs</tt><tt class="py-op">[</tt><tt class="py-string">"gamma"</tt><tt class="py-op">]</tt> <tt class="py-op">-</tt> <tt class="py-name">kwargs</tt><tt class="py-op">[</tt><tt class="py-string">"delta"</tt><tt class="py-op">]</tt> <tt class="py-op">*</tt> <tt class="py-name">x</tt><tt class="py-op">)</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line"> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line">    <tt class="py-name">X_dot</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-name">x_dot</tt><tt class="py-op">,</tt> <tt class="py-name">y_dot</tt><tt class="py-op">]</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">dtt</tt><tt class="py-op">.</tt><tt id="link-19" class="py-name"><a title="souffle.datatypes.Vector" class="py-name" href="#" onclick="return doclink('link-19', 'Vector', 'link-14');">Vector</a></tt><tt class="py-op">(</tt><tt class="py-name">X_dot</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line"> </tt>
+<a name="vanderpol"></a><div id="vanderpol-def"><a name="L90"></a><tt class="py-lineno"> 90</tt> <a class="py-toggle" href="#" id="vanderpol-toggle" onclick="return toggle('vanderpol');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="souffle.physics.oscillators-module.html#vanderpol">vanderpol</a><tt class="py-op">(</tt><tt class="py-param">t</tt><tt class="py-op">,</tt> <tt class="py-param">X</tt><tt class="py-op">,</tt> <tt class="py-op">**</tt><tt class="py-param">kwargs</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="vanderpol-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="vanderpol-expanded"><a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line">    <tt class="py-docstring">"""</tt> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line"><tt class="py-docstring">    The van der Pol oscillator. This is a non-conservative oscillator, with</tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line"><tt class="py-docstring">    nonlinear damping, that shows up in laser physics and electronic circuits.</tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line"><tt class="py-docstring">    The system is described by</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line"><tt class="py-docstring">    </tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line"><tt class="py-docstring">    d^2x/dx^2 - mu * (1 - x^2) * dx/dt + omega * x = 0</tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line"><tt class="py-docstring">    </tt> </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line"><tt class="py-docstring">    where mu and omega are some constants.</tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line"><tt class="py-docstring">    Applying the transformation y = dx/dt, we have the equations of motion</tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line"><tt class="py-docstring">    </tt> </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line"><tt class="py-docstring">    y     = dx/dt</tt> </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line"><tt class="py-docstring">    dv/dt = mu * (1 - x^2) * v - omega^2 * x</tt> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line"><tt class="py-docstring">    @type  t: number</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line"><tt class="py-docstring">    @param t: current time</tt> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line"><tt class="py-docstring">    @type  X: vector</tt> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line"><tt class="py-docstring">    @param X: current state</tt> </tt>
+<a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line"><tt class="py-docstring">    @rtype: vector</tt> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line"><tt class="py-docstring">    @return: derivative</tt> </tt>
+<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line"><tt class="py-docstring">    """</tt> </tt>
+<a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line">    <tt class="py-name">x</tt> <tt class="py-op">=</tt> <tt class="py-name">X</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line">    <tt class="py-name">y</tt> <tt class="py-op">=</tt> <tt class="py-name">X</tt><tt class="py-op">[</tt><tt class="py-number">1</tt><tt class="py-op">]</tt> </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line"> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line">    <tt class="py-keyword">if</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">kwargs</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-number">0</tt><tt class="py-op">:</tt> </tt>
+<a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line">        <tt class="py-name">x_dot</tt> <tt class="py-op">=</tt> <tt class="py-name">y</tt> </tt>
+<a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line">        <tt class="py-name">y_dot</tt> <tt class="py-op">=</tt> <tt id="link-20" class="py-name"><a title="souffle.physics.oscillators.VANDERPOL_MU" class="py-name" href="#" onclick="return doclink('link-20', 'VANDERPOL_MU', 'link-8');">VANDERPOL_MU</a></tt> <tt class="py-op">*</tt> <tt class="py-op">(</tt><tt class="py-number">1</tt> <tt class="py-op">-</tt> <tt class="py-name">x</tt><tt class="py-op">**</tt><tt class="py-number">2</tt><tt class="py-op">)</tt> <tt class="py-op">*</tt> <tt class="py-name">y</tt> <tt class="py-op">-</tt> <tt id="link-21" class="py-name"><a title="souffle.physics.oscillators.VANDERPOL_OMEGA" class="py-name" href="#" onclick="return doclink('link-21', 'VANDERPOL_OMEGA', 'link-9');">VANDERPOL_OMEGA</a></tt><tt class="py-op">**</tt><tt class="py-number">2</tt> <tt class="py-op">*</tt> <tt class="py-name">x</tt> </tt>
+<a name="L120"></a><tt class="py-lineno">120</tt>  <tt class="py-line">    <tt class="py-keyword">elif</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">kwargs</tt><tt class="py-op">)</tt> <tt class="py-op">!=</tt> <tt class="py-number">2</tt><tt class="py-op">:</tt> </tt>
+<a name="L121"></a><tt class="py-lineno">121</tt>  <tt class="py-line">        <tt class="py-keyword">raise</tt> <tt class="py-name">ValueError</tt><tt class="py-op">(</tt><tt class="py-string">"Bad kwargs; please provide all of the "</tt>\ </tt>
+<a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line">                         <tt class="py-string">"following parameters: mu, omega"</tt><tt class="py-op">)</tt> </tt>
+<a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line">    <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line">        <tt class="py-name">x_dot</tt> <tt class="py-op">=</tt> <tt class="py-name">y</tt> </tt>
+<a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line">        <tt class="py-name">y_dot</tt> <tt class="py-op">=</tt> <tt class="py-name">kwargs</tt><tt class="py-op">[</tt><tt class="py-string">"mu"</tt><tt class="py-op">]</tt> <tt class="py-op">*</tt> <tt class="py-op">(</tt><tt class="py-number">1</tt> <tt class="py-op">-</tt> <tt class="py-name">x</tt><tt class="py-op">**</tt><tt class="py-number">2</tt><tt class="py-op">)</tt> <tt class="py-op">*</tt> <tt class="py-name">y</tt> <tt class="py-op">-</tt> <tt class="py-name">kwargs</tt><tt class="py-op">[</tt><tt class="py-string">"omega"</tt><tt class="py-op">]</tt><tt class="py-op">**</tt><tt class="py-number">2</tt> <tt class="py-op">*</tt> <tt class="py-name">x</tt> </tt>
+<a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line"> </tt>
+<a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line">    <tt class="py-name">X_dot</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-name">x_dot</tt><tt class="py-op">,</tt> <tt class="py-name">y_dot</tt><tt class="py-op">]</tt> </tt>
+<a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line">    <tt class="py-keyword">return</tt> <tt class="py-name">dtt</tt><tt class="py-op">.</tt><tt id="link-22" class="py-name"><a title="souffle.datatypes.Vector" class="py-name" href="#" onclick="return doclink('link-22', 'Vector', 'link-14');">Vector</a></tt><tt class="py-op">(</tt><tt class="py-name">X_dot</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+      <th class="navbar" width="100%"></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Sat Jan  7 21:39:10 2017
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>
