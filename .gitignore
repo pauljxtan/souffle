@@ -52,3 +52,5 @@ docs/_build/
 
 # PyBuilder
 target/
+/.vs/mathsci/v14/.suo
+/mathsci.pyproj
