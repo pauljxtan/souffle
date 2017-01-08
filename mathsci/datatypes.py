@@ -8,6 +8,7 @@ ERR_KEY_NOT_INT_LIST_TUPLE = "Key is not int, list or tuple"
 ERR_OP_BAD_DIMS = "Operand has incompatible dimensions for element-wise operation"
 ERR_OP_NOT_VEC = "Operand is not Vector"
 ERR_OP_NOT_MAT = "Operand is not Matrix"
+ERR_INPUT_INVALID = "Input data is invalid"
 
 import mathsci.math.linalg
 
@@ -17,16 +18,17 @@ class Vector(object):
     """
     def __init__(self, data=None):
         """
-        @type  data: list or tuple
+        @type  data: iterable
         @param data: the data to load into the Vector
         """
+        self.data = []
         if data == None:
-            self.data = []
-        else:
-            if not (isinstance(data, list) or isinstance(data, tuple)):
-                raise ValueError(ERR_INPUT_NOT_LIST_TUPLE)
-            self.data = data
-        self.n_elems = len(self.data)
+            return
+        try:
+            self.data = [elem for elem in data]
+            self.n_elems = len(self.data)
+        except:
+            raise ValueError(ERR_INPUT_INVALID)
 
     #### Representations
 
@@ -463,15 +465,18 @@ class Matrix(object):
         @type  data: a 2-dimensional combination of lists and/or tuples
         @param data: the data to load into the Matrix
         """
+        self.data = []
         if data == None:
-            self.data = []
-        else:
-            if not (isinstance(data, list) or isinstance(data, tuple)):
-                raise ValueError(ERR_INPUT_NOT_LIST_TUPLE)
-            self.data = data
-        # TODO: raise error if not all rows have same length
-        self.n_rows = len(data)
-        self.n_cols = len(data[0])
+            return
+        try:
+            self.data = [[elem in row for elem in row] for row in data]
+            self.n_rows = len(data)
+            self.n_cols = len(data[0])
+        except:
+            raise ValueError(ERR_INPUT_INVALID)
+        row_lens = [len(row) for row in self.data]
+        if row_lens[1:] != row_lens[:-1]:
+            raise ValueError("Row lengths are not all equal")
    
     #### Representations
 
