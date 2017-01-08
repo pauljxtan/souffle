@@ -3,6 +3,7 @@ import unittest
 from souffle.datatypes import Vector, Matrix
 
 # TODO: use epsilon error testing for float comparisons?
+# TODO: test error conditions
 
 class TestDatatypes(unittest.TestCase):
 
@@ -12,12 +13,14 @@ class TestDatatypes(unittest.TestCase):
         z = Vector([3.0, 2.0, 1.0])
         w = Vector([-1.2, 3.4, -5.6])
         v = Vector([1, 2, 3])
+        u = Vector([1.0, 2.0, 3.0, 4.0, 5.0, 6.0])
 
         # Representations
         self.assertEqual(str(x), "[1.0 2.0 3.0]")
 
         # Container methods
-        self.assertEqual(y[1], 5.0)
+        self.assertEqual(u[2], 3.0)
+        self.assertEqual(u[[0, 3, 5]], [1.0, 4.0, 6.0])
 
         # Unary operators
         self.assertEqual(+w, Vector([+(-1.2), +3.4, +(-5.6)]))
@@ -37,8 +40,7 @@ class TestDatatypes(unittest.TestCase):
         self.assertEqual(x / y, Vector([0.25, 0.4, 0.5]))
 
         # Type conversion
-        v.set_type(float)
-        self.assertEqual(v, Vector([float(1), float(2), float(3)]))
+        self.assertEqual(v.get_typecasted(float), Vector([float(1), float(2), float(3)]))
 
         # Scalar arithmetic
         self.assertEqual(x.add_scalar(4.0), Vector([5.0, 6.0, 7.0]))

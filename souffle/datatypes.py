@@ -5,6 +5,7 @@ Provides generic datatypes.
 ERR_INPUT_NOT_LIST_TUPLE = "Input data is not list or tuple"
 ERR_INPUT_BAD_DIMS = "Input data has incompatible dimensions"
 ERR_KEY_NOT_INT_LIST_TUPLE = "Key is not int, list or tuple"
+ERR_KEY_OUT_OF_BOUNDS = "Key is out of bounds"
 ERR_OP_BAD_DIMS = "Operand has incompatible dimensions for element-wise operation"
 ERR_OP_NOT_VEC = "Operand is not Vector"
 ERR_OP_NOT_MAT = "Operand is not Matrix"
@@ -39,12 +40,7 @@ class Vector(object):
         @rtype: string
         @return: the string representation of the Vector
         """
-        data_str = map(str, self.data)
-        output = "["
-        output += " ".join([elem for elem in data_str])
-        output += "]" 
-
-        return output
+        return "[{}]".format(" ".join([str(elem) for elem in self.data]))
 
     #### Container methods
 
@@ -60,21 +56,21 @@ class Vector(object):
         """
         if isinstance(key, int):
             if key >= 0:
-                result = self.data[key]
-            else:
-                result = self.data[self.n_elems + key]
+                    return self.data[key]
+            # Negative index: count from end of vector
+            return self.data[self.n_elems + key]
                 
-        elif isinstance(key, list) or isinstance(key, tuple):
+        if isinstance(key, list) or isinstance(key, tuple):
             result = []
             for k in key:
                 if k >= 0:
                     result.append(self.data[k])
                 else:
+                    # Negative index: count from end of vector
                     result.append(self.data[self.n_elems + k])
+            return result
         else:
             raise ValueError(ERR_KEY_NOT_INT_LIST_TUPLE)
-
-        return result
 
     #### Unary operators
 
@@ -85,11 +81,7 @@ class Vector(object):
         @rtype: Vector
         @return: the Vector with all elements positive
         """
-        result = []
-        for i in range(self.n_elems):
-            result.append(+self.data[i])
-
-        return Vector(result)
+        return Vector([+elem for elem in self.data])
 
     def __neg__(self):
         """
@@ -98,11 +90,7 @@ class Vector(object):
         @rtype: Vector
         @return: the Vector with all elements negated
         """
-        result = []
-        for i in range(self.n_elems):
-            result.append(-self.data[i])
-
-        return Vector(result)
+        return Vector([-elem for elem in self.data])
 
     def __abs__(self):
         """
@@ -111,11 +99,7 @@ class Vector(object):
         @rtype: Vector
         @return: the Vector containing the absolute value of all elements
         """
-        result = []
-        for i in range(self.n_elems):
-            result.append(abs(self.data[i]))
-
-        return Vector(result)
+        return Vector([abs(elem) for elem in self.data])
 
     #### Comparisons
 
@@ -135,7 +119,7 @@ class Vector(object):
             raise ValueError(ERR_OP_BAD_DIMS)
 
         for i in range(self.n_elems):
-            if self.data[i] != other.data[i]:
+            if self[i] != other[i]:
                 return False
         return True
 
@@ -155,11 +139,7 @@ class Vector(object):
         if self.n_elems != other.n_elems:
             raise ValueError(ERR_OP_BAD_DIMS)
 
-        result = []
-        for i in range(self.n_elems):
-            result.append(self.data[i] < other.data[i])
-
-        return Vector(result)
+        return Vector([self[i] < other[i] for i in range(self.n_elems)])
 
     def __gt__(self, other):
         """
@@ -177,11 +157,7 @@ class Vector(object):
         if self.n_elems != other.n_elems:
             raise ValueError(ERR_OP_BAD_DIMS)
 
-        result = []
-        for i in range(self.n_elems):
-            result.append(self.data[i] > other.data[i])
-
-        return Vector(result)
+        return Vector([self[i] > other[i] for i in range(self.n_elems)])
 
     def __le__(self, other):
         """
@@ -199,11 +175,7 @@ class Vector(object):
         if self.n_elems != other.n_elems:
             raise ValueError(ERR_OP_BAD_DIMS)
 
-        result = []
-        for i in range(self.n_elems):
-            result.append(self.data[i] <= other.data[i])
-
-        return Vector(result)
+        return Vector([self[i] <= other[i] for i in range(self.n_elems)])
 
     def __ge__(self, other):
         """
@@ -221,11 +193,7 @@ class Vector(object):
         if self.n_elems != other.n_elems:
             raise ValueError(ERR_OP_BAD_DIMS)
 
-        result = []
-        for i in range(self.n_elems):
-            result.append(self.data[i] >= other.data[i])
-
-        return Vector(result)
+        return Vector([self[i] >= other[i] for i in range(self.n_elems)])
 
     #### Element-wise arithmetic
 
@@ -243,12 +211,8 @@ class Vector(object):
             raise ValueError(ERR_OP_NOT_VEC)
         if not (self.n_elems == other.n_elems):
             raise ValueError(ERR_OP_BAD_DIMS)
-
-        result = []
-        for i in range(self.n_elems):
-            result.append(self.data[i] + other.data[i])
         
-        return Vector(result)
+        return Vector([self[i] + other[i] for i in range(self.n_elems)])
 
     def __sub__(self, other):
         """
@@ -265,11 +229,7 @@ class Vector(object):
         if not (self.n_elems == other.n_elems):
             raise ValueError(ERR_OP_BAD_DIMS)
         
-        result = []
-        for i in range(self.n_elems):
-            result.append(self.data[i] - other.data[i])
-        
-        return Vector(result)
+        return Vector([self[i] - other[i] for i in range(self.n_elems)])
 
     def __mul__(self, other):
         """
@@ -286,11 +246,7 @@ class Vector(object):
         if not (self.n_elems == other.n_elems):
             raise ValueError(ERR_OP_BAD_DIMS)
                              
-        result = []
-        for i in range(self.n_elems):
-            result.append(self.data[i] * other.data[i])
-
-        return Vector(result)
+        return Vector([self[i] * other[i] for i in range(self.n_elems)])
 
     def __div__(self, other):
         """
@@ -307,22 +263,18 @@ class Vector(object):
         if not (self.n_elems == other.n_elems):
             raise ValueError(ERR_OP_BAD_DIMS)
                              
-        result = []
-        for i in range(self.n_elems):
-            result.append(self.data[i] / other.data[i])
-
-        return Vector(result)
+        return Vector([self[i] / other[i] for i in range(self.n_elems)])
 
     #### Type conversion
 
-    def set_type(self, ttype):
+    def get_typecasted(self, ttype):
         """
-        Sets the type for all elements.
+        Returns a new Vector with each value casted to the input type.
 
         @type  ttype: type
-        @param ttype: the type to which all elements should be converted
+        @param ttype: the type to which all elements should be casted
         """
-        self.data = map(ttype, self.data)
+        return Vector(map(ttype, self.data))
 
     #### Scalar arithmetic
 
@@ -336,11 +288,7 @@ class Vector(object):
         @rtype: Vector
         @return: the resulting Vector
         """
-        result = self.data[:]
-        for i, v in enumerate(result):
-            result[i] += value
-
-        return Vector(result)
+        return Vector([elem + value for elem in self.data])
     
     def sub_scalar(self, value):
         """
@@ -352,11 +300,7 @@ class Vector(object):
         @rtype: Vector
         @return: the resulting Vector
         """
-        result = self.data[:]
-        for i, v in enumerate(result):
-            result[i] -= value
-
-        return Vector(result)
+        return Vector([elem - value for elem in self.data])
     
     def mul_scalar(self, value):
         """
@@ -368,11 +312,7 @@ class Vector(object):
         @rtype: Vector
         @return: the resulting Vector
         """
-        result = self.data[:]
-        for i, v in enumerate(result):
-            result[i] *= value
-
-        return Vector(result)
+        return Vector([elem * value for elem in self.data])
     
     def div_scalar(self, value):
         """
@@ -384,11 +324,7 @@ class Vector(object):
         @rtype: Vector
         @return: the resulting Vector
         """
-        result = self.data[:]
-        for i, v in enumerate(result):
-            result[i] /= value
-
-        return Vector(result)
+        return Vector([elem / value for elem in self.data])
     
     #### Vector operations
 
@@ -454,6 +390,15 @@ class Vector(object):
         self.n_elems = len(self.data)
 
     def get_slice(self, idx_start, idx_end):
+        """
+        Returns the slice specified by the given start and end indices.
+
+        @type  idx_start: integer
+        @param idx_start: the start index of the slice
+
+        @type  idx_end: integer
+        @param idx_end: the end index of the slice
+        """ 
         return self.data[idx_start : idx_end]
 
 class Matrix(object):
@@ -486,12 +431,9 @@ class Matrix(object):
         """
         output = "["
         for i in range(self.n_rows):
-            row_str = map(str, self.data[i])
             if i != 0:
                 output += " "
-            output += "["
-            output += " ".join([elem for elem in row_str])
-            output += "]"
+            output += "[{}]".format(" ".join([str(elem) for elem in self.data]))
             if i != self.n_rows - 1:
                 output += "\n"
         output += "]"
@@ -509,37 +451,19 @@ class Matrix(object):
         """
         Implements behaviour for unary positive.
         """
-        result = [[0.0 for i in range(self.n_rows)]
-                  for j in range(self.n_cols)]
-        for i in range(self.n_rows):
-            for j in range(self.n_cols):
-                result[i][j] = +self.data[i][j]
-
-        return result
+        return Matrix([[+elem for elem in row] for row in self.data])
 
     def __neg__(self):
         """
         Implements behaviour for unary negation.
         """
-        result = [[0.0 for i in range(self.n_rows)]
-                  for j in range(self.n_cols)]
-        for i in range(self.n_rows):
-            for j in range(self.n_cols):
-                result[i][j] = -self.data[i][j]
-
-        return result
+        return Matrix([[-elem for elem in row] for row in self.data])
 
     def __abs__(self):
         """
         Implements behaviour for absolute value (NOT modulus; use dot()).
         """
-        result = [[0.0 for i in range(self.n_rows)]
-                  for j in range(self.n_cols)]
-        for i in range(self.n_rows):
-            for j in range(self.n_cols):
-                result[i][j] = abs(self.data[i][j])
-
-        return result
+        return Matrix([[abs(elem) for elem in row] for row in self.data])
     
     #### Comparisons
 
@@ -556,6 +480,8 @@ class Matrix(object):
         return True
 
     #### Element-wise arithmetic
+
+    # TODO: continue refactoring here
 
     def __add__(self, other):
         """
