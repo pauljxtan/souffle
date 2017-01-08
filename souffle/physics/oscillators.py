@@ -2,7 +2,7 @@
 Oscillators.
 """
 
-import mathsci.datatypes as dtt
+import souffle.datatypes as dtt
 
 ##### Default constants #####
 # Brusselator, unstable regime

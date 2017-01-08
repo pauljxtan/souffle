@@ -11,9 +11,9 @@ This makes comet orbits great demonstrations for adaptive integration methods.
 """
 
 from matplotlib import pyplot
-from mathsci import datatypes
-from mathsci.math import odeint
-from mathsci.physics import astro
+from souffle import datatypes
+from souffle.math import odeint
+from souffle.physics import astro
 
 def main():
     # Set the initial conditions; we will place it in the vicinity of Neptune

@@ -5,8 +5,8 @@ Integrating the Lotka-Volterra ("predator-prey") equations.
 """
 
 from matplotlib import pyplot
-from mathsci.physics import oscillators
-from mathsci.math import odeint
+from souffle.physics import oscillators
+from souffle.math import odeint
 
 def main():
     # Set the integration paramters

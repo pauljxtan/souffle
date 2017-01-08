@@ -52,7 +52,7 @@ docs/_build/
 
 # PyBuilder
 target/
-/.vs/mathsci/v14/.suo
-/mathsci.pyproj
-/mathsci.pyproj.user
-/mathsci.sln
+/.vs/souffle/v14/.suo
+/souffle.pyproj
+/souffle.pyproj.user
+/souffle.sln

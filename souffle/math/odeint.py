@@ -5,7 +5,7 @@ and adaptive methods.
 See odeint_derivations.pdf for more detailed description.
 """
 
-import mathsci.datatypes as dtt
+import souffle.datatypes as dtt
 
 class OdeInt(object):
     """

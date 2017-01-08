@@ -1,7 +1,7 @@
 """
 Chaotic dynamics.
 """
-import mathsci.datatypes as dtt
+import souffle.datatypes as dtt
 
 ##### Default constants #####
 LORENZ_SIGMA = 10.0

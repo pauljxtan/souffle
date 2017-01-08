@@ -1,5 +1,5 @@
 import unittest
-from mathsci.math import derivative, integral
+from souffle.math import derivative, integral
 
 class DerivativeTests(unittest.TestCase):
 

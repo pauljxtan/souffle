@@ -3,8 +3,8 @@ Mechanics.
 """
 
 import math
-import mathsci.datatypes as dtt
-import mathsci.constants as const
+import souffle.datatypes as dtt
+import souffle.constants as const
 
 ##### Default constants #####
 # Nonlinear pendulum

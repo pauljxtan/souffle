@@ -5,7 +5,7 @@ Computing various trigonometric functions by solving nonlinear equations.
 """
 
 import math
-from mathsci.math import nonlineq
+from souffle.math import nonlineq
 
 def arctanh(x):
     """

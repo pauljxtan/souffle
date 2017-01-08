@@ -6,8 +6,8 @@ methods, and estimating the surface temperature of the Sun.
 """
 
 import math
-from mathsci import constants
-from mathsci.math import nonlineq
+from souffle import constants
+from souffle.math import nonlineq
 
 def wien(x):
     """

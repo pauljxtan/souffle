@@ -10,7 +10,7 @@ ERR_OP_NOT_VEC = "Operand is not Vector"
 ERR_OP_NOT_MAT = "Operand is not Matrix"
 ERR_INPUT_INVALID = "Input data is invalid"
 
-import mathsci.math.linalg
+import souffle.math.linalg
 
 class Vector(object):
     """
@@ -407,7 +407,7 @@ class Vector(object):
         if not (self.n_elems == other.n_elems):
             raise ValueError(ERR_OP_BAD_DIMS)
 
-        return mathsci.math.linalg.dot_product(self.data, other.data)
+        return souffle.math.linalg.dot_product(self.data, other.data)
 
     #### Adding/removing elements
 
@@ -649,7 +649,7 @@ class Matrix(object):
 
         for i in range(self.n_rows):
             for j in range(other.n_cols):
-                result[i][j] = (mathsci.math.linalg.dot_product
+                result[i][j] = (souffle.math.linalg.dot_product
                                 (self.data[i], zip(*other.data)[j]))
 
         return Matrix(result)

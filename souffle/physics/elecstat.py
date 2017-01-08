@@ -3,7 +3,7 @@ Electrostatics.
 """
 
 import math
-import mathsci.constants as const
+import souffle.constants as const
 
 def potential(q, r):
     """

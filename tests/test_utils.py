@@ -1,6 +1,6 @@
 import unittest
 
-from mathsci.utils import frange, same_sign, zeros, ones
+from souffle.utils import frange, same_sign, zeros, ones
 
 class TestUtils(unittest.TestCase):
     def test_frange(self):

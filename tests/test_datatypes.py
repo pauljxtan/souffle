@@ -1,6 +1,6 @@
 import unittest
 
-from mathsci.datatypes import Vector, Matrix
+from souffle.datatypes import Vector, Matrix
 
 # TODO: use epsilon error testing for float comparisons?
 

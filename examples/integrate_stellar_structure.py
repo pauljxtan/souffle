@@ -19,8 +19,8 @@ temperature T.
 
 import math
 from matplotlib import pyplot
-from mathsci.math import odeint
-from mathsci.physics import astro
+from souffle.math import odeint
+from souffle.physics import astro
 
 # Define constants
 mu = 2.0
@@ -39,7 +39,7 @@ def main():
     # Integrate it...
 
     # Using Euler:
-    #star = mathsci.math.odeint.Euler(f, r0, X0, mu=mu, T=T)
+    #star = souffle.math.odeint.Euler(f, r0, X0, mu=mu, T=T)
     #star.integrate(dr, 1000, True)
     
     # Using RK4:
@@ -47,7 +47,7 @@ def main():
     star.integrate(dr, 1000, True)
 
     # Using Bulirsch-Stoer:
-    #star = mathsci.math.odeint.BulSto(f, r0, X0, mu=mu, T=T)
+    #star = souffle.math.odeint.BulSto(f, r0, X0, mu=mu, T=T)
     #star.integrate(dr, 1000, 1.0e-6, True)
 
     # Unpack data

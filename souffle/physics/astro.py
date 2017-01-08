@@ -3,9 +3,9 @@ Astrophysics, celestial mechanics.
 """
 
 import math
-import mathsci.constants as const
-import mathsci.datatypes as dtt
-import mathsci.physics.thermo as thermo
+import souffle.constants as const
+import souffle.datatypes as dtt
+import souffle.physics.thermo as thermo
 
 def orbit_1body(t, X, **kwargs):
     """

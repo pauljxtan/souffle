@@ -1,8 +1,8 @@
 import math
 import unittest
 
-from mathsci.datatypes import Vector, Matrix
-from mathsci.math import chaos, derivative, discrete, integral, linalg, lineq, maxmin, misc, nonlineq
+from souffle.datatypes import Vector, Matrix
+from souffle.math import chaos, derivative, discrete, integral, linalg, lineq, maxmin, misc, nonlineq
 
 class TestMath(unittest.TestCase):
 

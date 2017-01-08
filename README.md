@@ -1,8 +1,8 @@
-mathsci
+souffle
 ========
 Python modules for computational science and mathematics. For personal education and amusement, only standard library modules are used, and clarity is emphasized over performance. __Not optimized for efficiency__ -- there likely exist excellent implementations of most, if not all of these routines in libraries such as __numpy__ and __scipy__.
 
-Documented in Epytext -- see the gh-pages branch (hosted on http://pauljxtan.github.io/mathsci) for the latest API docs.
+Documented in Epytext -- see the gh-pages branch (hosted on http://pauljxtan.github.io/souffle) for the latest API docs.
 
 See __tests__ for unit tests.
 

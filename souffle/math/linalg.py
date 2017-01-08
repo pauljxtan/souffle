@@ -2,9 +2,9 @@
 Provides fundamental linear algebra operations (Euclidean).
 """
 import math
-# Need absolute import here due to circular dependency with mathsci.constants
+# Need absolute import here due to circular dependency with souffle.constants
 # TODO: refactor code?
-import mathsci.datatypes
+import souffle.datatypes
 
 def dot_product(A, B):
     """
@@ -50,11 +50,11 @@ def determinant_minors(A):
     @rtype: number
     @return: determinant of A
     """
-    if not isinstance(A, mathsci.datatypes.Matrix):
-        raise ValueError("Operand is not mathsci.datatypes.Matrix")
+    if not isinstance(A, souffle.datatypes.Matrix):
+        raise ValueError("Operand is not souffle.datatypes.Matrix")
 
     if A.n_rows != A.n_cols:
-        raise ValueError("Operation is not square mathsci.datatypes.Matrix")
+        raise ValueError("Operation is not square souffle.datatypes.Matrix")
 
     n = A.n_rows
 
@@ -71,7 +71,7 @@ def determinant_minors(A):
     result = 0.0
     for j1 in range(n):
         m = [[0.0 for i in range(n - 1)] for j in range(n - 1)]
-        M = mathsci.datatypes.Matrix(m)
+        M = souffle.datatypes.Matrix(m)
         for i in range(n):
             j2 = 0
             for j in range(n):
@@ -100,7 +100,7 @@ if __name__ == "__main__":
     B = [4, 5, 6]
     print dot_product(A, B)
 
-    C = mathsci.datatypes.Matrix(
+    C = souffle.datatypes.Matrix(
         [[ 0.40740418,  0.26988318,  0.65101212,  0.59384916],
          [ 0.85502017,  0.83792766,  0.88128841,  0.69794583],
          [ 0.74854304,  0.91927404,  0.13369317,  0.77294559],

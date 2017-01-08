@@ -2,7 +2,7 @@
 Finding the maxima and minima of functions.
 """
 import math
-from mathsci.constants import GOLDEN_RATIO
+from souffle.constants import GOLDEN_RATIO
 
 def golden_ratio_min(f, x1, x4, delta, n_iter=0):
     """

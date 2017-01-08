@@ -9,8 +9,8 @@ Computl.ng integrals.
 import numpy as np
 
 import math
-import mathsci.utils as utl
-import mathsci.datatypes as dtt
+import souffle.utils as utl
+import souffle.datatypes as dtt
 
 def trapezoidal(f, a, b, n):
     """

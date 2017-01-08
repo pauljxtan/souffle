@@ -6,7 +6,7 @@ Investigating the diffraction limit of a telescope.
 
 import math
 from matplotlib import cm, pyplot
-from mathsci.math import integral
+from souffle.math import integral
 
 def bessel_m(m, x):
     """

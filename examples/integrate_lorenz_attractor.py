@@ -6,7 +6,7 @@ Integrating the Lorenz attractor.
 
 from matplotlib import pyplot
 from mpl_toolkits.mplot3d import Axes3D
-from mathsci.math import chaos, odeint
+from souffle.math import chaos, odeint
 
 def main():
     # Set integration function

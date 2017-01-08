@@ -2,7 +2,7 @@
 Solving nonlinear equations.
 """
 
-import mathsci.utils as utl
+import souffle.utils as utl
 
 def bisection(f, x1, x2, delta, n_iter=0):
     """

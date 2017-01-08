@@ -6,9 +6,9 @@ Investigating the efficiency of a light bulb.
 
 import math
 from matplotlib import pyplot
-from mathsci import constants
-from mathsci import utils
-from mathsci.math import integral, maxmin
+from souffle import constants
+from souffle import utils
+from souffle.math import integral, maxmin
 
 # Endpoints for visible wavelengths [m]
 LAM1 = 3.9e-7

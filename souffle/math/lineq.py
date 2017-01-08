@@ -5,7 +5,7 @@ Solving systems of linear equations.
 # TODO:
 #     Modify gauss_elim() to use Matrix class
 
-import mathsci.datatypes as dt
+import souffle.datatypes as dt
 
 def gauss_elim(A, b):
     """

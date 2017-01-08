@@ -6,8 +6,8 @@ Integrating the nonlinear pendulum.
 
 import math
 from matplotlib import pyplot
-from mathsci.physics import mechanics
-from mathsci.math import odeint
+from souffle.physics import mechanics
+from souffle.math import odeint
 
 def main():
     # Set the integration parameters

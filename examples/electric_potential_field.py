@@ -6,7 +6,7 @@ An example for computing the electric potential and electric field on a plane.
 
 import math
 from matplotlib import pyplot
-from mathsci.physics import elecstat
+from souffle.physics import elecstat
 
 def main():
     # Set the grid dimensions

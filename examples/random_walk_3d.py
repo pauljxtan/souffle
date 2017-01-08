@@ -6,7 +6,7 @@ Simulating a 3-D random walk.
 
 from matplotlib import pyplot
 from mpl_toolkits.mplot3d import Axes3D
-from mathsci.math import stochastic
+from souffle.math import stochastic
 
 def main():
     # Initialize the walker
