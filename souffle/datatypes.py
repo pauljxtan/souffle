@@ -445,7 +445,7 @@ class Matrix(object):
 
     # TODO    
     def __getitem__(self):
-        return
+        raise NotImplementedError
 
     #### Unary operators
 
@@ -481,9 +481,28 @@ class Matrix(object):
                     return False
         return True
 
-    #### Element-wise arithmetic
+    def __lt__(self, other):
+        if not isinstance(other, Matrix):
+            raise ValueError(ERR_OP_NOT_MAT)
+        if self.n_rows != other.n_rows and self.n_cols != other.n_cols:
+            raise ValueError(ERR_OP_BAD_DIMS)
 
-    # TODO: continue refactoring here
+        return Matrix(
+            [[self.data[i][j] < other.data[i][j]
+              for j in range(self.n_cols)]
+             for i in range(self.n_rows)]
+        )
+
+    def __gt__(self, other):
+        raise NotImplementedError
+
+    def __le__(self, other):
+        raise NotImplementedError
+
+    def __ge__(self, other):
+        raise NotImplementedError
+
+    #### Element-wise arithmetic
 
     def __add__(self, other):
         """
@@ -551,19 +570,14 @@ class Matrix(object):
         if not isinstance(other, Matrix):
             raise ValueError(ERR_OP_NOT_MAT)
 
-        result = [[0.0 for i in range(self.n_rows)]
-                  for j in range(other.n_cols)]
-
-        for i in range(self.n_rows):
-            for j in range(other.n_cols):
-                result[i][j] = (souffle.math.linalg.dot_product
-                                (self.data[i], zip(*other.data)[j]))
-
-        return Matrix(result)
+        return Matrix([[souffle.math.linalg.dot_product(self.data[i],
+                                                        zip(*other.data)[j])
+                        for j in range(other.n_cols)]
+                       for i in range(self.n_rows)])
 
     # TODO
     def inverse(self):
-        return
+        raise NotImplementedError
 
     ### Accessing elements
     
@@ -571,16 +585,19 @@ class Matrix(object):
         return self.data[row_idx]
 
     def get_col(self, col_idx):
-        col = []
-        for row in range(self.n_rows):
-            col.append(self.data[row][col_idx])
-        return col
+        #col = []
+        #for row in range(self.n_rows):
+        #    col.append(self.data[row][col_idx])
+        return [self.data[row][col_idx] for row in range(self.n_rows)]
 
     #### Adding/removing elements
     
     def append_row(self, row):
         """
         Adds the input row to the bottom of the Matrix.
+
+        @type  row: iterable
+        @param row: the row to append to the matrix
         """
         if len(row) != self.n_cols and self.n_rows != 0:
             raise ValueError(ERR_INPUT_BAD_DIMS)
@@ -591,6 +608,9 @@ class Matrix(object):
     def append_col(self, col):
         """
         Add the input column to the right of the Matrix.
+
+        @type  col: iterable
+        @param col: the column to append to the Matrix
         """
         if len(col) != self.n_rows and self.n_cols != 0:
             raise ValueError(ERR_INPUT_BAD_DIMS)
@@ -600,10 +620,30 @@ class Matrix(object):
         self.n_cols = len(self.data[0])
 
     def remove_row(self, row_idx):
+        """
+        Removes the row specified by the given index.
+
+        @type  row_idx: integer
+        @param row_idx: the index of the row to remove
+        """
         del self.data[row_idx]
         self.n_rows -= 1
 
     def remove_col(self, col_idx):
+        """
+        Removes the column specified by the given index.
+
+        @type  col_idx: integer
+        @param col_idx: the index of the column to remove
+        """
         for row in range(self.n_rows):
             del self.data[row][col_idx]
         self.n_cols -= 1
+
+    def insert_row(self, row, idx):
+        # TODO
+        raise NotImplementedError
+    
+    def insert_col(self, col, idx):
+        # TODO
+        raise NotImplementedError

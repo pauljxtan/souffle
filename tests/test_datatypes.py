@@ -89,6 +89,11 @@ class TestDatatypes(unittest.TestCase):
         #self.assertEqual(-w, Matrix([[-1.2, -(-3.4)], [-5.6, -(-7.8)]]))
         #self.assertEqual(abs(w), Matrix([[1.2, 3.4], [5.6, 7.8]]))
 
+        # Element-wise comparisons
+        self.assertEqual(x < y, Matrix([[False, True, False],
+                                        [False, False, False],
+                                        [False, False, False]]))
+
         # Element-wise arithmetic
 
         self.assertEqual(x + y, Matrix([[2.0, 5.0, 5.0],
