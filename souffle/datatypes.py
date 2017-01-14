@@ -96,7 +96,7 @@ class Vector(object):
 
     def __abs__(self):
         """
-        Implements behaviour for absolute value (NOT modulus; use dot()).
+        Implements behaviour for absolute value (not modulus).
 
         @rtype: Vector
         @return: the Vector containing the absolute value of all elements
@@ -255,7 +255,7 @@ class Vector(object):
         Perform element-wise division of one Vector by another.
 
         @type  other: Vector
-        @param other: the Vector to divide
+        @param other: the Vector to divide by
 
         @rtype: Vector
         @return: the element-wise quotient of the operands
@@ -269,12 +269,15 @@ class Vector(object):
 
     #### Type conversion
 
-    def get_typecasted(self, ttype):
+    def typecasted(self, ttype):
         """
         Returns a new Vector with each value casted to the input type.
 
         @type  ttype: type
         @param ttype: the type to which all elements should be casted
+
+        @rtype: Vector
+        @return: the Vector with all values casted to the input type
         """
         return Vector(map(ttype, self.data))
 
@@ -430,6 +433,9 @@ class Matrix(object):
     def __str__(self):
         """
         Returns the string representation of the Matrix.
+
+        @rtype: string
+        @return: the string representation of the Matrix
         """
         output = "["
         for i, row in enumerate(self.data):
@@ -452,24 +458,42 @@ class Matrix(object):
     def __pos__(self):
         """
         Implements behaviour for unary positive.
+
+        @rtype: Matrix
+        @return: the Matrix with all elements positive
         """
         return Matrix([[+elem for elem in row] for row in self.data])
 
     def __neg__(self):
         """
         Implements behaviour for unary negation.
+
+        @rtype: Matrix
+        @return: the Matrix with all elements negated
         """
         return Matrix([[-elem for elem in row] for row in self.data])
 
     def __abs__(self):
         """
-        Implements behaviour for absolute value (NOT modulus; use dot()).
+        Implements behaviour for absolute value (not modulus).
+
+        @rtype: Matrix
+        @return: the Matrix containing the absolute value of all elements
         """
         return Matrix([[abs(elem) for elem in row] for row in self.data])
     
     #### Comparisons
 
     def __eq__(self, other):
+        """
+        Compares two Matrix by element to determine equality.
+
+        @type  other: Matrix
+        @param other: the Matrix to compare
+
+        @rtype: boolean
+        @return: whether the Matrices are equal
+        """
         if not isinstance(other, Matrix):
             raise ValueError(ERR_OP_NOT_MAT)
         if self.n_rows != other.n_rows and self.n_cols != other.n_cols:
@@ -482,6 +506,16 @@ class Matrix(object):
         return True
 
     def __lt__(self, other):
+        """
+        Returns a boolean Matrix containing the results of element-wise
+        less-than comparisons.
+
+        @type  other: Matrix
+        @param other: the Matrix to compare
+
+        @rtype: Matrix of booleans
+        @return: the comparison result for each element
+        """
         if not isinstance(other, Matrix):
             raise ValueError(ERR_OP_NOT_MAT)
         if self.n_rows != other.n_rows and self.n_cols != other.n_cols:
@@ -494,12 +528,42 @@ class Matrix(object):
         )
 
     def __gt__(self, other):
+        """
+        Returns a boolean Matrix containing the results of element-wise
+        greater-than comparisons.
+
+        @type  other: Matrix
+        @param other: the Matrix to compare
+
+        @rtype: Matrix of booleans
+        @return: the comparison result for each element
+        """
         raise NotImplementedError
 
     def __le__(self, other):
+        """
+        Returns a boolean Matrix containing the results of element-wise
+        less-than-or-equal comparisons.
+
+        @type  other: Matrix
+        @param other: the Matrix to compare
+
+        @rtype: Matrix of booleans
+        @return: the comparison result for each element
+        """
         raise NotImplementedError
 
     def __ge__(self, other):
+        """
+        Returns a boolean Matrix containing the results of element-wise
+        greater-than-or-equal comparisons.
+
+        @type  other: Matrix
+        @param other: the Matrix to compare
+
+        @rtype: Matrix of booleans
+        @return: the comparison result for each element
+        """
         raise NotImplementedError
 
     #### Element-wise arithmetic
@@ -507,6 +571,12 @@ class Matrix(object):
     def __add__(self, other):
         """
         Perform element-wise addition of one Matrix by another.
+
+        @type  other: Matrix
+        @param other: the Matrix to add
+
+        @rtype: Matrix
+        @return: the element-wise sum of the operands
         """
         if not isinstance(other, Matrix):
             raise ValueError(ERR_OP_NOT_MAT)
@@ -514,12 +584,19 @@ class Matrix(object):
             raise ValueError(ERR_OP_BAD_DIMS)
 
         # TODO: use __getitem__() after implemented, e.g. self[i, j] (?)
-        return Matrix([[self.data[j][i] + other.data[j][i]
-                        for i in range(self.n_rows)] for j in range(self.n_cols)])
+        return Matrix([[self.data[row][col] + other.data[row][col]
+                        for col in range(self.n_cols)]
+                       for row in range(self.n_rows)])
 
     def __sub__(self, other):
         """
         Perform element-wise subtraction of one Matrix by another.
+
+        @type  other: Matrix
+        @param other: the Matrix to subtract
+
+        @rtype: Matrix
+        @return: the element-wise difference of the operands
         """
         if not isinstance(other, Matrix):
             raise ValueError(ERR_OP_NOT_MAT)
@@ -527,12 +604,19 @@ class Matrix(object):
             raise ValueError(ERR_OP_BAD_DIMS)
 
         # TODO: use __getitem__() after implemented, e.g. self[i, j] (?)
-        return Matrix([[self.data[j][i] - other.data[j][i]
-                        for i in range(self.n_rows)] for j in range(self.n_cols)])
+        return Matrix([[self.data[row][col] - other.data[row][col]
+                        for col in range(self.n_cols)]
+                       for row in range(self.n_rows)])
 
     def __mul__(self, other):
         """
         Perform element-wise multiplication of one Matrix by another.
+
+        @type  other: Matrix
+        @param other: the Matrix to multiply
+
+        @rtype: Matrix
+        @return: the element-wise product of the operands
         """
         if not isinstance(other, Matrix):
             raise ValueError(ERR_OP_NOT_MAT)
@@ -540,12 +624,19 @@ class Matrix(object):
             raise ValueError(ERR_OP_BAD_DIMS)
 
         # TODO: use __getitem__() after implemented, e.g. self[i, j] (?)
-        return Matrix([[self.data[j][i] * other.data[j][i]
-                        for i in range(self.n_rows)] for j in range(self.n_cols)])
+        return Matrix([[self.data[row][col] * other.data[row][col]
+                        for col in range(self.n_cols)]
+                       for row in range(self.n_rows)])
 
     def __div__(self, other):
         """
         Perform element-wise division of one Matrix by another.
+
+        @type  other: Matrix
+        @param other: the Matrix to divide by
+
+        @rtype: Matrix
+        @return: the element-wise quotient of the operands
         """
         if not isinstance(other, Matrix):
             raise ValueError(ERR_OP_NOT_MAT)
@@ -553,27 +644,101 @@ class Matrix(object):
             raise ValueError(ERR_OP_BAD_DIMS)
 
         # TODO: use __getitem__() after implemented, e.g. self[i, j] (?)
-        return Matrix([[self.data[j][i] / other.data[j][i]
-                        for i in range(self.n_rows)] for j in range(self.n_cols)])
+        return Matrix([[self.data[row][col] / other.data[row][col]
+                        for col in range(self.n_cols)]
+                       for row in range(self.n_rows)])
 
     #### Type conversion
 
-    def get_typecasted(self, ttype):
+    def typecasted(self, ttype):
+        """
+        Returns a new Matrix with each value casted to the input type.
+
+        @type  ttype: type
+        @param ttype: the type to which all elements should be casted
+
+        @rtype: Matrix
+        @return: the Matrix with all values casted to the input type
+        """
         return Matrix([map(ttype, row) for row in self.data])
 
+    #### Scalar arithmetic
+
+    def add_scalar(self, value):
+        """
+        Returns a new Matrix with the input value added to every element.
+
+        @type  value: number
+        @param value: the value to be added to each element
+
+        @rtype: Matrix
+        @return: the resulting Matrix
+        """
+        return Matrix([[self.data[row][col] + value
+                        for col in range(self.n_cols)]
+                       for row in range(self.n_rows)])
+    
+    def sub_scalar(self, value):
+        """
+        Returns a new Matrix with the input value subtracted from every element.
+
+        @type  value: number
+        @param value: the value to be subtracted from each element
+
+        @rtype: Vector
+        @return: the resulting Vector
+        """
+        return Matrix([[self.data[row][col] - value
+                        for col in range(self.n_cols)]
+                       for row in range(self.n_rows)])
+    
+    def mul_scalar(self, value):
+        """
+        Returns a new Vector with every element multiplied by the input value.
+
+        @type  value: number
+        @param value: the value to multiply each element
+
+        @rtype: Vector
+        @return: the resulting Vector
+        """
+        return Matrix([[self.data[row][col] * value
+                        for col in range(self.n_cols)]
+                       for row in range(self.n_rows)])
+    
+    def div_scalar(self, value):
+        """
+        Returns a new Vector with every element divided by the input value.
+
+        @type  value: number
+        @param value: the value to divide each element
+
+        @rtype: Vector
+        @return: the resulting Vector
+        """
+        return Matrix([[self.data[row][col] / value
+                        for col in range(self.n_cols)]
+                       for row in range(self.n_rows)])
+    
     #### Matrix operations
 
     def mul_matrix(self, other):
         """
-        Performs matrix multiplication.
+        Returns the matrix product.
+
+        @type  other: Matrix
+        @param other: the Matrix with which to compute the matrix product
+
+        @rtype: Matrix
+        @return: the matrix product of the operands
         """
         if not isinstance(other, Matrix):
             raise ValueError(ERR_OP_NOT_MAT)
 
-        return Matrix([[souffle.math.linalg.dot_product(self.data[i],
-                                                        zip(*other.data)[j])
-                        for j in range(other.n_cols)]
-                       for i in range(self.n_rows)])
+        return Matrix([[souffle.math.linalg.dot_product(self.data[row],
+                                                        zip(*other.data)[col])
+                        for col in range(other.n_cols)]
+                       for row in range(self.n_rows)])
 
     # TODO
     def inverse(self):
@@ -582,12 +747,27 @@ class Matrix(object):
     ### Accessing elements
     
     def get_row(self, row_idx):
+        """
+        Returns the row specified by the given index.
+
+        @type  row_idx: integer
+        @param row_idx: the index of the row to return
+
+        @rtype: iterable
+        @return: the row specified by the given index
+        """
         return self.data[row_idx]
 
     def get_col(self, col_idx):
-        #col = []
-        #for row in range(self.n_rows):
-        #    col.append(self.data[row][col_idx])
+        """
+        Returns the column specified by the given index.
+
+        @type  col_idx: integer
+        @param col_idx: the index of the column to return
+
+        @rtype: iterable
+        @return: the column specified by the given index
+        """
         return [self.data[row][col_idx] for row in range(self.n_rows)]
 
     #### Adding/removing elements

@@ -40,7 +40,7 @@ class TestDatatypes(unittest.TestCase):
         self.assertEqual(x / y, Vector([0.25, 0.4, 0.5]))
 
         # Type conversion
-        self.assertEqual(v.get_typecasted(float), Vector([float(1), float(2), float(3)]))
+        self.assertEqual(v.typecasted(float), Vector([float(1), float(2), float(3)]))
 
         # Scalar arithmetic
         self.assertEqual(x.add_scalar(4.0), Vector([5.0, 6.0, 7.0]))
@@ -73,9 +73,9 @@ class TestDatatypes(unittest.TestCase):
         w = Matrix([[1.2, -3.4],
                     [5.6, -7.8]])
 
-        v = Matrix([[1, 2, 3],
-                    [4, 5, 6],
-                    [7, 8, 9]])
+        v = Matrix([[1.2, 2.3, 3.4],
+                    [4.5, 5.6, 6.7],
+                    [7.8, 8.9, 9.1]])
         
         # Representations
 
@@ -108,10 +108,24 @@ class TestDatatypes(unittest.TestCase):
 
         # Type conversion
 
-        v.get_typecasted(float)
-        self.assertEqual(v, Matrix([[float(1), float(2), float(3)],
-                                    [float(4), float(5), float(6)],
-                                    [float(7), float(8), float(9)]]))
+        self.assertEqual(v.typecasted(int), Matrix([[1, 2, 3],
+                                                    [4, 5, 6],
+                                                    [7, 8, 9]]))
+
+        # Scalar arithmetic
+
+        self.assertEqual(x.add_scalar(4.0), Matrix([[5.0,  6.0,  7.0],
+                                                    [8.0,  9.0,  10.0],
+                                                    [11.0, 12.0, 13.0]]))
+        self.assertEqual(x.sub_scalar(4.0), Matrix([[-3.0, -2.0, -1.0],
+                                                    [ 0.0,  1.0,  2.0],
+                                                    [ 3.0,  4.0,  5.0]]))
+        self.assertEqual(x.mul_scalar(4.0), Matrix([[ 4.0,  8.0,  12.0],
+                                                    [ 16.0, 20.0, 24.0],
+                                                    [ 28.0, 32.0, 36.0]]))
+        self.assertEqual(x.div_scalar(4.0), Matrix([[ 0.25,  0.5,  0.75],
+                                                    [ 1.0,   1.25, 1.5],
+                                                    [ 1.75,  2.0,  2.25]]))
 
         # Matrix operations
 
