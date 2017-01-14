@@ -14,7 +14,7 @@ def frange(a, b, n):
     @type  n: number
     @param n: length of sequence
 
-    @rtype: vector
+    @rtype: iterable
     @return: sequence
     """
     if b <= a:
@@ -25,25 +25,24 @@ def frange(a, b, n):
     n = int(n)
     
     step = (b - a) / (n - 1)
-    result = [a + i * step for i in range(n)]
-    
-    return result
+    return [a + i * step for i in range(n)]
 
 def same_sign(nums):
     """
     Returns True if all numbers in nums have the same sign; otherwise, returns
     False (including the case where at least one number is zero).
 
-    @type  nums: vector
+    @type  nums: iterable
     @param nums: list of numbers to check
 
     @rtype: boolean
-    @return: boolean
+    @return: whether the numbers all have the same sign
     """
     if not hasattr(nums, "__iter__"):
         raise ValueError("nums is not iterable")
     
-    if all(num < 0 for num in nums) or all(num > 0 for num in nums): 
+    if (all([num < 0 for num in nums]) or all([num > 0 for num in nums])
+        or all([num == 0 for num in nums])): 
         return True
     return False
 
@@ -54,12 +53,10 @@ def zeros(n):
     @type  n: number
     @param n: length of sequence
 
-    @rtype: vector
+    @rtype: list
     @return: sequence
     """
-    result = [0.0 for i in range(n)]
-    
-    return result
+    return [0.0] * n
 
 def ones(n):
     """
@@ -68,9 +65,7 @@ def ones(n):
     @type  n: number
     @param n: length of sequence
 
-    @rtype: vector
+    @rtype: list
     @return: sequence
     """
-    result = [1.0 for i in range(n)]
-    
-    return result
+    return [1.0] * n

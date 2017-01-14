@@ -85,7 +85,7 @@ def central_difference_degree(f, x, h, deg):
     x = float(x)
     h = float(h)
     deg = int(deg)
-    return
+    raise NotImplementedError
 
 def central_difference_second(f, x, h):
     """
@@ -129,8 +129,8 @@ def central_difference_order(f, x, h, n):
     x = float(x)
     h = float(h)
     n = int(n)
-    return
+    raise NotImplementedError
 
 # TODO
 def partial():
-    return
+    raise NotImplementedError
