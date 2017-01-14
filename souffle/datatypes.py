@@ -2,8 +2,6 @@
 Provides generic datatypes.
 """
 
-# TODO: Add missing/incomplete docstrings
-
 ERR_INPUT_NOT_LIST_TUPLE = "Input data is not list or tuple"
 ERR_INPUT_BAD_DIMS = "Input data has incompatible dimensions"
 ERR_KEY_NOT_INT_LIST_TUPLE = "Key is not int, list or tuple"
@@ -51,8 +49,8 @@ class Vector(object):
         Returns the element(s) specified by the index/indices in key. Supports
         backwards indexing. If key is None, returns the entire Vector.
 
-        @type  k: integer, list or tuple
-        @param k: the index/indices of the element(s) to access
+        @type  key: integer, list or tuple
+        @param key: the index/indices of the element(s) to access
 
         @return: the element(s) specified by the given index/indices
         """
