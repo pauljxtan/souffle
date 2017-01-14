@@ -175,7 +175,7 @@ object --+
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
           <td><span class="summary-sig"><a href="souffle.datatypes.Vector-class.html#__abs__" class="summary-sig-name">__abs__</a>(<span class="summary-sig-arg">self</span>)</span><br />
-      Implements behaviour for absolute value (NOT modulus; use dot()).</td>
+      Implements behaviour for absolute value (not modulus).</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="souffle.datatypes-pysrc.html#Vector.__abs__">source&nbsp;code</a></span>
             
@@ -353,15 +353,15 @@ object --+
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type">Vector</span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a href="souffle.datatypes.Vector-class.html#set_type" class="summary-sig-name">set_type</a>(<span class="summary-sig-arg">self</span>,
+          <td><span class="summary-sig"><a href="souffle.datatypes.Vector-class.html#typecasted" class="summary-sig-name">typecasted</a>(<span class="summary-sig-arg">self</span>,
         <span class="summary-sig-arg">ttype</span>)</span><br />
-      Sets the type for all elements.</td>
+      Returns a new Vector with each value casted to the input type.</td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="souffle.datatypes-pysrc.html#Vector.set_type">source&nbsp;code</a></span>
+            <span class="codelink"><a href="souffle.datatypes-pysrc.html#Vector.typecasted">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -540,9 +540,10 @@ object --+
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="get_slice"></a><span class="summary-sig-name">get_slice</span>(<span class="summary-sig-arg">self</span>,
+          <td><span class="summary-sig"><a href="souffle.datatypes.Vector-class.html#get_slice" class="summary-sig-name">get_slice</a>(<span class="summary-sig-arg">self</span>,
         <span class="summary-sig-arg">idx_start</span>,
-        <span class="summary-sig-arg">idx_end</span>)</span></td>
+        <span class="summary-sig-arg">idx_end</span>)</span><br />
+      Returns the slice specified by the given start and end indices.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="souffle.datatypes-pysrc.html#Vector.get_slice">source&nbsp;code</a></span>
             
@@ -750,7 +751,7 @@ object --+
     </td>
   </tr></table>
   
-  <p>Implements behaviour for absolute value (NOT modulus; use dot()).</p>
+  <p>Implements behaviour for absolute value (not modulus).</p>
   <dl class="fields">
     <dt>Returns: Vector</dt>
         <dd>the Vector containing the absolute value of all elements</dd>
@@ -995,34 +996,36 @@ object --+
   <dl class="fields">
     <dt>Parameters:</dt>
     <dd><ul class="nomargin-top">
-        <li><strong class="pname"><code>other</code></strong> (Vector) - the Vector to divide</li>
+        <li><strong class="pname"><code>other</code></strong> (Vector) - the Vector to divide by</li>
     </ul></dd>
     <dt>Returns: Vector</dt>
         <dd>the element-wise quotient of the operands</dd>
   </dl>
 </td></tr></table>
 </div>
-<a name="set_type"></a>
+<a name="typecasted"></a>
 <div>
 <table class="details" border="1" cellpadding="3"
        cellspacing="0" width="100%" bgcolor="white">
 <tr><td>
   <table width="100%" cellpadding="0" cellspacing="0" border="0">
   <tr valign="top"><td>
-  <h3 class="epydoc"><span class="sig"><span class="sig-name">set_type</span>(<span class="sig-arg">self</span>,
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">typecasted</span>(<span class="sig-arg">self</span>,
         <span class="sig-arg">ttype</span>)</span>
   </h3>
   </td><td align="right" valign="top"
-    ><span class="codelink"><a href="souffle.datatypes-pysrc.html#Vector.set_type">source&nbsp;code</a></span>&nbsp;
+    ><span class="codelink"><a href="souffle.datatypes-pysrc.html#Vector.typecasted">source&nbsp;code</a></span>&nbsp;
     </td>
   </tr></table>
   
-  <p>Sets the type for all elements.</p>
+  <p>Returns a new Vector with each value casted to the input type.</p>
   <dl class="fields">
     <dt>Parameters:</dt>
     <dd><ul class="nomargin-top">
-        <li><strong class="pname"><code>ttype</code></strong> (type) - the type to which all elements should be converted</li>
+        <li><strong class="pname"><code>ttype</code></strong> (type) - the type to which all elements should be casted</li>
     </ul></dd>
+    <dt>Returns: Vector</dt>
+        <dd>the Vector with all values casted to the input type</dd>
   </dl>
 </td></tr></table>
 </div>
@@ -1257,6 +1260,32 @@ object --+
   </dl>
 </td></tr></table>
 </div>
+<a name="get_slice"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_slice</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">idx_start</span>,
+        <span class="sig-arg">idx_end</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="souffle.datatypes-pysrc.html#Vector.get_slice">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the slice specified by the given start and end indices.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>idx_start</code></strong> (integer) - the start index of the slice</li>
+        <li><strong class="pname"><code>idx_end</code></strong> (integer) - the end index of the slice</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
 <br />
 <!-- ==================== NAVIGATION BAR ==================== -->
 <table class="navbar" border="0" width="100%" cellpadding="0"
@@ -1281,7 +1310,7 @@ object --+
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Sat Jan  7 21:44:51 2017
+    Generated by Epydoc 3.0.1 on Sat Jan 14 16:50:33 2017
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"

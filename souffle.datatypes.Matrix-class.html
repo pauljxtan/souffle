@@ -101,7 +101,7 @@ object --+
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type">string</span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
@@ -134,11 +134,11 @@ object --+
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type">Matrix</span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="__pos__"></a><span class="summary-sig-name">__pos__</span>(<span class="summary-sig-arg">self</span>)</span><br />
+          <td><span class="summary-sig"><a href="souffle.datatypes.Matrix-class.html#__pos__" class="summary-sig-name">__pos__</a>(<span class="summary-sig-arg">self</span>)</span><br />
       Implements behaviour for unary positive.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="souffle.datatypes-pysrc.html#Matrix.__pos__">source&nbsp;code</a></span>
@@ -151,11 +151,11 @@ object --+
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type">Matrix</span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="__neg__"></a><span class="summary-sig-name">__neg__</span>(<span class="summary-sig-arg">self</span>)</span><br />
+          <td><span class="summary-sig"><a href="souffle.datatypes.Matrix-class.html#__neg__" class="summary-sig-name">__neg__</a>(<span class="summary-sig-arg">self</span>)</span><br />
       Implements behaviour for unary negation.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="souffle.datatypes-pysrc.html#Matrix.__neg__">source&nbsp;code</a></span>
@@ -168,12 +168,12 @@ object --+
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type">Matrix</span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="__abs__"></a><span class="summary-sig-name">__abs__</span>(<span class="summary-sig-arg">self</span>)</span><br />
-      Implements behaviour for absolute value (NOT modulus; use dot()).</td>
+          <td><span class="summary-sig"><a href="souffle.datatypes.Matrix-class.html#__abs__" class="summary-sig-name">__abs__</a>(<span class="summary-sig-arg">self</span>)</span><br />
+      Implements behaviour for absolute value (not modulus).</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="souffle.datatypes-pysrc.html#Matrix.__abs__">source&nbsp;code</a></span>
             
@@ -185,12 +185,13 @@ object --+
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type">boolean</span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="__eq__"></a><span class="summary-sig-name">__eq__</span>(<span class="summary-sig-arg">self</span>,
-        <span class="summary-sig-arg">other</span>)</span></td>
+          <td><span class="summary-sig"><a href="souffle.datatypes.Matrix-class.html#__eq__" class="summary-sig-name">__eq__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">other</span>)</span><br />
+      Compares two Matrix by element to determine equality.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="souffle.datatypes-pysrc.html#Matrix.__eq__">source&nbsp;code</a></span>
             
@@ -202,11 +203,87 @@ object --+
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type">Matrix of booleans</span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="__add__"></a><span class="summary-sig-name">__add__</span>(<span class="summary-sig-arg">self</span>,
+          <td><span class="summary-sig"><a href="souffle.datatypes.Matrix-class.html#__lt__" class="summary-sig-name">__lt__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">other</span>)</span><br />
+      Returns a boolean Matrix containing the results of element-wise 
+      less-than comparisons.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="souffle.datatypes-pysrc.html#Matrix.__lt__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">Matrix of booleans</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="souffle.datatypes.Matrix-class.html#__gt__" class="summary-sig-name">__gt__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">other</span>)</span><br />
+      Returns a boolean Matrix containing the results of element-wise 
+      greater-than comparisons.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="souffle.datatypes-pysrc.html#Matrix.__gt__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">Matrix of booleans</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="souffle.datatypes.Matrix-class.html#__le__" class="summary-sig-name">__le__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">other</span>)</span><br />
+      Returns a boolean Matrix containing the results of element-wise 
+      less-than-or-equal comparisons.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="souffle.datatypes-pysrc.html#Matrix.__le__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">Matrix of booleans</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="souffle.datatypes.Matrix-class.html#__ge__" class="summary-sig-name">__ge__</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">other</span>)</span><br />
+      Returns a boolean Matrix containing the results of element-wise 
+      greater-than-or-equal comparisons.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="souffle.datatypes-pysrc.html#Matrix.__ge__">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">Matrix</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="souffle.datatypes.Matrix-class.html#__add__" class="summary-sig-name">__add__</a>(<span class="summary-sig-arg">self</span>,
         <span class="summary-sig-arg">other</span>)</span><br />
       Perform element-wise addition of one Matrix by another.</td>
           <td align="right" valign="top">
@@ -220,11 +297,11 @@ object --+
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type">Matrix</span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="__sub__"></a><span class="summary-sig-name">__sub__</span>(<span class="summary-sig-arg">self</span>,
+          <td><span class="summary-sig"><a href="souffle.datatypes.Matrix-class.html#__sub__" class="summary-sig-name">__sub__</a>(<span class="summary-sig-arg">self</span>,
         <span class="summary-sig-arg">other</span>)</span><br />
       Perform element-wise subtraction of one Matrix by another.</td>
           <td align="right" valign="top">
@@ -238,11 +315,11 @@ object --+
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type">Matrix</span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="__mul__"></a><span class="summary-sig-name">__mul__</span>(<span class="summary-sig-arg">self</span>,
+          <td><span class="summary-sig"><a href="souffle.datatypes.Matrix-class.html#__mul__" class="summary-sig-name">__mul__</a>(<span class="summary-sig-arg">self</span>,
         <span class="summary-sig-arg">other</span>)</span><br />
       Perform element-wise multiplication of one Matrix by another.</td>
           <td align="right" valign="top">
@@ -256,11 +333,11 @@ object --+
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type">Matrix</span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="__div__"></a><span class="summary-sig-name">__div__</span>(<span class="summary-sig-arg">self</span>,
+          <td><span class="summary-sig"><a href="souffle.datatypes.Matrix-class.html#__div__" class="summary-sig-name">__div__</a>(<span class="summary-sig-arg">self</span>,
         <span class="summary-sig-arg">other</span>)</span><br />
       Perform element-wise division of one Matrix by another.</td>
           <td align="right" valign="top">
@@ -274,14 +351,15 @@ object --+
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type">Matrix</span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="set_type"></a><span class="summary-sig-name">set_type</span>(<span class="summary-sig-arg">self</span>,
-        <span class="summary-sig-arg">ttype</span>)</span></td>
+          <td><span class="summary-sig"><a href="souffle.datatypes.Matrix-class.html#typecasted" class="summary-sig-name">typecasted</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">ttype</span>)</span><br />
+      Returns a new Matrix with each value casted to the input type.</td>
           <td align="right" valign="top">
-            <span class="codelink"><a href="souffle.datatypes-pysrc.html#Matrix.set_type">source&nbsp;code</a></span>
+            <span class="codelink"><a href="souffle.datatypes-pysrc.html#Matrix.typecasted">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -291,13 +369,87 @@ object --+
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type">Matrix</span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="mul_matrix"></a><span class="summary-sig-name">mul_matrix</span>(<span class="summary-sig-arg">self</span>,
+          <td><span class="summary-sig"><a href="souffle.datatypes.Matrix-class.html#add_scalar" class="summary-sig-name">add_scalar</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">value</span>)</span><br />
+      Returns a new Matrix with the input value added to every element.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="souffle.datatypes-pysrc.html#Matrix.add_scalar">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">Vector</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="souffle.datatypes.Matrix-class.html#sub_scalar" class="summary-sig-name">sub_scalar</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">value</span>)</span><br />
+      Returns a new Matrix with the input value subtracted from every 
+      element.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="souffle.datatypes-pysrc.html#Matrix.sub_scalar">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">Vector</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="souffle.datatypes.Matrix-class.html#mul_scalar" class="summary-sig-name">mul_scalar</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">value</span>)</span><br />
+      Returns a new Vector with every element multiplied by the input 
+      value.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="souffle.datatypes-pysrc.html#Matrix.mul_scalar">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">Vector</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="souffle.datatypes.Matrix-class.html#div_scalar" class="summary-sig-name">div_scalar</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">value</span>)</span><br />
+      Returns a new Vector with every element divided by the input value.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="souffle.datatypes-pysrc.html#Matrix.div_scalar">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">Matrix</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="souffle.datatypes.Matrix-class.html#mul_matrix" class="summary-sig-name">mul_matrix</a>(<span class="summary-sig-arg">self</span>,
         <span class="summary-sig-arg">other</span>)</span><br />
-      Performs matrix multiplication.</td>
+      Returns the matrix product.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="souffle.datatypes-pysrc.html#Matrix.mul_matrix">source&nbsp;code</a></span>
             
@@ -325,12 +477,13 @@ object --+
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type">iterable</span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="get_row"></a><span class="summary-sig-name">get_row</span>(<span class="summary-sig-arg">self</span>,
-        <span class="summary-sig-arg">row_idx</span>)</span></td>
+          <td><span class="summary-sig"><a href="souffle.datatypes.Matrix-class.html#get_row" class="summary-sig-name">get_row</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">row_idx</span>)</span><br />
+      Returns the row specified by the given index.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="souffle.datatypes-pysrc.html#Matrix.get_row">source&nbsp;code</a></span>
             
@@ -342,12 +495,13 @@ object --+
   </tr>
 <tr>
     <td width="15%" align="right" valign="top" class="summary">
-      <span class="summary-type">&nbsp;</span>
+      <span class="summary-type">iterable</span>
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="get_col"></a><span class="summary-sig-name">get_col</span>(<span class="summary-sig-arg">self</span>,
-        <span class="summary-sig-arg">col_idx</span>)</span></td>
+          <td><span class="summary-sig"><a href="souffle.datatypes.Matrix-class.html#get_col" class="summary-sig-name">get_col</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">col_idx</span>)</span><br />
+      Returns the column specified by the given index.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="souffle.datatypes-pysrc.html#Matrix.get_col">source&nbsp;code</a></span>
             
@@ -363,7 +517,7 @@ object --+
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="append_row"></a><span class="summary-sig-name">append_row</span>(<span class="summary-sig-arg">self</span>,
+          <td><span class="summary-sig"><a href="souffle.datatypes.Matrix-class.html#append_row" class="summary-sig-name">append_row</a>(<span class="summary-sig-arg">self</span>,
         <span class="summary-sig-arg">row</span>)</span><br />
       Adds the input row to the bottom of the Matrix.</td>
           <td align="right" valign="top">
@@ -381,7 +535,7 @@ object --+
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="append_col"></a><span class="summary-sig-name">append_col</span>(<span class="summary-sig-arg">self</span>,
+          <td><span class="summary-sig"><a href="souffle.datatypes.Matrix-class.html#append_col" class="summary-sig-name">append_col</a>(<span class="summary-sig-arg">self</span>,
         <span class="summary-sig-arg">col</span>)</span><br />
       Add the input column to the right of the Matrix.</td>
           <td align="right" valign="top">
@@ -399,8 +553,9 @@ object --+
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="remove_row"></a><span class="summary-sig-name">remove_row</span>(<span class="summary-sig-arg">self</span>,
-        <span class="summary-sig-arg">row_idx</span>)</span></td>
+          <td><span class="summary-sig"><a href="souffle.datatypes.Matrix-class.html#remove_row" class="summary-sig-name">remove_row</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">row_idx</span>)</span><br />
+      Removes the row specified by the given index.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="souffle.datatypes-pysrc.html#Matrix.remove_row">source&nbsp;code</a></span>
             
@@ -416,10 +571,47 @@ object --+
     </td><td class="summary">
       <table width="100%" cellpadding="0" cellspacing="0" border="0">
         <tr>
-          <td><span class="summary-sig"><a name="remove_col"></a><span class="summary-sig-name">remove_col</span>(<span class="summary-sig-arg">self</span>,
-        <span class="summary-sig-arg">col_idx</span>)</span></td>
+          <td><span class="summary-sig"><a href="souffle.datatypes.Matrix-class.html#remove_col" class="summary-sig-name">remove_col</a>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">col_idx</span>)</span><br />
+      Removes the column specified by the given index.</td>
           <td align="right" valign="top">
             <span class="codelink"><a href="souffle.datatypes-pysrc.html#Matrix.remove_col">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="insert_row"></a><span class="summary-sig-name">insert_row</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">row</span>,
+        <span class="summary-sig-arg">idx</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="souffle.datatypes-pysrc.html#Matrix.insert_row">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="insert_col"></a><span class="summary-sig-name">insert_col</span>(<span class="summary-sig-arg">self</span>,
+        <span class="summary-sig-arg">col</span>,
+        <span class="summary-sig-arg">idx</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="souffle.datatypes-pysrc.html#Matrix.insert_col">source&nbsp;code</a></span>
             
           </td>
         </tr>
@@ -533,9 +725,626 @@ object --+
   
   <p>Returns the string representation of the Matrix.</p>
   <dl class="fields">
+    <dt>Returns: string</dt>
+        <dd>the string representation of the Matrix</dd>
     <dt>Overrides:
         object.__str__
     </dt>
+  </dl>
+</td></tr></table>
+</div>
+<a name="__pos__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__pos__</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="souffle.datatypes-pysrc.html#Matrix.__pos__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Implements behaviour for unary positive.</p>
+  <dl class="fields">
+    <dt>Returns: Matrix</dt>
+        <dd>the Matrix with all elements positive</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="__neg__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__neg__</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="souffle.datatypes-pysrc.html#Matrix.__neg__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Implements behaviour for unary negation.</p>
+  <dl class="fields">
+    <dt>Returns: Matrix</dt>
+        <dd>the Matrix with all elements negated</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="__abs__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__abs__</span>(<span class="sig-arg">self</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="souffle.datatypes-pysrc.html#Matrix.__abs__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Implements behaviour for absolute value (not modulus).</p>
+  <dl class="fields">
+    <dt>Returns: Matrix</dt>
+        <dd>the Matrix containing the absolute value of all elements</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="__eq__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__eq__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">other</span>)</span>
+    <br /><em class="fname">(Equality operator)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="souffle.datatypes-pysrc.html#Matrix.__eq__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Compares two Matrix by element to determine equality.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>other</code></strong> (Matrix) - the Matrix to compare</li>
+    </ul></dd>
+    <dt>Returns: boolean</dt>
+        <dd>whether the Matrices are equal</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="__lt__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__lt__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">other</span>)</span>
+    <br /><em class="fname">(Less-than operator)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="souffle.datatypes-pysrc.html#Matrix.__lt__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns a boolean Matrix containing the results of element-wise 
+  less-than comparisons.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>other</code></strong> (Matrix) - the Matrix to compare</li>
+    </ul></dd>
+    <dt>Returns: Matrix of booleans</dt>
+        <dd>the comparison result for each element</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="__gt__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__gt__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">other</span>)</span>
+    <br /><em class="fname">(Greater-than operator)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="souffle.datatypes-pysrc.html#Matrix.__gt__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns a boolean Matrix containing the results of element-wise 
+  greater-than comparisons.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>other</code></strong> (Matrix) - the Matrix to compare</li>
+    </ul></dd>
+    <dt>Returns: Matrix of booleans</dt>
+        <dd>the comparison result for each element</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="__le__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__le__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">other</span>)</span>
+    <br /><em class="fname">(Less-than-or-equals operator)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="souffle.datatypes-pysrc.html#Matrix.__le__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns a boolean Matrix containing the results of element-wise 
+  less-than-or-equal comparisons.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>other</code></strong> (Matrix) - the Matrix to compare</li>
+    </ul></dd>
+    <dt>Returns: Matrix of booleans</dt>
+        <dd>the comparison result for each element</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="__ge__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__ge__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">other</span>)</span>
+    <br /><em class="fname">(Greater-than-or-equals operator)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="souffle.datatypes-pysrc.html#Matrix.__ge__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns a boolean Matrix containing the results of element-wise 
+  greater-than-or-equal comparisons.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>other</code></strong> (Matrix) - the Matrix to compare</li>
+    </ul></dd>
+    <dt>Returns: Matrix of booleans</dt>
+        <dd>the comparison result for each element</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="__add__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__add__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">other</span>)</span>
+    <br /><em class="fname">(Addition operator)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="souffle.datatypes-pysrc.html#Matrix.__add__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Perform element-wise addition of one Matrix by another.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>other</code></strong> (Matrix) - the Matrix to add</li>
+    </ul></dd>
+    <dt>Returns: Matrix</dt>
+        <dd>the element-wise sum of the operands</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="__sub__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__sub__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">other</span>)</span>
+    <br /><em class="fname">(Subtraction operator)</em>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="souffle.datatypes-pysrc.html#Matrix.__sub__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Perform element-wise subtraction of one Matrix by another.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>other</code></strong> (Matrix) - the Matrix to subtract</li>
+    </ul></dd>
+    <dt>Returns: Matrix</dt>
+        <dd>the element-wise difference of the operands</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="__mul__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__mul__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">other</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="souffle.datatypes-pysrc.html#Matrix.__mul__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Perform element-wise multiplication of one Matrix by another.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>other</code></strong> (Matrix) - the Matrix to multiply</li>
+    </ul></dd>
+    <dt>Returns: Matrix</dt>
+        <dd>the element-wise product of the operands</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="__div__"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">__div__</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">other</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="souffle.datatypes-pysrc.html#Matrix.__div__">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Perform element-wise division of one Matrix by another.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>other</code></strong> (Matrix) - the Matrix to divide by</li>
+    </ul></dd>
+    <dt>Returns: Matrix</dt>
+        <dd>the element-wise quotient of the operands</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="typecasted"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">typecasted</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">ttype</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="souffle.datatypes-pysrc.html#Matrix.typecasted">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns a new Matrix with each value casted to the input type.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>ttype</code></strong> (type) - the type to which all elements should be casted</li>
+    </ul></dd>
+    <dt>Returns: Matrix</dt>
+        <dd>the Matrix with all values casted to the input type</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="add_scalar"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">add_scalar</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">value</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="souffle.datatypes-pysrc.html#Matrix.add_scalar">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns a new Matrix with the input value added to every element.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>value</code></strong> (number) - the value to be added to each element</li>
+    </ul></dd>
+    <dt>Returns: Matrix</dt>
+        <dd>the resulting Matrix</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="sub_scalar"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">sub_scalar</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">value</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="souffle.datatypes-pysrc.html#Matrix.sub_scalar">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns a new Matrix with the input value subtracted from every 
+  element.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>value</code></strong> (number) - the value to be subtracted from each element</li>
+    </ul></dd>
+    <dt>Returns: Vector</dt>
+        <dd>the resulting Vector</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="mul_scalar"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">mul_scalar</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">value</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="souffle.datatypes-pysrc.html#Matrix.mul_scalar">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns a new Vector with every element multiplied by the input 
+  value.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>value</code></strong> (number) - the value to multiply each element</li>
+    </ul></dd>
+    <dt>Returns: Vector</dt>
+        <dd>the resulting Vector</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="div_scalar"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">div_scalar</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">value</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="souffle.datatypes-pysrc.html#Matrix.div_scalar">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns a new Vector with every element divided by the input 
+  value.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>value</code></strong> (number) - the value to divide each element</li>
+    </ul></dd>
+    <dt>Returns: Vector</dt>
+        <dd>the resulting Vector</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="mul_matrix"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">mul_matrix</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">other</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="souffle.datatypes-pysrc.html#Matrix.mul_matrix">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the matrix product.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>other</code></strong> (Matrix) - the Matrix with which to compute the matrix product</li>
+    </ul></dd>
+    <dt>Returns: Matrix</dt>
+        <dd>the matrix product of the operands</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_row"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_row</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">row_idx</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="souffle.datatypes-pysrc.html#Matrix.get_row">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the row specified by the given index.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>row_idx</code></strong> (integer) - the index of the row to return</li>
+    </ul></dd>
+    <dt>Returns: iterable</dt>
+        <dd>the row specified by the given index</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="get_col"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">get_col</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">col_idx</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="souffle.datatypes-pysrc.html#Matrix.get_col">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Returns the column specified by the given index.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>col_idx</code></strong> (integer) - the index of the column to return</li>
+    </ul></dd>
+    <dt>Returns: iterable</dt>
+        <dd>the column specified by the given index</dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="append_row"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">append_row</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">row</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="souffle.datatypes-pysrc.html#Matrix.append_row">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Adds the input row to the bottom of the Matrix.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>row</code></strong> (iterable) - the row to append to the matrix</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="append_col"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">append_col</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">col</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="souffle.datatypes-pysrc.html#Matrix.append_col">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Add the input column to the right of the Matrix.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>col</code></strong> (iterable) - the column to append to the Matrix</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="remove_row"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">remove_row</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">row_idx</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="souffle.datatypes-pysrc.html#Matrix.remove_row">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Removes the row specified by the given index.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>row_idx</code></strong> (integer) - the index of the row to remove</li>
+    </ul></dd>
+  </dl>
+</td></tr></table>
+</div>
+<a name="remove_col"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">remove_col</span>(<span class="sig-arg">self</span>,
+        <span class="sig-arg">col_idx</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="souffle.datatypes-pysrc.html#Matrix.remove_col">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Removes the column specified by the given index.</p>
+  <dl class="fields">
+    <dt>Parameters:</dt>
+    <dd><ul class="nomargin-top">
+        <li><strong class="pname"><code>col_idx</code></strong> (integer) - the index of the column to remove</li>
+    </ul></dd>
   </dl>
 </td></tr></table>
 </div>
@@ -563,7 +1372,7 @@ object --+
 <table border="0" cellpadding="0" cellspacing="0" width="100%%">
   <tr>
     <td align="left" class="footer">
-    Generated by Epydoc 3.0.1 on Sat Jan  7 21:44:50 2017
+    Generated by Epydoc 3.0.1 on Sat Jan 14 16:50:33 2017
     </td>
     <td align="right" class="footer">
       <a target="mainFrame" href="http://epydoc.sourceforge.net"
