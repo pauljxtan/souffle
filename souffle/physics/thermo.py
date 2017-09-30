@@ -2,7 +2,9 @@
 Thermodynamics.
 """
 
+import math
 import souffle.constants as const
+from souffle.datatypes import Vector
 
 def ideal_gas_pressure(rho, mu, T):
     """
@@ -59,4 +61,4 @@ def stellar_structure(r, X, **kwargs):
     
     X_dot = [dM_dr, drho_dr]
     
-    return souffle.datatypes.Vector(X_dot)
+    return Vector(X_dot)
