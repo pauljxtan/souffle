@@ -18,5 +18,5 @@ def arctanh(x):
     return x
 
 if __name__ == "__main__":
-    print "arctanh(0.5) =", arctanh(0.5)
+    print("arctanh(0.5) =", arctanh(0.5))
 

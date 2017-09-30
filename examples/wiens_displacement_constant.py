@@ -36,20 +36,20 @@ def main():
     b_newton = constants.h * constants.c / (constants.k_B * x_newton)
     b_secant = constants.h * constants.c / (constants.k_B * x_secant)
 
-    print ("Bisection method:\t%.7f x 10^3 m K (%d iterations)"
-           % (b_bisect * 1e3, n_iter_bisect))
-    print ("Newton's method:\t%.7f x 10^3 m K (%d iterations)"
-           % (b_newton * 1e3, n_iter_newton))
-    print ("Secant method:\t\t%.7f x 10^3 m K (%d iterations)"
-           % (b_secant * 1e3, n_iter_secant))
-    print
+    print("Bisection method:\t%.7f x 10^3 m K (%d iterations)"
+          % (b_bisect * 1e3, n_iter_bisect))
+    print("Newton's method:\t%.7f x 10^3 m K (%d iterations)"
+          % (b_newton * 1e3, n_iter_newton))
+    print("Secant method:\t\t%.7f x 10^3 m K (%d iterations)"
+          % (b_secant * 1e3, n_iter_secant))
+    print()
     
     # Peak wavelength in solar radiation [m]
     wl_peak_sol = 5.02e-7
     
     # Estimate the surface temperature of the Sun
     T_sol = b_secant / wl_peak_sol
-    print "Estimated surface temperature of sun = %.2f K" % T_sol
+    print("Estimated surface temperature of sun = %.2f K" % T_sol)
 
 if __name__ == "__main__":
     main()
