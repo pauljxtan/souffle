@@ -41,11 +41,11 @@ def main():
     x4 = 10000.0
 
     T_maxeff, n_iter = maxmin.golden_ratio_max(efficiency, x1, x4, 1.0e-6)
-    print ("Temperature of maximum efficiency = %.6f K (%d iterations)"
-           % (T_maxeff, n_iter))
+    print("Temperature of maximum efficiency = %.6f K (%d iterations)"
+          % (T_maxeff, n_iter))
 
     # Plot the efficiency to check our value
-    print "Plotting efficiency..."
+    print("Plotting efficiency...")
     temps = utils.frange(100.0, 10000.0, 1000)
     efficiencies = [efficiency(temp) for temp in temps]
 

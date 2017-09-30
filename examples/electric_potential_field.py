@@ -13,7 +13,7 @@ def main():
     n_rows = 100
     n_cols = 100
     spacing = 0.001
-    print "Using a %d-by-%d grid with %fm spacing" % (n_rows, n_cols, spacing)
+    print("Using a %d-by-%d grid with %fm spacing" % (n_rows, n_cols, spacing))
 
     # Initialize the grid for the potential
     V = [[0.0 for i in range(n_rows)] for j in range(n_cols)]
@@ -28,7 +28,7 @@ def main():
     sources = [q_1, q_2]
 
     # Compute the potential at all points on the grid
-    print "Computing potential..."
+    print("Computing potential...")
     for i in range(n_rows):
         for j in range(n_cols):
             x = i * spacing

@@ -66,7 +66,7 @@ class RandomWalk(object):
         return arrays
 
     def current_position(self):
-        print " ".join(map(str, self.pos[-1]))
+        print(" ".join(map(str, self.pos[-1])))
 
 class RandomWalk1D(RandomWalk):
     """
@@ -226,15 +226,15 @@ class RandomWalk3D(RandomWalk):
 if __name__ == "__main__":
     walk1d = RandomWalk1D(1, 10)
     walk1d.walk(100)
-    print walk1d.get_position()
-    print walk1d.get_trajectory()
-    print
+    print(walk1d.get_position())
+    print(walk1d.get_trajectory())
+    print()
     walk2d = RandomWalk2D([2, 3], [10, 10])
     walk2d.walk(100)
-    print walk2d.get_position()
-    print walk2d.get_trajectory()
-    print
+    print(walk2d.get_position())
+    print(walk2d.get_trajectory())
+    print()
     walk3d = RandomWalk3D([4, 5, 6], [10, 10, 10])
     walk3d.walk(100)
-    print walk3d.get_position()
-    print walk3d.get_trajectory()
+    print(walk3d.get_position())
+    print(walk3d.get_trajectory())

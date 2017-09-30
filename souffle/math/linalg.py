@@ -98,11 +98,11 @@ def inverse(A):
 if __name__ == "__main__":
     A = [1, 2, 3]
     B = [4, 5, 6]
-    print dot_product(A, B)
+    print(dot_product(A, B))
 
     C = souffle.datatypes.Matrix(
         [[ 0.40740418,  0.26988318,  0.65101212,  0.59384916],
          [ 0.85502017,  0.83792766,  0.88128841,  0.69794583],
          [ 0.74854304,  0.91927404,  0.13369317,  0.77294559],
          [ 0.54023376,  0.64533939,  0.97845268,  0.17995442]])
-    print determinant_minors(C)
+    print(determinant_minors(C))

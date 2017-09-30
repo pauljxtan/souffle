@@ -28,7 +28,7 @@ def gauss_elim(A, b):
 
     if isinstance(A, dt.Matrix):
         A = A.data
-    b = map(float, b)
+    b = list(map(float, b))
 
     n_rows = len(A)
     n_cols = len(A[0])

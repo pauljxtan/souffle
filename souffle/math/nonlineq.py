@@ -89,7 +89,7 @@ def newton(f, f_deriv, x0, delta, max_iter=10000):
         
         # If not converged after max_iter iterations, terminate
         if n_iter > max_iter:
-            print "Did not converge after %d iterations" % max_iter
+            print("Did not converge after %d iterations" % max_iter)
             return None
 
     return x, n_iter
@@ -134,7 +134,7 @@ def secant(f, x0, x1, delta, max_iter=10000):
 
         # If not converged after max_iter iterations, terminate
         if n_iter > max_iter:
-            print "Did not converge after %d iterations" % max_iter
+            print("Did not converge after %d iterations" % max_iter)
             return None
 
     return x, n_iter

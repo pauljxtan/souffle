@@ -1,12 +1,10 @@
 """
-Computl.ng integrals.
+Computing integrals.
 """
 # TODO:
 #     FIX GAUSSIAN QUADRATURE
 #     Include error estimates for each method?
 
-# TMP
-import numpy as np
 
 import math
 import souffle.utils as utl

@@ -87,7 +87,7 @@ class OdeInt(object):
         """
         Outputs the current state.
         """
-        print "%s\t%s" % (self.t[-1], " ".join(map(str, self.X[-1].data)))
+        print("%s\t%s" % (self.t[-1], " ".join(map(str, self.X[-1].data))))
 
 class Euler(OdeInt):
     """
@@ -530,7 +530,7 @@ class BulStoAdaptive(OdeInt):
                 self.X.append(X_new)
                 if verbose:
                     self.current_state()
-                    #print "%s\t%s" % (t_new," ".join(map(str, X_new[-1].data)))
+                    #print("%s\t%s" % (t_new," ".join(map(str, X_new[-1].data))))
 
                 return t_new, X_new
 

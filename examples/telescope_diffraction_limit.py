@@ -53,7 +53,7 @@ def main():
             y = Y[j]
             r = math.sqrt(x**2 + y**2)
             grid[i][j] = intensity(r, lam)
-        print i
+        print(i)
 
     # Plot it
     #pyplot.imshow(grid.data, cmap=cm.Greys)
