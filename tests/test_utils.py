@@ -5,7 +5,7 @@ from souffle.utils import frange, same_sign, zeros, ones
 class TestUtils(unittest.TestCase):
     def test_frange(self):
         self.assertEqual(frange(0, 5, 11),
-                         map(lambda x: float(x) / 2, range(11)))
+                         list(map(lambda x: float(x) / 2, range(11))))
 
     def test_samesign(self):
         self.assertTrue(same_sign([1.0, 3.0, 5.0, 7.0, 9.0]))
