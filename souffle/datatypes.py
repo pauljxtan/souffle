@@ -248,7 +248,7 @@ class Vector(object):
                              
         return Vector([self[i] * other[i] for i in range(self.n_elems)])
 
-    def __div__(self, other):
+    def __truediv__(self, other):
         """
         Perform element-wise division of one Vector by another.
 
@@ -734,7 +734,7 @@ class Matrix(object):
             raise ValueError(ERR_OP_NOT_MAT)
 
         return Matrix([[souffle.math.linalg.dot_product(self.data[row],
-                                                        zip(*other.data)[col])
+                                                        list(zip(*other.data))[col])
                         for col in range(other.n_cols)]
                        for row in range(self.n_rows)])
 
